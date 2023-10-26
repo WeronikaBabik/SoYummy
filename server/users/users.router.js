@@ -55,7 +55,7 @@ router.get("/current", async (req, res) => {
   try {
     //test variables:
     //const currentUserData = undefined;
-    //const currentUserData = "test@mail.com"
+    // const currentUserData = "test@mail.com";
     if (!currentUserData) {
       return res.status(401).json({
         status: "Unauthorized",
