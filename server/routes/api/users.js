@@ -1,5 +1,5 @@
 const express = require("express");
-const { invalidateToken } = require("../auth/auth.middleware");
+const { invalidateToken } = require("../../auth/auth.middleware");
 const router = express.Router();
 
 router.post("/signup", async (req, res, next) => {
