@@ -3,7 +3,7 @@ import './App.css';
 import {lazy} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
-import Loader from './components/Loader/Loader';
+// import Loader from './components/Loader/Loader';
 import NotFound from './components/NotFound/NotFound';
 
 const Main = lazy(() => import('./pages/Main/Main'));

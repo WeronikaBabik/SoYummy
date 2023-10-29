@@ -8,6 +8,7 @@ const SharedLayout = () => {
     return (
         <>
             <header>
+                <h1>Hello from Header</h1>
             <Link to="/">Main</Link>
                 <nav>
                     <Link to="/categories/:categoryName">Categories</Link>
