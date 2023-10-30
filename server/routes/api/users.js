@@ -1,8 +1,8 @@
 const express = require("express");
 const { invalidateToken } = require("../../auth/auth.middleware");
-const router = express.Router();
+const crouter = express.Router();
 
-router.post("/signup", async (req, res, next) => {
+crouter.post("/signup", async (req, res, next) => {
   try {
     const { email, password } = req.body;
     console.log("email:", email, "password:", password);
@@ -20,7 +20,7 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-router.post("/login", (req, res) => {
+crouter.post("/login", (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login", "email:", email, "password:", password);
@@ -39,7 +39,7 @@ router.post("/login", (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+crouter.post("/logout", (req, res) => {
   try {
     invalidateToken(req.token);
     res.status(200).json({
@@ -51,7 +51,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get("/current", async (req, res) => {
+crouter.get("/current", async (req, res) => {
   try {
     //test variables:
     //const currentUserData = undefined;
@@ -75,7 +75,7 @@ router.get("/current", async (req, res) => {
   }
 });
 
-router.patch("/update", async (req, res) => {
+crouter.patch("/update", async (req, res) => {
   try {
     //test variables:
     // const user = undefined;
@@ -105,4 +105,4 @@ router.patch("/update", async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = crouter;

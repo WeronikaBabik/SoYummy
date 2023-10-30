@@ -1,6 +1,6 @@
 const { Recipes } = require("../models/recipes");
 
-const listRecipes = async () => {
+const getAllRecipes = async () => {
   try {
     return await Recipes.find();
   } catch (e) {
@@ -8,4 +8,4 @@ const listRecipes = async () => {
   }
 };
 
-module.exports = listRecipes;
+module.exports = { getAllRecipes };

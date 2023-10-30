@@ -1,11 +1,11 @@
-const { Categorylist } = require("../models/categorieslist");
+const { CategoriesList } = require("../models/categorieslist");
 
-const AllCategorylist = async () => {
+const getAllCategoriesList = async () => {
   try {
-    return await Categorylist.find();
+    return await CategoriesList.find();
   } catch (e) {
     console.error(e);
   }
 };
 
-module.exports = AllCategorylist;
+module.exports = { getAllCategoriesList };
