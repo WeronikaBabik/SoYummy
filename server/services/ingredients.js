@@ -1,6 +1,6 @@
 const { Ingredients } = require("../models/ingredients");
 
-const AllIngredients = async () => {
+const getAllIngredients = async () => {
   try {
     return await Ingredients.find();
   } catch (e) {
@@ -8,4 +8,4 @@ const AllIngredients = async () => {
   }
 };
 
-module.exports = AllIngredients;
+module.exports = { getAllIngredients };

@@ -1,4 +1,4 @@
-const { Schema, model } = requaire("mongoose");
+const { Schema, model } = require("mongoose");
 
 const categoriesListSchema = new Schema({
   title: {
@@ -15,6 +15,6 @@ const categoriesListSchema = new Schema({
   },
 });
 
-const Categorylist = model("categorieslists", categoriesListSchema);
+const CategoriesList = model("categorieslists", categoriesListSchema);
 
-module.exports = Categorylist;
+module.exports = { CategoriesList };
