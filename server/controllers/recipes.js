@@ -1,14 +1,14 @@
-const { listRecipes } = require("../services/recipes");
+const { getAllRecipes } = require("../services/recipes");
 
-const listRecipesHandler = async (req, res) => {
+const getAllRecipesHandler = async (req, res) => {
   try {
-    const recipe = await listRecipes();
-    console.log(recipe);
-    return res.status(200).json(recipe);
+    const recipes = await getAllRecipes();
+    console.log(recipes);
+    return res.status(200).json(recipes);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 };
 
-model.exports = listRecipesHandler;
+module.exports = { getAllRecipesHandler };

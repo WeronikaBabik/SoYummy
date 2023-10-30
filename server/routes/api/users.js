@@ -55,7 +55,7 @@ router.post("/login", (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+couter.post("/logout", (req, res) => {
   try {
     invalidateToken(req.token);
     res.status(200).json({
