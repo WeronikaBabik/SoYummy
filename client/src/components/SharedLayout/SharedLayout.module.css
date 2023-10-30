@@ -1,12 +1,13 @@
 .nav {
     display: none;
-
-    @include desktop {
+    
+    @media screen and (min-width: 768px) {
             display: flex;
         }
 }
 .header {
     margin: auto;
+    padding-inline: 20px;
     max-width: 1300px;
     height: 60px;
     display: flex;
@@ -29,4 +30,9 @@
 .link:hover {
     color: #8BAA36;
 }
-
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+}

@@ -17,6 +17,7 @@
     "react-spinner": "^0.2.7",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "sass": "^1.69.5",
     "toolkit": "^1.5.4",
     "web-vitals": "^2.1.4"
   },
