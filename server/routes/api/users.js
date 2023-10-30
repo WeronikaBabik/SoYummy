@@ -2,15 +2,18 @@ const express = require("express");
 const { User } = require("../../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { invalidateToken } = require("../../auth/auth.middleware");
+const {
+  invalidateToken,
+  authMiddleware,
+} = require("../../auth/auth.middleware");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const { userValidation } = require("../../helpers/user.validator");
+const { secretJwt } = require("../../config");
 dotenv.config();
 
 const secretKey = process.env.MAILER_KEY;
-const secretJwt = process.env.JWT_KEY;
 
 const mainTransporter = nodemailer.createTransport({
   service: "gmail",
@@ -25,7 +28,7 @@ const mainTransporter = nodemailer.createTransport({
 
 router.post("/signup", userValidation, async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
     console.log("email:", email, "password:", password);
 
     const user = await User.findOne({ email });
@@ -33,13 +36,14 @@ router.post("/signup", userValidation, async (req, res, next) => {
     if (!user) {
       const salt = await bcrypt.genSalt(10);
       const hash = await bcrypt.hash(password, salt);
-      const newUser = new User({ email, password: hash });
+      const newUser = new User({ name, email, password: hash });
       await newUser.save();
 
       res.status(201).json({
         status: "Success",
         code: 201,
         user: {
+          name,
           email,
         },
       });
@@ -54,11 +58,20 @@ router.post("/signup", userValidation, async (req, res, next) => {
   }
 });
 
-router.post("/login", userValidation, async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login", "email:", email, "password:", password);
     const user = await User.findOne({ email });
+    console.log(
+      "Login2",
+      "email:",
+      user.email,
+      "password:",
+      user.password,
+      "name",
+      user.name
+    );
 
     if (!user) {
       return res.status(401).json({
@@ -85,7 +98,7 @@ router.post("/login", userValidation, async (req, res) => {
           code: 200,
           message: "Successful login!",
           token,
-          user: { email },
+          user: { name: user.name, email: user.email },
         });
       }
     }
@@ -95,7 +108,7 @@ router.post("/login", userValidation, async (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+router.post("/logout", authMiddleware, (req, res) => {
   try {
     invalidateToken(req.token);
     res.status(200).json({
@@ -107,8 +120,11 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get("/current", async (req, res) => {
+router.get("/current", authMiddleware, async (req, res) => {
   try {
+    const userId = req.userId;
+    const currentUserData = await User.findOne({ _id: userId });
+    console.log("currentUserData:", currentUserData);
     if (!currentUserData) {
       return res.status(401).json({
         status: "Unauthorized",
@@ -128,25 +144,27 @@ router.get("/current", async (req, res) => {
   }
 });
 
-router.patch("/update", async (req, res) => {
+router.patch("/update", authMiddleware, async (req, res) => {
   try {
-    //test variables:
-    // const user = undefined;
-    const user = { email: "test@mail.com" };
-    console.log("log1", user);
+    const userId = req.userId;
+    console.log("update userId:", userId);
+    const user = await User.findOne({ _id: userId });
+    console.log("user", user);
     if (!user) {
       return res
         .status(401)
         .json({ message: "Unauthorized: no user authentication" });
     }
     try {
-      const { email } = req.body;
-      const updatedUser = { email: email };
-      console.log("log2", updatedUser);
+      const { name } = req.body;
+      user.name = name;
+      await user.save();
+      console.log("update 2 userId2:", user._id);
+      console.log("log2", user);
       return res.status(200).send({
         status: "OK",
         code: 200,
-        updatedUser,
+        update: { name: user.name },
       });
     } catch (error) {
       console.error(error);
