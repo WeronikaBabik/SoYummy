@@ -3,20 +3,25 @@ import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Loader from '../Loader/Loader';
 import UserLogo from '../UserLogo/UserLogo';
+import s from './SharedLayout.module.css';
 
 const SharedLayout = () => {
     return (
         <>
-            <header>
+            <header className={s.header}>
                 <h1>Hello from Header</h1>
-            <Link to="/">Main</Link>
-                <nav>
-                    <Link to="/categories/:categoryName">Categories</Link>
-                    <Link to="/add">Add recipes</Link>
-                    <Link to="/my">My recipes</Link>
-                    <Link to="/favorite">Favorites</Link>
-                    <Link to="/shopping-list">Shopping list</Link>
-                    <Link to="/search">S</Link>
+            <Link to="/">
+                <svg className={s.logo} width="40" height="40">
+                    <use href="./images/icons/icons.svg#icon-logo"></use>
+                </svg>
+            </Link>
+                <nav className={s.nav}>
+                    <Link className={s.link} to="/categories/:categoryName">Categories</Link>
+                    <Link className={s.link} to="/add">Add recipes</Link>
+                    <Link className={s.link} to="/my">My recipes</Link>
+                    <Link className={s.link} to="/favorite">Favorites</Link>
+                    <Link className={s.link} to="/shopping-list">Shopping list</Link>
+                    <Link className={s.link} to="/search">S</Link>
                 </nav>
             <UserLogo />
             </header>

@@ -1,0 +1,10 @@
+.nav {
+    display: none;
+}
+.link {
+    color: red;
+    background-color: blue;
+}
+.header {
+    background-color: aqua;
+}
