@@ -1,6 +1,6 @@
 const UserLogo = () => {
     return (
-        <h1>user</h1>
+        <h3>user</h3>
     )
 };
 

@@ -1,0 +1,32 @@
+.nav {
+    display: none;
+
+    @include desktop {
+            display: flex;
+        }
+}
+.header {
+    margin: auto;
+    max-width: 1300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+    color: #23262A;
+    margin: auto;
+    margin-right: 25px;
+}
+
+.link:hover {
+    color: #8BAA36;
+}
+
