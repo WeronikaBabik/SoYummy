@@ -1,8 +1,24 @@
 const express = require("express");
 const { invalidateToken } = require("../../auth/auth.middleware");
-const crouter = express.Router();
+const router = express.Router();
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+dotenv.config();
 
-crouter.post("/signup", async (req, res, next) => {
+const secretKey = process.env.MAILER_KEY;
+
+const mainTransporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  auth: {
+    user: "yummygoit.project4@gmail.com",
+    pass: secretKey,
+  },
+  secure: true,
+});
+
+router.post("/signup", async (req, res, next) => {
   try {
     const { email, password } = req.body;
     console.log("email:", email, "password:", password);
@@ -20,7 +36,7 @@ crouter.post("/signup", async (req, res, next) => {
   }
 });
 
-crouter.post("/login", (req, res) => {
+router.post("/login", (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login", "email:", email, "password:", password);
@@ -39,7 +55,7 @@ crouter.post("/login", (req, res) => {
   }
 });
 
-crouter.post("/logout", (req, res) => {
+couter.post("/logout", (req, res) => {
   try {
     invalidateToken(req.token);
     res.status(200).json({
@@ -51,7 +67,7 @@ crouter.post("/logout", (req, res) => {
   }
 });
 
-crouter.get("/current", async (req, res) => {
+router.get("/current", async (req, res) => {
   try {
     //test variables:
     //const currentUserData = undefined;
@@ -75,7 +91,7 @@ crouter.get("/current", async (req, res) => {
   }
 });
 
-crouter.patch("/update", async (req, res) => {
+router.patch("/update", async (req, res) => {
   try {
     //test variables:
     // const user = undefined;
@@ -105,4 +121,32 @@ crouter.patch("/update", async (req, res) => {
   }
 });
 
-module.exports = crouter;
+router.patch("/subscribe", async (req, res) => {
+  try {
+    const email = req.body;
+
+    const mailOptions = {
+      from: "yummy.project4@gmail.com",
+      // to: email,
+      to: "janicki.jonasz@gmail.com", //edit to Variable "email" - position 126
+      subject: "So Yummy - NewsLetter",
+      text: `You've been written as a users who want a newsletter!`,
+    };
+    try {
+      const info = await mainTransporter.sendMail(mailOptions);
+      console.log("The newsletter email has been sent:", info.response);
+      return res.status(200).json({
+        status: "OK",
+        code: 200,
+      });
+    } catch (error) {
+      console.log("Error while sending newsletter email:", error);
+      return;
+    }
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ status: "Internal Server Error", code: 500 });
+  }
+});
+
+module.exports = router;
