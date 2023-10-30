@@ -8,6 +8,7 @@ const userSchema = Joi.object({
 const userValidation = (req, res, next) => {
   const newUser = req.body;
   const { error } = userSchema.validate(newUser);
+  console.log("userValidationSuccess");
 
   if (error) {
     return res

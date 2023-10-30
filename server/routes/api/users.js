@@ -1,11 +1,16 @@
 const express = require("express");
+const { User } = require("../../models/user");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const { invalidateToken } = require("../../auth/auth.middleware");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
+const { userValidation } = require("../../helpers/user.validator");
 dotenv.config();
 
 const secretKey = process.env.MAILER_KEY;
+const secretJwt = process.env.JWT_KEY;
 
 const mainTransporter = nodemailer.createTransport({
   service: "gmail",
@@ -18,44 +23,79 @@ const mainTransporter = nodemailer.createTransport({
   secure: true,
 });
 
-router.post("/signup", async (req, res, next) => {
+router.post("/signup", userValidation, async (req, res, next) => {
   try {
     const { email, password } = req.body;
     console.log("email:", email, "password:", password);
 
-    res.status(201).json({
-      status: "Success",
-      code: 201,
-      user: {
-        email,
-      },
-    });
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(password, salt);
+      const newUser = new User({ email, password: hash });
+      await newUser.save();
+
+      res.status(201).json({
+        status: "Success",
+        code: 201,
+        user: {
+          email,
+        },
+      });
+    } else {
+      res
+        .status(409)
+        .json({ status: "Conflict", code: 409, message: "Email in use" });
+    }
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: "Internal Server Error", code: 500 });
   }
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", userValidation, async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login", "email:", email, "password:", password);
-    //token just for testing
-    const token = "123";
-    res.status(200).json({
-      status: "Success",
-      code: 200,
-      message: "Successful login!",
-      token,
-      user: { email, token },
-    });
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({
+        status: "Unauthorized",
+        code: 401,
+        message: "Email or password is wrong",
+      });
+    } else {
+      const passwordComparison = await bcrypt.compare(password, user.password);
+      if (!passwordComparison) {
+        return res.status(401).json({
+          status: "Unauthorized",
+          code: 401,
+          message: "Email or password is wrong",
+        });
+      } else {
+        console.log("user._id", user._id);
+        const token = jwt.sign({ userId: user._id }, secretJwt, {
+          expiresIn: "4w",
+        });
+
+        res.status(200).json({
+          status: "Success",
+          code: 200,
+          message: "Successful login!",
+          token,
+          user: { email },
+        });
+      }
+    }
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: "Internal Server Error", code: 500 });
   }
 });
 
-couter.post("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   try {
     invalidateToken(req.token);
     res.status(200).json({
@@ -69,9 +109,6 @@ couter.post("/logout", (req, res) => {
 
 router.get("/current", async (req, res) => {
   try {
-    //test variables:
-    //const currentUserData = undefined;
-    // const currentUserData = "test@mail.com";
     if (!currentUserData) {
       return res.status(401).json({
         status: "Unauthorized",
