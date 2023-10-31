@@ -1,11 +1,19 @@
-import './App.css';
-import {lazy} from 'react';
-import { Route, Routes } from 'react-router-dom';
-import SharedLayout from './components/SharedLayout/SharedLayout';
-// import Loader from './components/Loader/Loader';
-import NotFound from './components/NotFound/NotFound';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import ShoppingList from "./pages/ShoppingList";
+import { useDispatch } from "react-redux";
+import { useAuth } from "./hooks/useAuth";
+import { refreshToken } from "./redux/auth/authSlice";
+import { useEffect } from "react";
+import { lazy } from "react";
 
-const Main = lazy(() => import('./pages/Main/Main'));
+import SharedLayout from "./components/SharedLayout/SharedLayout";
+// import Loader from './components/Loader/Loader';
+import NotFound from "./components/NotFound/NotFound";
+
+import { Categories } from "./pages/Categories/Categories";
+
+const Main = lazy(() => import("./pages/Main/Main"));
 // const Categories = lazy(() => import('...'));
 // const AddRecipe = lazy(() => import('...'));
 // const MyRecipes = lazy(() => import('...'));
@@ -13,17 +21,21 @@ const Main = lazy(() => import('./pages/Main/Main'));
 // const ShoppingList = lazy(() => import('...'));
 // const Search = lazy(() => import('...'));
 
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import ShoppingList from "./pages/ShoppingList";
-import { Categories } from "./pages/Categories/Categories";
-
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshToken());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <div>Refreshing user...</div>
+  ) : (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Main />} />
-        {/* <Route path="/categories/:categoryName" element={<Categories />} />
+      <Route path="/" element={<SharedLayout />} />
+      <Route index element={<Main />} />
+      {/* <Route path="/categories/:categoryName" element={<Categories />} />
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/my" element={<MyRecipes />} />
         <Route path="/favorite" element={<Favorite />} />
@@ -34,6 +46,6 @@ function App() {
       <Route path="/categories/:categoryName" element={<Categories />} />
     </Routes>
   );
-};
+}
 
 export default App;

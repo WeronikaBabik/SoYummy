@@ -1,7 +1,4 @@
-import { HashRouter } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import { store, persistor } from './redux/store';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { HashRouter } from "react-router-dom";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -13,17 +10,18 @@ import { StrictMode } from "react";
 import "modern-normalize/modern-normalize.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
-// import { PersistGate } from "redux-persist/integration/react";
-
+import { persistor, store } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </StrictMode>
 );
