@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+const { secretJwt } = require("../config");
 const invalidTokens = new Set();
 
 const invalidateToken = (token) => invalidTokens.add(token);
@@ -12,8 +14,9 @@ const authMiddleware = async (req, res, next) => {
     const token = tokenFromHeaders(req.headers);
     console.log("auth", token);
 
-    const decodedToken = jwt.verify(token, secret);
+    const decodedToken = jwt.verify(token, secretJwt);
     const userId = decodedToken.userId;
+    console.log("auth userId", userId);
 
     if (!decodedToken || isTokenInvalidated(token)) {
       res.status(401).json({
