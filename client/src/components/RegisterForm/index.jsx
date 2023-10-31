@@ -72,6 +72,10 @@ export const RegisterForm = () => {
           </button>
         </form>
       </div>
+      <img
+        className={css.backgroundimage}
+        src="https://github.com/SandraKoch/final-project-group-4/blob/main/client/src/images/backgrounds/registration-background-desktop.png?raw=true"
+      />
     </div>
   );
 };

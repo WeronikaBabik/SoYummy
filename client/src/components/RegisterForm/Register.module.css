@@ -10,6 +10,14 @@
   height: 468px;
 }
 
+.backgroundimage {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+
 .formwrap {
   background-color: var(--background-additional-dark);
   min-width: 500px;
