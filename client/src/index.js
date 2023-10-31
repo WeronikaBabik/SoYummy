@@ -7,15 +7,18 @@ import "./index.css";
 import { StrictMode } from "react";
 import "modern-normalize/modern-normalize.css";
 import { BrowserRouter } from "react-router-dom";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 // import { PersistGate } from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </StrictMode>
 );
 
