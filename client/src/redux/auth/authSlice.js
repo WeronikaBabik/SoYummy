@@ -1,4 +1,4 @@
-import { setAuthHeader } from "./operations";
+import { register, setAuthHeader } from "./operations";
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
@@ -16,28 +16,28 @@ const authSlice = createSlice({
       setAuthHeader(state.token);
     },
   },
-  //   extraReducers: {
-  //     [register.fulfilled](state, action) {
-  //       state.user = action.payload.user;
-  //       state.token = action.payload.token;
-  //       state.isLoggedIn = true;
-  //     },
-  //     [logIn.fulfilled](state, action) {
-  //       state.user = action.payload.user;
-  //       state.token = action.payload.token;
-  //       state.isLoggedIn = true;
-  //     },
-  //     [logOut.fulfilled](state) {
-  //       state.user = { name: null, email: null };
-  //       state.token = null;
-  //       state.isLoggedIn = false;
-  //     },
-  //     [getUserData.fulfilled](state, action) {
-  //       // state.user = action.payload.user;
-  //       // state.token = action.payload.token;
-  //       state.isLoggedIn = true;
-  //     },
-  //   },
+  extraReducers: {
+    [register.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+    },
+    //     [logIn.fulfilled](state, action) {
+    //       state.user = action.payload.user;
+    //       state.token = action.payload.token;
+    //       state.isLoggedIn = true;
+    //     },
+    //     [logOut.fulfilled](state) {
+    //       state.user = { name: null, email: null };
+    //       state.token = null;
+    //       state.isLoggedIn = false;
+    //     },
+    //     [getUserData.fulfilled](state, action) {
+    //       // state.user = action.payload.user;
+    //       // state.token = action.payload.token;
+    //       state.isLoggedIn = true;
+    //     },
+  },
 });
 
 export const { refreshToken } = authSlice.actions;
