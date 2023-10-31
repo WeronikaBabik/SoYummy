@@ -1,4 +1,3 @@
-import "./App.css";
 import { lazy } from "react";
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
