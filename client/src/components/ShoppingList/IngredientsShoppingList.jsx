@@ -1,7 +1,25 @@
+import { useDispatch, useSelector } from "react-redux";
 import IngredientItem from "./IngredientItem";
 import css from "./ShoppingList.module.css";
+import { useEffect } from "react";
+import { shoppingListSelector } from "../../redux/shoppingList/shoppingListSelectors";
+import {
+  deleteFromShoppingList,
+  getShoppingList,
+} from "../../redux/shoppingList/shoppingListAction";
 
 const IngredientsShoppingList = () => {
+  const dispatch = useDispatch();
+  const shoppingList = useSelector(shoppingListSelector);
+
+  useEffect(() => {
+    dispatch(getShoppingList());
+  }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteFromShoppingList(id));
+  };
+
   return (
     <div>
       <section className={css.title}>Shopping list</section>
@@ -13,8 +31,12 @@ const IngredientsShoppingList = () => {
         </div>
       </div>
       <div className={css.ingredients}>
-        Ingredients from RecipeIngredientsList
-        <IngredientItem />
+        {shoppingList.map((ingredients) => (
+          <IngredientItem
+            ingredient={ingredients}
+            handleDelete={handleDelete}
+          />
+        ))}
       </div>
     </div>
   );

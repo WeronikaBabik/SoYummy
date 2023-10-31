@@ -1,12 +1,17 @@
 import css from "./ShoppingList.module.css";
 
-const IngredientItem = () => {
+const IngredientItem = ({ ingredient, handleDelete }) => {
+  const { id, ttl, measure, thb } = ingredient;
   return (
     <section className={css.ingredient}>
-      <p className={css.imageOgIngredient}>image</p>
-      <p className={css.nameOfIngredient}>name of the ingredient</p>
-      <p className={css.amountOfIngredient}>amount</p>
-      <button type="button">Delete</button>
+      <div className={css.imageOgIngredient}>
+        <img src={thb} alt="ttl" />
+      </div>
+      <p className={css.nameOfIngredient}>{ttl}</p>
+      <p className={css.amountOfIngredient}>{measure}</p>
+      <button type="button" onClick={() => handleDelete(id)}>
+        Delete
+      </button>
     </section>
   );
 };
