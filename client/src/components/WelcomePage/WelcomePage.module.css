@@ -1,0 +1,21 @@
+.background {
+  display: flex;
+  justify-content: center;
+  color: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://github.com/SandraKoch/final-project-group-4/blob/main/client/src/images/backgrounds/background-start-desktop.png?raw=true");
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  max-width: 544px;
+}
