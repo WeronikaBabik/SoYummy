@@ -1,6 +1,6 @@
-import ShoppingListComponent from "../components/ShoppingList/index";
+import IngredientsShoppingList from "../components/ShoppingList/IngredientsShoppingList";
 const ShoppingList = () => {
-  return <ShoppingListComponent />;
+  return <IngredientsShoppingList />;
 };
 
 export default ShoppingList;
