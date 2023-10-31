@@ -33,17 +33,18 @@ function App() {
     <div>Refreshing user...</div>
   ) : (
     <Routes>
-      <Route path="/" element={<SharedLayout />} />
-      <Route index element={<Main />} />
-      {/* <Route path="/categories/:categoryName" element={<Categories />} />
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Main />} />
+        {/* <Route path="/categories/:categoryName" element={<Categories />} />
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/my" element={<MyRecipes />} />
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/shopping-list" element={<ShoppingList />} />
         <Route path="/search" element={<Search />} /> */}
-      <Route path="*" element={<NotFound />} />
-      <Route path="/shopping-list" element={<ShoppingList />}></Route>/
-      <Route path="/categories/:categoryName" element={<Categories />} />
+        <Route path="/shopping-list" element={<ShoppingList />}></Route>/
+        <Route path="/categories/:categoryName" element={<Categories />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
     </Routes>
   );
 }
