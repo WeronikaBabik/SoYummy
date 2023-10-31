@@ -1,6 +1,7 @@
 const Joi = require("joi");
 
 const userSchema = Joi.object({
+  name: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().required(),
 });
@@ -8,6 +9,7 @@ const userSchema = Joi.object({
 const userValidation = (req, res, next) => {
   const newUser = req.body;
   const { error } = userSchema.validate(newUser);
+  console.log("userValidationSuccess");
 
   if (error) {
     return res

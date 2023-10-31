@@ -1,0 +1,54 @@
+.menu {
+    display: block;
+    
+        @media screen and (min-width: 1280px) {
+            display: none;
+        }
+}
+.container {
+    position: relative;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #EBF3D4;
+    padding: 20px;
+    background: url('/src/images/backgrounds/background-menu-mobile.png') no-repeat;
+    background-position: right bottom;
+    background-color: #EBF3D4;
+
+    @media screen and (min-width: 768px) {
+            background: url('/src/images/backgrounds/background-menu-tablet.png') no-repeat;
+            background-position: right bottom;
+            background-color: #EBF3D4;
+        }
+}
+.modalButtons {
+    display: flex;
+    justify-content: space-between;
+}
+.modalLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20vh;
+}
+.link {
+    color: #22252A;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+.link:hover:focus {
+    color: #8BAA36;
+}

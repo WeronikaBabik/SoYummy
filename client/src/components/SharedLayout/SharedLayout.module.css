@@ -1,0 +1,38 @@
+.nav {
+    display: none;
+    
+    @media screen and (min-width: 1280px) {
+            display: flex;
+        }
+}
+.header {
+    margin: auto;
+    padding-inline: 20px;
+    max-width: 1300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: none;
+    color: #23262A;
+    margin: auto;
+    margin-right: 25px;
+}
+
+.link:hover {
+    color: #8BAA36;
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+}
