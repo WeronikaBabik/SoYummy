@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { lazy } from "react";
 
 import SharedLayout from "./components/SharedLayout/SharedLayout";
-// import Loader from './components/Loader/Loader';
+import Loader from "./components/Loader/Loader";
 import NotFound from "./components/NotFound/NotFound";
 
 import { Categories } from "./pages/Categories/Categories";
