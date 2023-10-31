@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import Loader from '../Loader/Loader';
 import UserLogo from '../UserLogo/UserLogo';
 import ModalMenu from '../ModalMenu/ModalMenu';
+import Footer from '../Footer/Footer';
 import s from './SharedLayout.module.css';
 
 const SharedLayout = () => {
     return (
-        <>
+        <div>
             <header className={s.header}>
                 <Link to="/">
                     <svg className={s.logo} width="40" height="40">
@@ -35,8 +36,8 @@ const SharedLayout = () => {
             <Suspense fallback={<Loader />} >
                 <Outlet />
             </Suspense>
-            <footer>Footer</footer>
-        </>
+            <Footer />
+        </div>
     );
 };
 
