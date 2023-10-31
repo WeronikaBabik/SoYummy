@@ -1,23 +1,18 @@
 a {
     cursor: pointer;
 }
-
-.footer {
+.firstPart {
     margin: auto;
     background-color: #22252A;
     display: flex;
-    gap: 30px;
+    gap: 10px;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 60px;
 }
-
 label {
 
     position: relative;
 }
-
-
 label:before {
     content: "";
     position: absolute;
@@ -25,39 +20,40 @@ label:before {
     top: 0;
     bottom: 0;
     width: 20px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 25 25' fill-rule='evenodd'%3E%3Cpath d='M16.036 18.455l2.404-2.405 5.586 5.587-2.404 2.404zM8.5 2C12.1 2 15 4.9 15 8.5S12.1 15 8.5 15 2 12.1 2 8.5 4.9 2 8.5 2zm0-2C3.8 0 0 3.8 0 8.5S3.8 17 8.5 17 17 13.2 17 8.5 13.2 0 8.5 0zM15 16a1 1 0 1 1 2 0 1 1 0 1 1-2 0'%3E%3C/path%3E%3C/svg%3E") center / contain no-repeat;
+    background: url("/src/images/icons/icons.svg#icon-email");
 }
-
 input {
     background-color: inherit;
-    height: 38px;
+    max-height: 38px;
     padding-left: 35px;
-    max-width: 230px;
+    padding-block: 10px;
     border: 1px;
     outline: 1px solid #FAFAFA;
     border-radius: 6px;
     color: #FAFAFA;
+    min-width: 167px;
+    @media screen and (min-width: 1280px) {
+            min-width: 267px;
+        }
 }
-
 .footerForm button {
-    width: 204px;
+    width: 239px;
     height: 38px;
     border-radius: 6px;
-    max-width: 230px;
     background-color: #8BAA36;
-    outline: none;
+    border: none;
     color: #FAFAFA;
     cursor: pointer;
+    @media screen and (min-width: 1280px) {
+            min-width: 304px;
+        }
 }
-
 ul {
-    list-style: none;
+    padding: 0;
 }
-
 li {
     text-decoration: none;
 }
-
 span {
     font-family: Poppins;
     font-size: 18px;
@@ -66,64 +62,144 @@ span {
     letter-spacing: 0.015em;
     color: #FAFAFA;
 }
-
 .logoPart {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
-.logoPart img {
+.logo {
     cursor: pointer;
 }
-
+.logoPart h2 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.015em;
+    text-align: left;
+    color: #FAFAFA;
+}
 .footerLink {
     color: #FAFAFA;
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: -0.02em;
-    text-align: left;
-    margin-bottom: 10px;
     cursor: pointer;
+    text-decoration: none;
 }
-
 .footerLink:hover {
     color: #8BAA36;
 }
-
 .footerForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-}
 
+    @media screen and (min-width: 768px) {
+            flex-direction: row;
+            margin-top: 20px;
+
+            @media screen and (min-width: 1280px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+        }
+}
 .footerForm button {
     width: 204px;
 }
-
-.media {
-    display: flex;
-    gap: 10px;
-}
-
 .listLinks {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    list-style: none;
 }
-
 .lastPart {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin-bottom: 50px;
-    background: url('/src/images/backgrounds/footer-leaves-right-mobile.png');
+    height: 100px;
+    background: url('/src/images/backgrounds/footer-leaves-right-mobile.png') no-repeat;
+    background-position: right center;
 }
-
 .lastPart span {
-    color: #22252A;
+    color: rgba(34, 37, 42, 0.5);
     size: 10px;
     line-height: 10px;
+}
+.media {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    list-style: none;
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+.description {
+    display: none;
+    color: #FAFAFA;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+
+    @media screen and (min-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+            flex-direction: row;
+            gap: 150px;
+            align-items: flex-end;
+        }
+}
+.descriptionForm {
+    display: none;
+    color: #FAFAFA;
+    max-width: 300px;
+    @media screen and (min-width: 1280px) {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+}
+.descriptionForm h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.descriptionForm span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+.wrapperOutside {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+            align-items: center;
+
+            @media screen and (min-width: 1280px) {
+                    flex-direction: row;
+                    gap: 150px;
+                }
+        }
 }
