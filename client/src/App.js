@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import {lazy} from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -14,6 +13,11 @@ const Main = lazy(() => import('./pages/Main/Main'));
 // const ShoppingList = lazy(() => import('...'));
 // const Search = lazy(() => import('...'));
 
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import ShoppingList from "./pages/ShoppingList";
+import { Categories } from "./pages/Categories/Categories";
+
 function App() {
   return (
     <Routes>
@@ -25,8 +29,9 @@ function App() {
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/shopping-list" element={<ShoppingList />} />
         <Route path="/search" element={<Search />} /> */}
-      </Route>
       <Route path="*" element={<NotFound />} />
+      <Route path="/shopping-list" element={<ShoppingList />}></Route>/
+      <Route path="/categories/:categoryName" element={<Categories />} />
     </Routes>
   );
 };

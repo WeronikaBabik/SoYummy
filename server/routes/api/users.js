@@ -1,6 +1,22 @@
 const express = require("express");
 const { invalidateToken } = require("../../auth/auth.middleware");
 const router = express.Router();
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const secretKey = process.env.MAILER_KEY;
+
+const mainTransporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  auth: {
+    user: "yummygoit.project4@gmail.com",
+    pass: secretKey,
+  },
+  secure: true,
+});
 
 router.post("/signup", async (req, res, next) => {
   try {
@@ -39,7 +55,7 @@ router.post("/login", (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+couter.post("/logout", (req, res) => {
   try {
     invalidateToken(req.token);
     res.status(200).json({
@@ -102,6 +118,34 @@ router.patch("/update", async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ status: "Internal Server Error", code: 500 });
+  }
+});
+
+router.patch("/subscribe", async (req, res) => {
+  try {
+    const email = req.body;
+
+    const mailOptions = {
+      from: "yummy.project4@gmail.com",
+      // to: email,
+      to: "janicki.jonasz@gmail.com", //edit to Variable "email" - position 126
+      subject: "So Yummy - NewsLetter",
+      text: `You've been written as a users who want a newsletter!`,
+    };
+    try {
+      const info = await mainTransporter.sendMail(mailOptions);
+      console.log("The newsletter email has been sent:", info.response);
+      return res.status(200).json({
+        status: "OK",
+        code: 200,
+      });
+    } catch (error) {
+      console.log("Error while sending newsletter email:", error);
+      return;
+    }
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ status: "Internal Server Error", code: 500 });
   }
 });
 

@@ -1,7 +1,9 @@
 const express = require("express");
-const router = express.Router();
-const { listRecipesHandler } = require("../../controllers/recipes");
 
-router.get("/recipes", listRecipesHandler);
+const recipesController = require("../../controllers/recipes");
 
-module.exports = router;
+const recipesRouter = express.Router();
+
+recipesRouter.get("/", recipesController.getAllRecipesHandler);
+
+module.exports = { recipesRouter };

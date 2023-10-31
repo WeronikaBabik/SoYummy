@@ -1,6 +1,9 @@
 const express = require("express");
-const router = express.Router();
 
-router.get("/");
+const { getAllIngredientsHandler } = require("../../controllers/ingredients");
 
-module.exports = router;
+const ingredientsRouter = express.Router();
+
+ingredientsRouter.get("/", getAllIngredientsHandler);
+
+module.exports = { ingredientsRouter };
