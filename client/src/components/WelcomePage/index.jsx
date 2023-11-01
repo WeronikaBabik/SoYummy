@@ -8,8 +8,8 @@ export const WelcomePage = () => {
     navigate("/register", { replace: true });
   };
 
-  const handleLoginClick = () => {
-    navigate("/login", { replace: true });
+  const handleSigninClick = () => {
+    navigate("/signin", { replace: true });
   };
   return (
     <div className={css.background}>
@@ -22,7 +22,7 @@ export const WelcomePage = () => {
         </p>
         <div>
           <button onClick={handleRegisterClick}>Registration</button>
-          <button onClick={handleLoginClick}>Sign in</button>
+          <button onClick={handleSigninClick}>Sign in</button>
         </div>
       </div>
     </div>
