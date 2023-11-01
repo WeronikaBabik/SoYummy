@@ -29,6 +29,7 @@
   color: var(--main-white);
   padding-bottom: 32px;
   font-size: 28px;
+  font-weight: 500;
 }
 
 .form {
@@ -54,4 +55,8 @@
   border-radius: 6px;
   border-style: none;
   margin-top: 26px;
+}
+
+.submitbutton:hover {
+  color: var(--buttons-dark);
 }
