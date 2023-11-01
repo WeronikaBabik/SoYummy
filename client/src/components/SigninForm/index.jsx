@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import css from "./Register.module.css";
-import { register } from "../../redux/auth/operations";
+import { signin } from "../../redux/auth/operations";
+import css from "./SigninForm.module.css";
 
-export const RegisterForm = () => {
+export const SigninForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -11,14 +11,12 @@ export const RegisterForm = () => {
     const form = e.currentTarget;
 
     console.log({
-      name: form.elements.name.value,
       email: form.elements.email.value,
       password: form.elements.password.value,
     });
 
     dispatch(
-      register({
-        name: form.elements.name.value,
+      signin({
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
@@ -35,19 +33,8 @@ export const RegisterForm = () => {
         src="https://github.com/SandraKoch/final-project-group-4/blob/main/client/src/images/backgrounds/registration-image-desktop.png?raw=true"
       />
       <div className={css.formwrap}>
-        <h3 className={css.formlabel}>Registration</h3>
+        <h3 className={css.formlabel}>Sign In</h3>
         <form className={css.form} onSubmit={handleSubmit}>
-          <label className={css.label}>
-            <input
-              className={css.input}
-              type="text"
-              name="name"
-              id="name"
-              autoComplete="off"
-              label="Name"
-              placeholder="Name"
-            />
-          </label>
           <label className={css.label}>
             <input
               className={css.input}
@@ -69,13 +56,13 @@ export const RegisterForm = () => {
             />
           </label>
           <button className={css.submitbutton} type="submit">
-            Sign up
+            Sign in
           </button>
         </form>
       </div>
       <img
-        className={css.backgroundimage}
         alt=""
+        className={css.backgroundimage}
         src="https://github.com/SandraKoch/final-project-group-4/blob/main/client/src/images/backgrounds/registration-background-desktop.png?raw=true"
       />
     </div>

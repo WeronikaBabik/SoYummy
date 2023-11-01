@@ -15,6 +15,7 @@ import { RestrictedRoute } from "./components/RestrictedRoute";
 
 // const Main = lazy(() => import("./pages/Main/Main"));
 const Register = lazy(() => import("./pages/RegisterPage"));
+const Signin = lazy(() => import("./pages/SigninPage"));
 // const Categories = lazy(() => import('...'));
 // const AddRecipe = lazy(() => import('...'));
 // const MyRecipes = lazy(() => import('...'));
@@ -39,6 +40,10 @@ export const App = () => {
         <Route
           path="register"
           element={<RestrictedRoute redirectTo="/" component={<Register />} />}
+        />
+        <Route
+          path="signin"
+          element={<RestrictedRoute redirectTo="/" component={<Signin />} />}
         />
         {/* 
         <Route path="/add" element={<AddRecipe />} />
