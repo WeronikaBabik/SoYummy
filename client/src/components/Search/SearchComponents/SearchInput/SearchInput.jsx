@@ -12,7 +12,7 @@ const SearchInput = ({ dark, name, searchQuery, lnk }) => {
   return (
     <div className={css.wrapper}>
       <input
-        placeholder="Enter query"
+        placeholder="Search"
         onChange={async e => {
           const searchQuerySchema = yup.string().matches(searchQueryRegex);
 

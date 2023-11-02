@@ -5,8 +5,8 @@
     width: 100%;
     height: 100%;
     border-radius: 18px 44px;
-    background-color: var(--greenColor);
-    color: var(--whiteColor);
+    background-color: #8baa36;
+    color: #fff;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -14,7 +14,7 @@
   }
   
   .common:hover {
-    background-color: var(--secondaryBlackColor);
+    background-color: #22252a;
   }
   
   .lnk {
@@ -28,46 +28,46 @@
   }
   
   .outlined {
-    border: 2px solid var(--greenColor);
-    color: var(--textColorForModal);
+    border: 2px solid #8baa36;
+    color: #3e4462;
     background-color: transparent;
   }
   
   .outlined:hover {
-    color: var(--whiteColor);
-    background-color: var(--greenColor);
+    color: #fff;
+    background-color: #8baa36;
   }
   
   .outlinedInverted {
-    border: 2px solid var(--whiteColor);
+    border: 2px solid #fff;
     background-color: transparent;
   }
   
   .outlinedInverted:hover {
-    border: 2px solid var(--greenColor);
-    color: var(--greenColor);
+    border: 2px solid #8baa36;
+    color: #8baa36;
     background-color: transparent;
   }
   
   .dark {
-    background-color: var(--secondaryBlackColor);
+    background-color: #22252a;
   }
   
   .dark:hover {
-    background-color: var(--greenColor);
+    background-color: #8baa36;
   }
   
   .welcome:hover {
-    color: var(--whiteColor);
-    background-color: var(--greenColor);
+    color: #fff;
+    background-color: #8baa36;
   }
   
   .btn:disabled {
-    background-color: var(--secondaryGreyTextColorTransparent);
-    color: var(--bgColor);
+    background-color: #7e7e7e;
+    color: #fafafa;
     cursor: not-allowed;
   }
   
   .common:hover:disabled {
-    background-color: var(--secondaryGreyTextColorTransparent);
+    background-color: hsla(0,0%,49%,.5);
   }

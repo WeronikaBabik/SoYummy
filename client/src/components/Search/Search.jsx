@@ -114,7 +114,7 @@ export const Search = () => {
       {searchResult.length === 0 && (
         <>
           <div className={css.noRecipesImg}></div>
-          {!isSearchResult && <p className={css.noRecipesText}>Enter query</p>}
+          {!isSearchResult && <p className={css.noRecipesText}>Try looking for something else..</p>}
           {isSearchResult && (
             <p className={css.noRecipesText}>
               Try looking for something else..

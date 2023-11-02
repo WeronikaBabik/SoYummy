@@ -54,7 +54,7 @@
     height: auto;
   
     padding: 16px;
-    background-color: var(--BgRecipeCard);
+    background-color: #fff;
     width: 307px;
     border-radius: 8px;
     border: 0;
@@ -66,14 +66,14 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
-    color: var(--mainTextColor);
+    color: #3e4462;
   }
   
   .text {
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
-    color: var(--mainTextColor);
+    color: #3e4462;
     margin: 0;
   }
   
@@ -82,7 +82,7 @@
     top: 110px;
     left: 40px;
     transform: translateX(-50%);
-    color: var(--whiteColor);
+    color: #fff;
   }
   
   @media screen and (min-width: 768px) {
@@ -102,9 +102,9 @@
       width: 268px;
     }
     .likeIco:hover :first-child {
-      fill: var(--secondaryGreenColor);
+      fill: #8aa936;
     }
     .favIco:hover :first-child {
-      fill: var(--secondaryGreenColor);
+      fill: #8aa936;
     }
   }

@@ -1,26 +1,25 @@
 .wrapper {
     position: relative;
-  
-    border: 1px solid var(--borderColorHalf);
+    border: 1px solid #f0f0f0;
     width: 295px;
     height: 53px;
     border-top-left-radius: 18px 18px;
     border-bottom-left-radius: 44px 44px;
     border-bottom-right-radius: 18px 18px;
     border-top-right-radius: 44px 44px;
-    background-color: var(--WhiteToInherit);
+    background-color: #fff;
   }
   .input {
     font-size: 12px;
     line-height: 1.5;
-    padding: 0 20px;
+    padding: 30px 20px;
     outline: none;
     width: 100%;
     height: 100%;
     border: none;
   
     background-color: transparent;
-    color: var(--mainTextColor);
+    color: #3e4462;
   }
   .buttonWrapper {
     position: absolute;
