@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router';
-import { toast } from 'react-toastify';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router";
+import { toast } from "react-toastify";
 import {
   selectSearchQuery,
   selectSearchResult,
   selectSearchType,
-} from '../../redux/search/searchSelectors';
+} from "../../redux/search/searchSelectors";
 import {
   clearSearch,
   updateSearchQuery,
   updateSearchResult,
   updateSearchType,
-} from '../../redux/search/searchSlice';
-import BGDots from './SearchComponents/BGDots/BGDots';
-import DishCard from './SearchComponents/DishCard/DishCard';
-import BasicPagination from './SearchComponents/Pagination/Pagination';
-import SearchInput from './SearchComponents/SearchInput/SearchInput';
-import Title from './SearchComponents/Title/Title';
+} from "../../redux/search/searchSlice";
+import BGDots from "./SearchComponents/BGDots/BGDots";
+import DishCard from "./SearchComponents/DishCard/DishCard";
+import BasicPagination from "./SearchComponents/Pagination/Pagination";
+import SearchInput from "./SearchComponents/SearchInput/SearchInput";
+import Title from "./SearchComponents/Title/Title";
 import {
   getSearchByIngredients,
   getSearchByTitle,
-} from 'services/api/recipesAPI'; //podać poprawną ścieżkę
-import css from './Search.module.css';
-import SearchTypeSelector from './SearchTypeSelector/SearchTypeSelector';
+} from "../../services/api/recipesAPI"; //podać poprawną ścieżkę
+import css from "./Search.module.css";
+import SearchTypeSelector from "./SearchTypeSelector/SearchTypeSelector";
 
 export const Search = () => {
   const location = useLocation();
@@ -47,38 +47,38 @@ export const Search = () => {
 
   useEffect(() => {
     if (location?.state?.ingredient) {
-      dispatch(updateSearchType('ingredient'));
+      dispatch(updateSearchType("ingredient"));
       location.state.ingredient = false;
     }
-    if (searchType === 'title') {
+    if (searchType === "title") {
       if (searchQuery) {
         getSearchByTitle(searchQuery, page)
-          .then(res => {
+          .then((res) => {
             if (res.recipes.length === 0) {
-              toast.warning('Nothing... Try another search query');
+              toast.warning("Nothing... Try another search query");
             }
             dispatch(updateSearchResult(res.recipes));
             const totalPages = Math.ceil(res.total / res.limit);
             setCount(totalPages);
             setIsSearchResult(true);
           })
-          .catch(err => {
-            toast.warning('Bad query');
+          .catch((err) => {
+            toast.warning("Bad query");
           });
       }
     } else {
       if (searchQuery) {
         getSearchByIngredients(searchQuery, page)
-          .then(res => {
+          .then((res) => {
             if (res.recipes.length === 0) {
-              toast.warning(' Nothing... Try another search query');
+              toast.warning(" Nothing... Try another search query");
             }
             dispatch(updateSearchResult(res.recipes));
             const totalPages = Math.ceil(res.total / res.limit);
             setCount(totalPages);
             setIsSearchResult(true);
           })
-          .catch(err => toast.warning('Bad query'));
+          .catch((err) => toast.warning("Bad query"));
       }
     }
   }, [
@@ -90,7 +90,7 @@ export const Search = () => {
     searchType,
   ]);
 
-  const onFormSubmit = e => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
     const newSearchQuery = e.target.elements.search.value;
     setPage(1);
@@ -98,7 +98,7 @@ export const Search = () => {
       !newSearchQuery ||
       (newSearchQuery === searchQuery && searchResult.length === 0)
     ) {
-      toast.warning('Type new query');
+      toast.warning("Type new query");
       return;
     }
     dispatch(updateSearchQuery(newSearchQuery));
@@ -106,7 +106,7 @@ export const Search = () => {
   return (
     <div className="container">
       <BGDots />
-      <Title text={'Search'} />
+      <Title text={"Search"} />
       <form className={css.searchWrapper} onSubmit={onFormSubmit}>
         <SearchInput name="search" searchQuery={searchQuery} />
         <SearchTypeSelector />
@@ -138,7 +138,7 @@ export const Search = () => {
                     popularity={popularity}
                   />
                 </li>
-              ),
+              )
             )}
           </ul>
           <div className={css.paginationWrp}>

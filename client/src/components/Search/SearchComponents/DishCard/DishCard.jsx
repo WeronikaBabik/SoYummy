@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   patchRecipeFavoriteById,
   patchRecipeLikeById,
-} from 'services/api/recipesAPI';//podać poprawną ścieżkę
-import css from './DishCard.module.css';
-import { ReactComponent as FavoriteIco } from './fav.svg';
-import { ReactComponent as LikeIco } from './like.svg';
-import { toast } from 'react-toastify';
-import MotivatingModal from '../MotivatingModal/MotivatingModal';
+} from "../../../../services/api/recipesAPI"; //podać poprawną ścieżkę
+import css from "./DishCard.module.css";
+import { ReactComponent as FavoriteIco } from "./fav.svg";
+import { ReactComponent as LikeIco } from "./like.svg";
+import { toast } from "react-toastify";
+import MotivatingModal from "../MotivatingModal/MotivatingModal";
 
 const DishCard = ({
   image,
@@ -29,7 +29,7 @@ const DishCard = ({
 
   const [isLoadFavorite, setIsLoadFavorite] = useState(false);
   const [isLoadLike, setIsLoadLike] = useState(false);
-  const [motivation, setMotivation] = useState('');
+  const [motivation, setMotivation] = useState("");
   const [popular, setPopular] = useState(popularity);
 
   const addToFavorite = () => {
@@ -38,7 +38,7 @@ const DishCard = ({
     patchRecipeFavoriteById(id)
       .then(({ favorite, popularity, motivation }) => {
         setIsLoadFavorite(false);
-        const changeData = allData.map(item => {
+        const changeData = allData.map((item) => {
           if (item._id === id) {
             return { ...item, favorite };
           }
@@ -60,7 +60,7 @@ const DishCard = ({
       .then(({ like, popularity }) => {
         setIsLoadLike(false);
 
-        const changeData = allData.map(item => {
+        const changeData = allData.map((item) => {
           if (item._id === id) {
             return { ...item, like };
           }
@@ -75,16 +75,16 @@ const DishCard = ({
   };
 
   const favFeel =
-    favorite || isFavorite ? 'var(--secondaryGreenColor)' : 'none';
-  const likeFeel = like || isLike ? 'var(--secondaryGreenColor)' : 'none';
+    favorite || isFavorite ? "var(--secondaryGreenColor)" : "none";
+  const likeFeel = like || isLike ? "var(--secondaryGreenColor)" : "none";
   const shortText =
     text.length < maxTextLength
       ? text
-      : text.substr(0, maxTextLength).replace(/\s+\S*$/, '') + '...';
+      : text.substr(0, maxTextLength).replace(/\s+\S*$/, "") + "...";
 
   return (
     <>
-      {motivation === '10' && <MotivatingModal option={3} />}
+      {motivation === "10" && <MotivatingModal option={3} />}
       <div className={css.cardContainer}>
         <Link to={`/recipe/${id}`}>
           <img src={image} alt={altText} className={css.image} />
