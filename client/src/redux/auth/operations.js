@@ -28,3 +28,20 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+export const signin = createAsyncThunk(
+  "auth/signin",
+  async (signinData, thunkAPI) => {
+    const payload = {
+      email: signinData.email,
+      password: signinData.password,
+    };
+    try {
+      const response = await axios.post("/users/signin", payload);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -7,11 +7,14 @@ import { useAuth } from "./hooks/useAuth";
 import { refreshToken } from "./redux/auth/authSlice";
 import { useEffect } from "react";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
-import Loader from "./components/Loader/Loader";
+// import Loader from "./components/Loader/Loader";
 import NotFound from "./components/NotFound/NotFound";
 import { Categories } from "./pages/Categories/Categories";
+import { RestrictedRoute } from "./components/RestrictedRoute";
 
-const Main = lazy(() => import("./pages/Main/Main"));
+import Home from "./pages/Home";
+const Register = lazy(() => import("./pages/RegisterPage"));
+const Signin = lazy(() => import("./pages/SigninPage"));
 // const Categories = lazy(() => import('...'));
 // const AddRecipe = lazy(() => import('...'));
 // const MyRecipes = lazy(() => import('...'));
@@ -32,7 +35,18 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Main />} />
+        // <Route index element={<Main />} /> //
+        <Main /> is not a page but a part of home page which renders differently
+        for logged users and displays 'welcome page' for not logged guests
+        <Route index element={<Home />} />
+        <Route
+          path="register"
+          element={<RestrictedRoute redirectTo="/" component={<Register />} />}
+        />
+        <Route
+          path="signin"
+          element={<RestrictedRoute redirectTo="/" component={<Signin />} />}
+        />
         {/* 
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/my" element={<MyRecipes />} />
