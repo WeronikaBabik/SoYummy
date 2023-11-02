@@ -2,6 +2,7 @@ import storage from "redux-persist/lib/storage";
 import { configureStore } from "@reduxjs/toolkit";
 import { categoriesReducer } from "./CategoriesRedux/categoriesSlice";
 import { recipeReducer } from "./CategoriesRedux/recipesSlice";
+import { searchReducer } from "../redux/search/searchSlice"; // Dodaj import searchReducer
 import {
   persistStore,
   persistReducer,
@@ -25,6 +26,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     categories: categoriesReducer,
     recipes: recipeReducer,
+    search: searchReducer, // Dodaj searchReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
