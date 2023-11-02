@@ -33,7 +33,7 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Main />} />
         {/* 
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/my" element={<MyRecipes />} />

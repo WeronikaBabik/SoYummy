@@ -1,0 +1,32 @@
+.heroHeader {
+    height: 780px;
+    background-image: url('/src/images/backgrounds/main-plate-mobile.png'),
+                      url('/src/images/backgrounds/main-leaves-center-mobile.png'),
+                      url('/src/images/backgrounds/main-background-mobile.png'),
+                      url('/src/images/backgrounds/main-leaves-left-mobile.png');
+    background-repeat: no-repeat;
+    background-position: center, right bottom, right bottom, left top;
+}
+.heroHeaderHeading {
+    color: #22252A;
+    font-family: Poppins;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    margin-top: 10px;
+}
+.heroHeaderHeading span {
+    font-family: Poppins;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: -0.005em;
+    color: #8BAA36;
+}
+.heroHeaderDescription {
+    text-align: center;
+    padding-inline: 20vw;
+    margin-top: 20px;
+}

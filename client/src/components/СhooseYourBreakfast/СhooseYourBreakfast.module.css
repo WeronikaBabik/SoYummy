@@ -1,0 +1,39 @@
+.block {
+    background-color: #FAFAFA;
+    width: 225px;
+    height: 92px;
+    padding: 10px;
+    border-radius: 6px;
+    position: relative;
+    margin-left: 50vw;
+    margin-top: 200px;
+}
+.blockText {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.23999999463558197px;
+    text-align: left;
+    color: #3E4462;
+}
+.blockText span {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #8BAA36;
+}
+.link {
+    font-family: Poppins;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0.20000000298023224px;
+    color: #3E4462;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
