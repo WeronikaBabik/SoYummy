@@ -1,7 +1,13 @@
 .formSearch {
-    margin-top: 140px;
+    margin-top: 400px;
     display: flex;
     justify-content: center;
+
+    @media screen and (min-width: 768px) {
+            margin-top: 30px;
+            display: block;
+            margin-left: 10vw;
+        }
 }
 .formSearchLabel {
     position: relative;
@@ -17,6 +23,10 @@
     width: 300px;
     padding-block: 26px;
     color: #22252A;
+
+    @media screen and (min-width: 768px) {
+        width: 350px;
+        }
 }
 .formSearch button {
     position: absolute;

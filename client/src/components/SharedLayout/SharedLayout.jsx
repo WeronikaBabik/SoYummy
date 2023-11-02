@@ -50,7 +50,7 @@ const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      {isLoggedIn && <Footer />}
+      {/* {isLoggedIn && <Footer />} */}
     </div>
   );
 };
