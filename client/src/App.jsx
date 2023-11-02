@@ -35,9 +35,9 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        // <Route index element={<Main />} /> //
-        <Main /> is not a page but a part of home page which renders differently
-        for logged users and displays 'welcome page' for not logged guests
+        {/* <Route index element={<Main />} /> */}
+        {/* <Main /> is not a page but a part of home page which renders differently
+        for logged users and displays 'welcome page' for not logged guests */}
         <Route index element={<Home />} />
         <Route
           path="register"
