@@ -69,9 +69,15 @@ span {
     color: #FAFAFA;
 }
 .logoPart {
+    margin-top: 10px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 5px;
+
+    @media screen and (min-width: 768px) {
+        justify-content: flex-start;
+        }
 }
 .logo {
     cursor: pointer;
@@ -82,7 +88,6 @@ span {
     font-weight: 700;
     line-height: 18px;
     letter-spacing: 0.015em;
-    text-align: left;
     color: #FAFAFA;
 }
 .footerLink {
@@ -143,9 +148,10 @@ span {
     line-height: 10px;
 }
 .media {
+    margin-top: 30px;
+    margin-bottom: 15px;
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    gap: 20px;
     list-style: none;
 }
 .footer {
@@ -161,6 +167,7 @@ span {
     text-align: left;
 
     @media screen and (min-width: 768px) {
+            margin-top: 10px;
             display: flex;
             flex-direction: column;
             gap: 10px;
