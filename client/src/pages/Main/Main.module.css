@@ -16,6 +16,15 @@
                           url('/src/images/backgrounds/main-background-tablet.png'),
                           url('/src/images/backgrounds/main-leaves-left-tablet.png');
         background-position: right center, right center, right top, left top;
+
+        @media screen and (min-width: 1280px) {
+                height: 800px;
+                background-image: url('/src/images/backgrounds/main-plate-desktop.png'),
+                                  url('/src/images/backgrounds/main-leaves-center-desktop.png'),
+                                  url('/src/images/backgrounds/main-background-desktop.png'),
+                                  url('/src/images/backgrounds/main-leaves-left-desktop.png');
+                background-position: 50vw center, right center, right top, left top;
+            }
     }
 }
 .heroHeaderHeading {
@@ -34,6 +43,11 @@
         margin-left: 10vw;
         font-size: 72px;
         line-height: 72px;
+
+        @media screen and (min-width: 1280px) {
+                font-size: 100px;
+                line-height: 100px;
+            }
         }
 }
 .heroHeaderHeading span {
@@ -47,6 +61,11 @@
     @media screen and (min-width: 768px) {
             font-size: 72px;
             line-height: 72px;
+
+            @media screen and (min-width: 1280px) {
+                    font-size: 100px;
+                    line-height: 100px;
+                }
         }
 }
 .heroHeaderDescription {
@@ -60,5 +79,12 @@
             padding-inline: 0px;
             padding-right: 50vw;
             margin-left: 10vw;
+
+            @media screen and (min-width: 1280px) {
+                font-size: 18px;
+                line-height: 24px;
+                letter-spacing: -0.02em;
+                padding-right: 55vw;
+                }
         }
 }

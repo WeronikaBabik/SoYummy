@@ -12,6 +12,12 @@
             width: 260px;
             height: 100px;
             margin-left: 60vw;
+
+            @media screen and (min-width: 1280px) {
+                    width: 298px;
+                    height: 114px;
+                    margin-left: 60vw;
+                }
         }
 }
 .blockText {
@@ -26,6 +32,10 @@
     @media screen and (min-width: 768px) {
             font-size: 14px;
             line-height: 18px;
+
+            @media screen and (min-width: 1280px) {
+                    line-height: 20px;
+                }
         }
 }
 .blockText span {
@@ -34,6 +44,15 @@
     font-weight: 500;
     line-height: 18px;
     color: #8BAA36;
+
+    @media screen and (min-width: 768px) {
+            font-size: 14px;
+            line-height: 18px;
+    
+            @media screen and (min-width: 1280px) {
+                line-height: 20px;
+            }
+        }
 }
 .link {
     font-family: Poppins;
@@ -45,4 +64,8 @@
     text-decoration: none;
     margin-left: 130px;
     cursor: pointer;
+
+    @media screen and (min-width: 1280px) {
+        margin-left: 180px;
+    }
 }
