@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { useAuth } from "./hooks/useAuth";
 import { refreshToken } from "./redux/auth/authSlice";
 import { useEffect } from "react";
-import Home from "./pages/Home";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 import Loader from "./components/Loader/Loader";
 import NotFound from "./components/NotFound/NotFound";

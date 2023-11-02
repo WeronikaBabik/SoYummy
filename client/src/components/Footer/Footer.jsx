@@ -17,7 +17,7 @@ const Footer = () => {
                                 <h2>So Yummy</h2>
                             </div>
                             <ul className={s.description}>
-                                <li>Database of recipes that can be replenished </li>
+                                <li className={s.descriptionEl}>Database of recipes that can be replenished </li>
                                 <li>Flexible search for desired and unwanted ingredients</li>
                                 <li>Ability to add your own recipes with photos</li>
                                 <li>Convenient and easy to use</li>

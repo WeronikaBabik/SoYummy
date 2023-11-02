@@ -1,16 +1,16 @@
 .heroHeader {
     height: 780px;
+    padding-top: 10px;
     background-image: url('/src/images/backgrounds/main-plate-mobile.png'),
                       url('/src/images/backgrounds/main-leaves-center-mobile.png'),
                       url('/src/images/backgrounds/main-background-mobile.png'),
                       url('/src/images/backgrounds/main-leaves-left-mobile.png');
     background-repeat: no-repeat;
     background-position: center, right bottom, right bottom, left top;
-    position: fixed;
-    top: 50px;
 
     @media screen and (min-width: 768px) {
         height: 640px;
+        padding-top: 160px;
         background-image: url('/src/images/backgrounds/main-plate-tablet.png'),
                           url('/src/images/backgrounds/main-leaves-center-tablet.png'),
                           url('/src/images/backgrounds/main-background-tablet.png'),
@@ -39,7 +39,6 @@
 
     @media screen and (min-width: 768px) {
         text-align: left;
-        margin-top: 200px;
         margin-left: 10vw;
         font-size: 72px;
         line-height: 72px;
