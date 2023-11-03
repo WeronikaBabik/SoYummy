@@ -12,12 +12,13 @@ import { Categories } from "./pages/Categories/Categories";
 import { Search } from "./components/Search/Search";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import Home from "./pages/Home";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 const Register = lazy(() => import("./pages/RegisterPage"));
 const Signin = lazy(() => import("./pages/SigninPage"));
 // const Categories = lazy(() => import('...'));
 // const AddRecipe = lazy(() => import('...'));
-// const MyRecipes = lazy(() => import('...'));
+const MyRecipes = lazy(() => import("./pages/MyRecipes"));
 // const Favorite = lazy(() => import('...'));
 const ShoppingList = lazy(() => import("./pages/ShoppingList"));
 // const Search = lazy(() => import('...'));
@@ -52,10 +53,16 @@ export const App = () => {
         />
         {/* 
         <Route path="/add" element={<AddRecipe />} />
-        <Route path="/my" element={<MyRecipes />} />
         <Route path="/favorite" element={<Favorite />} />*/}
+        <Route
+          path="/my"
+          element={<PrivateRoute redirectTo="/" component={<MyRecipes />} />}
+        />
         <Route path="/search" element={<Search />} />
-        <Route path="/shopping-list" element={<ShoppingList />}></Route>/
+        <Route
+          path="/shopping-list"
+          element={<PrivateRoute redirectTo="/" component={<ShoppingList />} />}
+        />
         <Route path="/categories/:categoryName" element={<Categories />} />
         <Route path="*" element={<NotFound />} />
       </Route>

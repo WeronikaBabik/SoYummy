@@ -3,7 +3,7 @@ const cors = require("cors");
 const usersRouter = require("./routes/api/users");
 const { recipesRouter } = require("./routes/api/recipes");
 const { ingredientsRouter } = require("./routes/api/ingredients");
-const { categoryRouter } = require("./routes/api/categorieslist");
+//const { categoryRouter } = require("./routes/api/categorieslist");
 const { shoppingListRouter } = require("./routes/api/shoppingList");
 
 const app = express();
@@ -17,7 +17,7 @@ app.use("/api/users", usersRouter);
 // use.use.("/api/auth", )
 app.use("/api/recipes", recipesRouter);
 app.use("/api/ingredients", ingredientsRouter);
-app.use("/api/category", categoryRouter);
+//app.use("/api/category", categoryRouter);
 app.use("/api/shopping-lists", shoppingListRouter);
 
 module.exports = { app };
