@@ -9,6 +9,7 @@ import SharedLayout from "./components/SharedLayout/SharedLayout";
 import Loader from "./components/Loader/Loader";
 import NotFound from "./components/NotFound/NotFound";
 import { Categories } from "./pages/Categories/Categories";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import { Search } from "./components/Search/Search";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import Home from "./pages/Home";
@@ -53,7 +54,9 @@ export const App = () => {
         />
         {/* 
         <Route path="/add" element={<AddRecipe />} />
-        <Route path="/favorite" element={<Favorite />} />*/}
+
+        <Route path="/favorite" element={<FavoritePage />} />
+      
         {/* <Route
           path="/my"
           element={<PrivateRoute redirectTo="/" component={<MyRecipes />} />}

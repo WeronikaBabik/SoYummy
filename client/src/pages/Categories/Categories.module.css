@@ -3,3 +3,6 @@
   transform: translateX(40%);
   padding-bottom: 0%;
 }
+.leftbg__image {
+  position: sticky;
+}
