@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 import css from "../RecipesList/RecipesList.module.css";
 
 import { selectRecipes, selectSelectedCategory } from "../../redux/selectors";
+import { Link } from "react-router-dom";
 
 export const RecipesList = () => {
+  // const [isLoading, setIsLoading] = useState(false);
+
   const selectedCategory = useSelector(selectSelectedCategory);
   const allRecipes = useSelector(selectRecipes);
 
@@ -50,9 +53,9 @@ export const RecipesList = () => {
                   borderRadius: "8px",
                 }}
               />
-              <a href="#" className={css.recipe__btn}>
+              <Link to={`/recipe/${recipe.id}`} className={css.recipe__btn}>
                 <span className={css.btn__text}>{recipe.title}</span>
-              </a>
+              </Link>
             </div>
           ))
         ) : (
@@ -83,16 +86,6 @@ export const RecipesList = () => {
       </div>
       {/* <Paginator/>
       <Footer/> */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <p className={css.text}>© 2023 All Rights Reserved.</p>
-        <p className={css.text2}>Terms of Service</p>
-      </div>
     </div>
   );
 };
