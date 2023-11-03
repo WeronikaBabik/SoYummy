@@ -1,13 +1,12 @@
 import { lazy } from "react";
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
-import ShoppingList from "./pages/ShoppingList";
 import { useDispatch } from "react-redux";
 import { useAuth } from "./hooks/useAuth";
 import { refreshToken } from "./redux/auth/authSlice";
 import { useEffect } from "react";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
-// import Loader from "./components/Loader/Loader";
+import Loader from "./components/Loader/Loader";
 import NotFound from "./components/NotFound/NotFound";
 import { Categories } from "./pages/Categories/Categories";
 import { Search } from "./components/Search/Search";
@@ -20,7 +19,7 @@ const Signin = lazy(() => import("./pages/SigninPage"));
 // const AddRecipe = lazy(() => import('...'));
 // const MyRecipes = lazy(() => import('...'));
 // const Favorite = lazy(() => import('...'));
-// const ShoppingList = lazy(() => import('...'));
+const ShoppingList = lazy(() => import("./pages/ShoppingList"));
 // const Search = lazy(() => import('...'));
 
 export const App = () => {
@@ -32,7 +31,10 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>Refreshing user...</div>
+    <div>
+      <div>Refreshing user...</div>
+      <Loader />
+    </div>
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
@@ -52,7 +54,7 @@ export const App = () => {
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/my" element={<MyRecipes />} />
         <Route path="/favorite" element={<Favorite />} />*/}
-        <Route path="/search" element={<Search />} /> 
+        <Route path="/search" element={<Search />} />
         <Route path="/shopping-list" element={<ShoppingList />}></Route>/
         <Route path="/categories/:categoryName" element={<Categories />} />
         <Route path="*" element={<NotFound />} />

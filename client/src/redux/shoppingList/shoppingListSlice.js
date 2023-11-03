@@ -3,14 +3,16 @@ import {
   addToShoppingList,
   deleteFromShoppingList,
   getShoppingList,
-} from "./shoppingListAction";
+} from "./operations";
 
 const initialState = {
-  shoppingList: [],
+  items: [],
+  isLoading: false,
+  error: null,
 };
 
-const shopRecipesSlice = createSlice({
-  name: "shopping-list",
+const shoppingSlice = createSlice({
+  name: "shoppingList",
   initialState,
   reducers: {},
   extraReducers: (builder) =>
@@ -19,31 +21,37 @@ const shopRecipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getShoppingList.fulfilled, (state, { payload }) => {
-        state.shoppingList = payload.data.shoppingList;
+        state.items = payload;
         state.isLoading = false;
+        state.error = "";
       })
       .addCase(getShoppingList.rejected, (state, { payload }) => {
         state.isLoading = false;
+        state.error = payload;
       })
       .addCase(deleteFromShoppingList.pending, (state, { payload }) => {
         state.isLoading = true;
       })
       .addCase(deleteFromShoppingList.fulfilled, (state, { payload }) => {
-        state.shoppingList = payload.data;
+        state.items = state.items.filter((e) => e.ingredientId !== payload);
         state.isLoading = false;
+        state.error = "";
       })
       .addCase(deleteFromShoppingList.rejected, (state, { payload }) => {
         state.isLoading = false;
+        state.error = payload;
       })
       .addCase(addToShoppingList.pending, (state, { payload }) => {
         state.isLoading = true;
       })
       .addCase(addToShoppingList.fulfilled, (state, { payload }) => {
-        state.shoppingList = payload.data;
+        state.items = [...payload];
         state.isLoading = false;
+        state.error = "";
       })
       .addCase(addToShoppingList.rejected, (state, { payload }) => {
         state.isLoading = false;
+        state.error = payload;
       }),
 });
-export const shopRecipesReducer = shopRecipesSlice.reducer;
+export const shoppingReducer = shoppingSlice.reducer;
