@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const getAllRecipes = async (page, limit, sort = '') => {
+export const getAllRecipes = async (page, limit, sort = "") => {
   try {
     const { data } = await axios.get(
-      `/recipes?page=${page}&limit=${limit}&sort=${sort}`,
+      `/recipes?page=${page}&limit=${limit}&sort=${sort}`
     );
     return data;
   } catch (error) {
@@ -12,7 +12,7 @@ export const getAllRecipes = async (page, limit, sort = '') => {
   }
 };
 
-export const getRecipeById = async id => {
+export const getRecipeById = async (id) => {
   try {
     const { data } = await axios.get(`/recipes/id/${id}`);
     return data;
@@ -33,13 +33,13 @@ export const getAllCategories = async () => {
 };
 
 export const getCategorieRecipes = async (
-  category = '',
+  category = "",
   page = 1,
-  limit = 8,
+  limit = 8
 ) => {
   try {
     const { data } = await axios.get(
-      `/recipes/category/${category}?page=${page}&limit=${limit}`,
+      `/recipes/category/${category}?page=${page}&limit=${limit}`
     );
     return data;
   } catch (error) {
@@ -48,7 +48,7 @@ export const getCategorieRecipes = async (
   }
 };
 
-export const patchRecipeFavoriteById = async id => {
+export const patchRecipeFavoriteById = async (id) => {
   try {
     const { data } = await axios.patch(`/recipes/favorite/${id}`);
     return data;
@@ -58,7 +58,7 @@ export const patchRecipeFavoriteById = async id => {
   }
 };
 
-export const patchRecipeLikeById = async id => {
+export const patchRecipeLikeById = async (id) => {
   try {
     const { data } = await axios.patch(`/recipes/like/${id}`);
     return data;
@@ -81,7 +81,7 @@ export const getMainPage = async () => {
 export const getAllFavorite = async (page, limit) => {
   try {
     const { data } = await axios.get(
-      `/recipes/favorite?page=${page}&limit=${limit}`,
+      `/recipes/favorite?page=${page}&limit=${limit}`
     );
     return data;
   } catch (error) {
@@ -90,11 +90,11 @@ export const getAllFavorite = async (page, limit) => {
   }
 };
 
-export const postUserInfo = async info => {
+export const postUserInfo = async (info) => {
   try {
     const { data } = await axios.post(`/user-info/set-user-info`, info, {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       },
     });
     return data;
@@ -114,7 +114,7 @@ export const getShoppingList = async () => {
   }
 };
 
-export const postShoppingList = async info => {
+export const postShoppingList = async (info) => {
   try {
     const { data } = await axios.post(`/user-info/shopping-list`, info);
     return data;
@@ -124,7 +124,7 @@ export const postShoppingList = async info => {
   }
 };
 
-export const patchShoppingList = async info => {
+export const patchShoppingList = async (info) => {
   try {
     const { data } = await axios.patch(`/user-info/shopping-list`, info);
     return data;
@@ -134,7 +134,7 @@ export const patchShoppingList = async info => {
   }
 };
 
-export const deleteShoppingList = async id => {
+export const deleteShoppingList = async (id) => {
   try {
     const { data } = await axios.delete(`/user-info/shopping-list/${id}`);
     return data;
@@ -158,11 +158,11 @@ export const getSearchByTitle = async (
   query,
   page = 1,
   limit = 12,
-  sort = 'popular',
+  sort = "popular"
 ) => {
   try {
     const { data } = await axios.get(
-      `/recipes/title/${query.trim()}?page=${page}&limit=${limit}&sort=${sort}`,
+      `/recipes/title/${query.trim()}?page=${page}&limit=${limit}&sort=${sort}`
     );
     return data;
   } catch (error) {
@@ -175,11 +175,11 @@ export const getSearchByIngredients = async (
   query,
   page = 1,
   limit = 12,
-  sort = 'popular',
+  sort = "popular"
 ) => {
   try {
     const { data } = await axios.get(
-      `/recipes/ingredient/${query.trim()}?page=${page}&limit=${limit}&sort=${sort}`,
+      `/recipes/ingredient/${query.trim()}?page=${page}&limit=${limit}&sort=${sort}`
     );
     return data;
   } catch (error) {
@@ -188,11 +188,11 @@ export const getSearchByIngredients = async (
   }
 };
 
-export const addOwnRecipe = async formData => {
+export const addOwnRecipe = async (formData) => {
   try {
     const { data } = await axios.post(`/own-recipes`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       },
     });
     return data;
@@ -205,7 +205,7 @@ export const addOwnRecipe = async formData => {
 export const getOwnRecipe = async (page = 1, limit = 4) => {
   try {
     const { data } = await axios.get(
-      `/own-recipes?page=${page}&limit=${limit}`,
+      `/own-recipes?page=${page}&limit=${limit}`
     );
     return data;
   } catch (error) {
@@ -214,7 +214,7 @@ export const getOwnRecipe = async (page = 1, limit = 4) => {
   }
 };
 
-export const deleteOwnRecipe = async id => {
+export const deleteOwnRecipe = async (id) => {
   try {
     const { data } = await axios.delete(`/own-recipes/id/${id}`);
     return data;
@@ -224,7 +224,7 @@ export const deleteOwnRecipe = async id => {
   }
 };
 
-export const getOwnRecipeById = async id => {
+export const getOwnRecipeById = async (id) => {
   try {
     const { data } = await axios.get(`/own-recipes/id/${id}`);
     return data;
@@ -244,7 +244,7 @@ export const getOwnRecipeById = async id => {
 //   }
 // };
 
-export const postResetPassword = async info => {
+export const postResetPassword = async (info) => {
   try {
     const { data } = await axios.post(`/users/reset/reset-password`, info);
     return data;
@@ -254,7 +254,7 @@ export const postResetPassword = async info => {
   }
 };
 
-export const postSetNewPassword = async info => {
+export const postSetNewPassword = async (info) => {
   try {
     const { data } = await axios.post(`/users/reset/set-new-password`, info);
     return data;
@@ -264,7 +264,7 @@ export const postSetNewPassword = async info => {
   }
 };
 
-export const postSubscribeList = async info => {
+export const postSubscribeList = async (info) => {
   try {
     const { data } = await axios.post(`/user-info/subscribe-list`, info);
     return data;
@@ -274,12 +274,30 @@ export const postSubscribeList = async info => {
   }
 };
 
-export const postUnsubscribeList = async emailToken => {
+export const postUnsubscribeList = async (emailToken) => {
   try {
     const { data } = await axios.post(`/user-info/unsubscribe`, { emailToken });
     return data;
   } catch (error) {
     console.log(error.message);
     return null;
+  }
+};
+
+export const getMyRecipes = async () => {
+  try {
+    const { data } = await axios.get(`/my`);
+    return data.data;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const deleteMyRecipe = async (id) => {
+  try {
+    const { data } = await axios.delete(`/my/${id}`);
+    return data;
+  } catch (e) {
+    console.error(e);
   }
 };
