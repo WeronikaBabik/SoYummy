@@ -14,6 +14,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import { authReducer } from "./auth/authSlice";
+import { shoppingReducer } from "./shoppingList/shoppingListSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -27,6 +28,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     recipes: recipeReducer,
     search: searchReducer, // Dodaj searchReducer
+    shoppingList: shoppingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

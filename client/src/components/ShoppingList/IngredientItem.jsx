@@ -4,14 +4,19 @@ const IngredientItem = ({ ingredient, handleDelete }) => {
   const { id, ttl, measure, thb } = ingredient;
   return (
     <section className={css.ingredient}>
-      <div className={css.imageOgIngredient}>
-        <img src={thb} alt="ttl" />
+      <div className={css.ingredientWrapper}>
+        <div className={css.imageOgIngredient}>
+          <img src={thb} alt="ttl" className={css.image} />
+        </div>
+        <p className={css.nameOfIngredient}>{ttl}</p>
       </div>
-      <p className={css.nameOfIngredient}>{ttl}</p>
-      <p className={css.amountOfIngredient}>{measure}</p>
-      <button type="button" onClick={() => handleDelete(id)}>
-        Delete
-      </button>
+
+      <div className={css.measureWrapper}>
+        <p className={css.amountOfIngredient}>{measure}</p>
+        <svg className={css.close} onClick={() => handleDelete(id)}>
+          <use href="./images/icons/icons.svg#icon-search"></use>
+        </svg>
+      </div>
     </section>
   );
 };
