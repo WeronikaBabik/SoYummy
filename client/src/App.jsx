@@ -54,10 +54,11 @@ export const App = () => {
         {/* 
         <Route path="/add" element={<AddRecipe />} />
         <Route path="/favorite" element={<Favorite />} />*/}
-        <Route
+        {/* <Route
           path="/my"
           element={<PrivateRoute redirectTo="/" component={<MyRecipes />} />}
-        />
+        /> */}
+        <Route path="/my" element={<MyRecipes />} />
         <Route path="/search" element={<Search />} />
         <Route
           path="/shopping-list"
