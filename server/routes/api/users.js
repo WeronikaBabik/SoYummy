@@ -58,7 +58,7 @@ router.post("/signup", userValidation, async (req, res, next) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login", "email:", email, "password:", password);
