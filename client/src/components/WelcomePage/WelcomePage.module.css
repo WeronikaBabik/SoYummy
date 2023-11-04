@@ -25,12 +25,15 @@
 }
 
 .logo {
-  z-index: 999;
-  background-color: var(--main-green);
-  fill: aqua;
-  color: black;
   margin-bottom: 44px;
-  border: none;
+  fill: #8baa36;
+  width: 54px;
+  height: 54px;
+
+  @media (min-width: 768px) {
+    width: 68px;
+    height: 68px;
+  }
 }
 
 .headline {

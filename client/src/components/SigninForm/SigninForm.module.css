@@ -35,7 +35,7 @@
 
 .backgroundimage {
   width: 100vw;
-  min-height: 490px;
+  max-height: 490px;
   position: absolute;
   bottom: 0;
   z-index: -1;
@@ -76,22 +76,40 @@
 
 .label {
   padding-bottom: 24px;
+  position: relative;
 }
 
 .input {
   width: 100%;
   font-size: 14px;
+  /* line-height: 1.15; */
   padding: 16px 16px 16px 50px;
+  outline: none;
+  border: 1px solid var(--grey);
+  border-radius: 6px;
   color: var(--main-white);
+  fill: var(--main-white);
+  background: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
   @media (min-width: 768px) {
     font-size: 18px;
   }
 }
 
+.input:hover {
+  color: var(--total-white);
+  border-color: var(--total-white);
+}
+
 .iconSpan {
   position: absolute;
-  top: 9%;
+  top: 17%;
   left: 15px;
+  @media (min-width: 768px) {
+    top: 19%;
+  }
 }
 
 .submitbutton {
@@ -111,4 +129,8 @@
 .link {
   color: var(--main-white);
   padding-top: 18px;
+}
+
+.link:hover {
+  color: var(--main-green);
 }

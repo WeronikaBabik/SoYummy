@@ -147,7 +147,7 @@ export const RegisterForm = () => {
             </button>
           </form>
         </div>
-        <Link className={css.link} to="/register">
+        <Link className={css.link} to="/signin">
           Sign In
         </Link>
       </div>
