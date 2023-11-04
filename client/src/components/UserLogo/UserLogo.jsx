@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
 import css from "./UserLogo.module.css";
 import { selectUser } from "../../redux/auth/selectors";
-import { UserInfoModal } from "../UserInfoModal";
+// import { UserInfoModal } from "../UserInfoModal";
+// import { LogoutModal } from "../LogoutModal";
 
 const UserLogo = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,9 @@ const UserLogo = () => {
     setOpenDialog(true);
   };
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
+  // const handleCloseDialog = () => {
+  //   setOpenDialog(false);
+  // };
 
   return (
     <>
@@ -115,7 +116,8 @@ const UserLogo = () => {
         </button>
       </div>
 
-      <UserInfoModal open={openDialog} onCLose={handleCloseDialog} />
+      {/* <UserInfoModal open={openDialog} onCLose={handleCloseDialog} /> */}
+      {/* <LogoutModal open={openDialog} onCLose={handleCloseDialog} /> */}
     </>
   );
 };

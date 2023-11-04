@@ -19,17 +19,21 @@
 }
 
 .closeButtonWrap {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 .closeButton {
+  position: absolute;
   background-color: transparent;
   width: 24px;
   height: 24px;
   display: flex;
   justify-content: center;
   border: none;
+  top: -24px;
+  right: -24px;
 }
 
 .form {
