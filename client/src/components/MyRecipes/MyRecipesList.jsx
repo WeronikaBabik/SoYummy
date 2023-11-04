@@ -1,5 +1,4 @@
 import { deleteMyRecipe, getMyRecipes } from "../../services/api/recipesAPI";
-import Notiflix from "notiflix";
 import css from "./MyRecipes.module.css";
 import NotFound from "../NotFound/NotFound";
 
@@ -30,7 +29,6 @@ const MyRecipesList = () => {
         setMyRecipes(recipes);
       } catch (e) {
         console.error(e);
-        Notiflix.Notify.warning("There no recipes or something went wrong");
       } finally {
         setIsLoading(false);
       }
@@ -39,29 +37,29 @@ const MyRecipesList = () => {
   });
   return (
     <div>
-      {myRecipes.length === 0 ? (
+      {/* {myRecipes.length === 0 ? (
         <NotFound />
-      ) : (
-        <section className={css.myRecipeList}>
-          {isLoading && <Loader />}
-          {myRecipes.length === 0 && !isLoading && <p>There no recipes</p>}
-          {myRecipes.length > 0 && !isLoading && (
-            <div>
-              {myRecipes.map(({ _id, title, description, preview, time }) => (
-                <MyRecipesItem
-                  key={_id}
-                  description={description}
-                  preview={preview}
-                  time={time}
-                  title={title}
-                  id={_id}
-                  handleDelete={handleDelete}
-                />
-              ))}
-            </div>
-          )}
-        </section>
-      )}
+      ) : ( */}
+      <section className={css.myRecipeList}>
+        {isLoading && <Loader />}
+        {myRecipes.length === 0 && !isLoading && <p>There no recipes</p>}
+        {myRecipes.length > 0 && !isLoading && (
+          <div>
+            {myRecipes.map(({ _id, title, description, preview, time }) => (
+              <MyRecipesItem
+                key={_id}
+                description={description}
+                preview={preview}
+                time={time}
+                title={title}
+                id={_id}
+                handleDelete={handleDelete}
+              />
+            ))}
+          </div>
+        )}
+      </section>
+      {/* )} */}
     </div>
   );
 };

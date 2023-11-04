@@ -20,6 +20,6 @@ app.use("/api/recipes", recipesRouter);
 app.use("/api/search", searchRouter);
 app.use("/api/ingredients", ingredientsRouter);
 //app.use("/api/category", categoryRouter);
-app.use("/api/shopping-lists", shoppingListRouter);
+app.use("/api/shopping-list", shoppingListRouter);
 
 module.exports = { app };
