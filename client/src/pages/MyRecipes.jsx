@@ -1,10 +1,12 @@
-import MainPageTitle from "../components/MyPageTitle/MyPageTitle";
+import { BackgroundTop } from "../components/CommonComponents/Background/Background";
+import PageTitle from "../components/CommonComponents/Title/PageTitle";
 import MyRecipesList from "../components/MyRecipes/MyRecipesList";
 
 const MyRecipes = () => {
   return (
     <>
-      <MainPageTitle>My recipes</MainPageTitle>
+      <BackgroundTop />
+      <PageTitle>My recipes</PageTitle>
       <MyRecipesList />
     </>
   );
