@@ -115,7 +115,7 @@ const UserLogo = () => {
         </button>
       </div>
 
-      {/* <UserInfoModal open={openDialog} onCLose={handleCloseDialog} /> */}
+      <UserInfoModal open={openDialog} onCLose={handleCloseDialog} />
     </>
   );
 };
