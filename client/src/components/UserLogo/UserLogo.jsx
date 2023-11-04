@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
 import css from "./UserLogo.module.css";
 import { selectUser } from "../../redux/auth/selectors";
-// import { UserInfoModal } from "../UserInfoModal";
+import { UserInfoModal } from "../UserInfoModal";
 
 const UserLogo = () => {
   const dispatch = useDispatch();

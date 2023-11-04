@@ -35,10 +35,9 @@
 .userLogoModal {
   background-color: var(--main-white);
   padding: 18px;
-  border-radius: 6px;
+  border-radius: 8px;
   position: relative;
-  top: 102px;
-  right: 64px;
+  top: 104px;
 }
 
 .edit {

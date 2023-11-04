@@ -1,5 +1,8 @@
 .dialogWindow {
   padding: 50px;
+  position: absolute;
+  background-color: var(--main-white);
+  border-radius: 30px;
   /* 
   @media (min-width: 768px) {
     padding: 10px;
