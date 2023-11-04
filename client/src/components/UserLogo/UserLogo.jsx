@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
 import css from "./UserLogo.module.css";
 import { selectUser } from "../../redux/auth/selectors";
+import { UserInfoModal } from "../UserInfoModal";
 
 const UserLogo = () => {
   const dispatch = useDispatch();
@@ -49,17 +50,18 @@ const UserLogo = () => {
         anchorEl={anchorEl}
         className={css.userLogoModal}
         onClose={handleClose}
+        open={open}
       >
         <div>
           <p>Edit Profile</p>
-          <button onClick={handleEdit}>I</button>
+          <button onClick={handleEdit}>Edit</button>
         </div>
         <button onClick={handleLogout}>
           <span>Logout</span>
         </button>
       </div>
 
-      {/* <EditDialog open={openDialog} onCLose={handleCloseDialog} /> */}
+      <UserInfoModal open={openDialog} onCLose={handleCloseDialog} />
     </>
   );
 };

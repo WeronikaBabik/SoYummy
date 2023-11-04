@@ -32,6 +32,11 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
+    [logout.rejected](state) {
+      state.user = { name: null, email: null };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
     //     [getUserData.fulfilled](state, action) {
     //       // state.user = action.payload.user;
     //       // state.token = action.payload.token;

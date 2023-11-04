@@ -205,7 +205,7 @@ h2 {
   height: 37px;
 }
 
-span {
+/* span {
   color: #fafafa;
   position: absolute;
   font-family: Poppins;
@@ -218,7 +218,7 @@ span {
   bottom: -23%;
   right: 16px;
   cursor: pointer;
-}
+} */
 .svg__btn {
   width: 87px;
   height: 27px;
@@ -375,12 +375,12 @@ span {
     height: 45px;
   }
 
-  span {
+  /* span {
     color: #fafafa;
     font-size: 14px;
     bottom: 7%;
     right: 30px;
-  }
+  } */
 
   .svg__btn {
     width: 138px;
@@ -487,12 +487,12 @@ span {
     height: 44px;
   }
 
-  span {
+  /* span {
     color: #fafafa;
     font-size: 14px;
     bottom: 7%;
     right: 40px;
-  }
+  } */
 
   .svg__btn {
     width: 160px;
