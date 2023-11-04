@@ -2,9 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const usersRouter = require("./routes/api/users");
 const { recipesRouter } = require("./routes/api/recipes");
+const { searchRouter } = require("./routes/api/search");
 const { ingredientsRouter } = require("./routes/api/ingredients");
-const { categoryRouter } = require("./routes/api/categorieslist");
-// const { usersRouter } = require("./routes/api/users");
+//const { categoryRouter } = require("./routes/api/categorieslist");
+const { shoppingListRouter } = require("./routes/api/shoppingList");
 
 const app = express();
 
@@ -16,8 +17,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/users", usersRouter);
 // use.use.("/api/auth", )
 app.use("/api/recipes", recipesRouter);
+app.use("/api/search", searchRouter);
 app.use("/api/ingredients", ingredientsRouter);
-app.use("/api/category", categoryRouter);
-// app.use("/api/shopping-lists", );
+//app.use("/api/category", categoryRouter);
+app.use("/api/shopping-lists", shoppingListRouter);
 
 module.exports = { app };

@@ -15,25 +15,39 @@ import { CategoriesPage } from "../../components/CategoriesPage/CategoriesPage";
 
 export const Categories = () => {
   return (
-    <section className={css.categories__page}>
-      <div className={css.container}>
-        <CategoriesPage />
-        <img
-          className={css.leftbg__image}
-          src={leavesLeftDesk}
-          srcSet={`${leavesLeftMob} 285w, ${leavesLeftMob2} 570w, ${leavesLeftTab} 409w, ${leavesLeftTab2} 818w, ${leavesLeftDesk} 532w, ${leavesLeftDesk2} 1064w`}
-          sizes="(min-width: 1280px) 532px, (min-width: 768px) 409px, (min-width: 320px) 285px, 100vw"
-          alt="Leaves left"
-        />
-        <img
-          className={css.rightbg__image}
-          src={leavesRightDesk}
-          srcSet={`${leavesRightMob} 285w, ${leavesRightMob2} 570w, ${leavesRightTab} 409w, ${leavesRightTab2} 818w, ${leavesRightDesk} 532w, ${leavesRightDesk2} 1064w`}
-          sizes="(min-width: 1280px) 532px, (min-width: 768px) 409px, (min-width: 320px) 285px, 100vw"
-          alt="Leaves right"
-        />
-      </div>
-    </section>
+    <div>
+      <section className={css.categories__page}>
+        <div style={{ position: "relative" }}>
+          <svg className={css.rectangle1}>
+            <rect width="100%" height="100%" fill="#8BAA36" />
+          </svg>
+          <svg className={css.rectangle2}>
+            <rect width="100%" height="100%" fill="#000" />
+          </svg>
+          <svg className={css.rectangle3}>
+            <rect width="100%" height="100%" fill="#8BAA36" />
+          </svg>
+        </div>
+        <div className={css.container}>
+          <h1 className={css.h1}>Categories</h1>
+          <CategoriesPage />
+        </div>
+      </section>
+      <img
+        className={css.leftbg__image}
+        src={leavesLeftDesk}
+        srcSet={`${leavesLeftMob} 285w, ${leavesLeftMob2} 570w, ${leavesLeftTab} 409w, ${leavesLeftTab2} 818w, ${leavesLeftDesk} 532w, ${leavesLeftDesk2} 1064w`}
+        sizes="(min-width: 1280px) 532px, (min-width: 768px) 409px, (min-width: 320px) 285px, 100vw"
+        alt="Leaves left"
+      />
+      <img
+        className={css.rightbg__image}
+        src={leavesRightDesk}
+        srcSet={`${leavesRightMob} 285w, ${leavesRightMob2} 570w, ${leavesRightTab} 409w, ${leavesRightTab2} 818w, ${leavesRightDesk} 532w, ${leavesRightDesk2} 1064w`}
+        sizes="(min-width: 1280px) 532px, (min-width: 768px) 409px, (min-width: 320px) 285px, 100vw"
+        alt="Leaves right"
+      />
+    </div>
   );
 };
 
