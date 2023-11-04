@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   selectCategories,
@@ -18,28 +18,28 @@ export const CategoriesList = () => {
 
   return (
     <div className={css.cat__box}>
-      <h1 className={css.cat__header}>Categories</h1>
       <div className={css.categories}>
         {categories ? (
-          <ul className={css.cat__list}>
-            {categories.map((category) => (
-              <li
-                key={category._id}
-                className={`cat__list-li ${
-                  selectedCategory === category.title ? "active" : ""
-                }`}
-              >
-                <button
-                  // to={`/categories/${category.title.toLowerCase()}`}
-                  key={category._id}
-                  onClick={() => handleCategoryClick(category.title)}
-                  className={css.cat__button}
+          <div className={css.list__container}>
+            <ul className={css.cat__list}>
+              {categories.map((category, index) => (
+                <li
+                  key={index}
+                  className={`${css.cat__li} ${
+                    selectedCategory === category.title ? "active" : ""
+                  }`}
                 >
-                  <span className={css.cat__title}>{category.title}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategoryClick(category.title)}
+                    className={css.cat__button}
+                  >
+                    <span className={css.cat__title}>{category.title}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : (
           <p className={css.cat__info}> No categories </p>
         )}

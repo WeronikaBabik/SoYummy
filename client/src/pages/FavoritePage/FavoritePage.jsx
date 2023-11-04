@@ -71,7 +71,7 @@ export const FavoritePage = () => {
         <svg className={css.rectangle3}>
           <rect width="100%" height="100%" fill="#8BAA36" />
         </svg>
-        <h2>Favorites</h2>
+        <h2 className={css.h2}>Favorites</h2>
       </div>
       <div className={css.favorite__box}>
         {isLoading ? (
@@ -120,7 +120,7 @@ export const FavoritePage = () => {
                   >
                     <path d="M0 18C0 8.05887 8.05888 0 18 0H124C143.882 0 160 16.1178 160 36C160 45.9411 151.941 54 142 54H36C16.1178 54 0 37.8822 0 18Z"></path>
                   </svg>
-                  <span>See recipe</span>
+                  <span className={css.span}>See recipe</span>
                 </Link>
               </div>
             </div>
