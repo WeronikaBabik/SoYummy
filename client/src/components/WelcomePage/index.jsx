@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import css from "./WelcomePage.module.css";
+import IconLogoWelcomePage from "../Icons/IconLogoWelcomePage";
 
 export const WelcomePage = () => {
   const navigate = useNavigate();
@@ -14,11 +15,12 @@ export const WelcomePage = () => {
   return (
     <div className={css.background}>
       <div className={css.contentWrap}>
-        <button className={css.logo}>
+        <IconLogoWelcomePage />
+        {/* <button className={css.logo}>
           <svg width="68" height="68">
             <use href="./images/icons/icons.svg#icon-facebook"></use>
           </svg>
-        </button>
+        </button> */}
         <h3 className={css.headline}>Welcome to the app!</h3>
         <p className={css.text}>
           This app offers more than just a collection of recipes - it is
