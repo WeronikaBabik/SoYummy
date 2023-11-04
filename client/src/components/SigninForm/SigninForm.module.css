@@ -80,7 +80,18 @@
 
 .input {
   width: 100%;
-  font-size: 18px;
+  font-size: 14px;
+  padding: 16px 16px 16px 50px;
+  color: var(--main-white);
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.iconSpan {
+  position: absolute;
+  top: 9%;
+  left: 15px;
 }
 
 .submitbutton {
