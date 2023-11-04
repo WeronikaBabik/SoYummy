@@ -58,7 +58,7 @@ router.post("/signup", userValidation, async (req, res, next) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("Login", "email:", email, "password:", password);
@@ -183,7 +183,7 @@ router.patch("/subscribe", async (req, res) => {
     const mailOptions = {
       from: "yummy.project4@gmail.com",
       // to: email,
-      to: "janicki.jonasz@gmail.com", //edit to Variable "email" - position 126
+      to: "janicki.jonasz@gmail.com", //edit to Variable "email" - current position 186
       subject: "So Yummy - NewsLetter",
       text: `You've been written as a users who want a newsletter!`,
     };
