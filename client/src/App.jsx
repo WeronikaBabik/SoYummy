@@ -52,10 +52,11 @@ export const App = () => {
           path="signin"
           element={<RestrictedRoute redirectTo="/" component={<Signin />} />}
         />
-        {/* 
-        <Route path="/add" element={<AddRecipe />} />
-
-        <Route path="/favorite" element={<FavoritePage />} />
+        
+{/*      <Route path="/add" element={<AddRecipe />} />
+         <Route path="/favorite" element={<FavoritePage />} /> */}
+       
+        <Route path="/categories/:category" element={<Categories />} />
       
         {/* <Route
           path="/my"
@@ -67,7 +68,7 @@ export const App = () => {
           path="/shopping-list"
           element={<PrivateRoute redirectTo="/" component={<ShoppingList />} />}
         />
-        <Route path="/categories/:categoryName" element={<Categories />} />
+     {/*   <Route path="/categories/:categoryName" element={<Categories />} /> */}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
