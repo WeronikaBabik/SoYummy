@@ -1,4 +1,4 @@
-.box {
+.userLogo {
   display: flex;
   align-items: center;
 }
@@ -6,6 +6,9 @@
 .userImg {
   width: 44px;
   height: 44px;
+  border-radius: 50%;
+  border-style: none;
+  margin-right: 10px;
 }
 
 .text {
