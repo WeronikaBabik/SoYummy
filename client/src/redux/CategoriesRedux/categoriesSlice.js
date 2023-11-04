@@ -1,17 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import categoriesList from "../../data/categoriesList.json";
+import { getAllCategoriesList } from "../FavoriteRedux/operations";
+
+const initialState = {
+  categories: [],
+};
 
 const categoriesSlice = createSlice({
   name: "categories",
-  initialState: {
-    categories: categoriesList,
-    selectedCategory: "Beef",
-  },
-  reducers: {
-    setSelectedCategory: (state, action) => {
-      state.selectedCategory = action.payload;
-    },
-  },
+  initialState,
+  selectedCategory: "Beef",
+  reducers: {},
+  extraReducers: (builder) => builder.addCase(),
+  // reducers: {
+  //   setSelectedCategory: (state, action) => {
+  //     state.selectedCategory = action.payload;
+  //   },
+  // },
 });
 export const { setSelectedCategory } = categoriesSlice.actions;
 export const selectRecipesByCategory = (categoryName) => (state) =>

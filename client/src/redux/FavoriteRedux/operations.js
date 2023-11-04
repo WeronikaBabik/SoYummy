@@ -3,6 +3,18 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001/api";
 
+export const getAllCategoriesList = createAsyncThunk(
+  "categories/getAllCategoriesList",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/categories/:category`);
+      return response.data;
+    } catch (error) {
+      throw thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const fetchFavoriteRecipes = createAsyncThunk(
   "favorite/fetchFavoriteRecipes",
   async () => {
