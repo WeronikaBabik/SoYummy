@@ -1,5 +1,7 @@
 import { deleteMyRecipe, getMyRecipes } from "../../services/api/recipesAPI";
-import { Notify, Notiflix } from "notiflix";
+import Notiflix from "notiflix";
+import css from "./MyRecipes.module.css";
+import NotFound from "../NotFound/NotFound";
 
 const { useState, useEffect } = require("react");
 const { default: Loader } = require("../Loader/Loader");
@@ -33,28 +35,34 @@ const MyRecipesList = () => {
         setIsLoading(false);
       }
     };
-    recipesFromApi();
+    //recipesFromApi();
   });
   return (
-    <section>
-      {isLoading && <Loader />}
-      {myRecipes.length === 0 && !isLoading && <p>There no recipes</p>}
-      {myRecipes.length > 0 && !isLoading && (
-        <div>
-          {myRecipes.map(({ _id, title, description, preview, time }) => (
-            <MyRecipesItem
-              key={_id}
-              description={description}
-              preview={preview}
-              time={time}
-              title={title}
-              id={_id}
-              handleDelete={handleDelete}
-            />
-          ))}
-        </div>
+    <div>
+      {myRecipes.length === 0 ? (
+        <NotFound />
+      ) : (
+        <section className={css.myRecipeList}>
+          {isLoading && <Loader />}
+          {myRecipes.length === 0 && !isLoading && <p>There no recipes</p>}
+          {myRecipes.length > 0 && !isLoading && (
+            <div>
+              {myRecipes.map(({ _id, title, description, preview, time }) => (
+                <MyRecipesItem
+                  key={_id}
+                  description={description}
+                  preview={preview}
+                  time={time}
+                  title={title}
+                  id={_id}
+                  handleDelete={handleDelete}
+                />
+              ))}
+            </div>
+          )}
+        </section>
       )}
-    </section>
+    </div>
   );
 };
 

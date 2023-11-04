@@ -1,0 +1,87 @@
+.title {
+  margin: 0 auto;
+  width: 100%;
+}
+.titleText {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 50px auto;
+  /* position: absolute;
+  top: 114px;
+  left: 16px; */
+}
+.rectangle1 {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 3px;
+  top: 79px;
+  left: 120px;
+  transform: rotate(-25deg);
+}
+.rectangle2 {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 144px;
+  left: 247px;
+  border-radius: 4px;
+}
+.rectangle3 {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 111px;
+  left: 349px;
+  border-radius: 3px;
+  transform: rotate(-25deg);
+}
+@media screen and (min-width: 768px) {
+  .titleText {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .title {
+    padding: 72px 0 40px 0;
+  }
+  .rectangle1 {
+    top: 91px;
+    left: 219px;
+    width: 14px;
+    height: 14px;
+  }
+  .rectangle2 {
+    top: 160px;
+    left: 437px;
+    width: 12px;
+    height: 12px;
+  }
+  .rectangle3 {
+    top: 104px;
+    left: 726px;
+    width: 14px;
+    height: 14px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .titleText {
+    font-size: 44px;
+    line-height: 1;
+  }
+  .title {
+    padding: 104px 0 50px 0;
+  }
+  .rectangle1 {
+    top: 123px;
+    left: 328px;
+  }
+  .rectangle2 {
+    top: 204px;
+    left: 807px;
+  }
+  .rectangle3 {
+    top: 135px;
+    left: 1250px;
+  }
+}
