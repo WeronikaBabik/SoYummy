@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
 import css from "./UserLogo.module.css";
 import { selectUser } from "../../redux/auth/selectors";
-import { UserInfoModal } from "../UserInfoModal";
+// import { UserInfoModal } from "../UserInfoModal";
 
 const UserLogo = () => {
   const dispatch = useDispatch();
@@ -25,15 +25,15 @@ const UserLogo = () => {
   };
 
   // modal - dialog
-  const [openDialog, setOpenDialog] = useState(false);
+  // const [openDialog, setOpenDialog] = useState(false);
 
-  const handleEdit = () => {
-    setOpenDialog(true);
-  };
+  // const handleEdit = () => {
+  //   setOpenDialog(true);
+  // };
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
+  // const handleCloseDialog = () => {
+  //   setOpenDialog(false);
+  // };
 
   return (
     <>
@@ -43,7 +43,7 @@ const UserLogo = () => {
           <svg></svg>
         </button>
         {/* <img src="" alt="user avatar" className={css.userImg} /> */}
-        <p className={css.text}>Username</p>
+        <p className={css.text}>{user.name}</p>
       </div>
 
       <div
