@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+// import { selectIsLoggedIn } from "./selectors";
 
 axios.defaults.baseURL = "http://localhost:3001/api";
 
@@ -39,6 +40,7 @@ export const signin = createAsyncThunk(
     try {
       const response = await axios.post("/users/signin", payload);
       setAuthHeader(response.data.token);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
