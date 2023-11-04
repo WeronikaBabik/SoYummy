@@ -52,16 +52,16 @@ const UserLogo = () => {
         onClose={handleClose}
         open={open}
       >
-        <div>
+        {/* <div>
           <p>Edit Profile</p>
           <button onClick={handleEdit}>Edit</button>
-        </div>
+        </div> */}
         <button onClick={handleLogout}>
           <span>Logout</span>
         </button>
       </div>
 
-      <UserInfoModal open={openDialog} onCLose={handleCloseDialog} />
+      {/* <UserInfoModal open={openDialog} onCLose={handleCloseDialog} /> */}
     </>
   );
 };
