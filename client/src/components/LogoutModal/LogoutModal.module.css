@@ -1,0 +1,81 @@
+.dialogWindow {
+  padding: 50px;
+  position: absolute;
+  background-color: var(--main-white);
+  border-radius: 30px;
+  min-width: 500px;
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  top: 50vh;
+  left: 50vw;
+  margin-left: -1219px;
+  margin-top: -197px;
+  /* 
+    @media (min-width: 768px) {
+      padding: 10px;
+    } */
+}
+
+.closeButtonWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.closeButton {
+  position: absolute;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  top: -24px;
+  right: -24px;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.buttonsWrap {
+  display: flex;
+}
+.logoutButton {
+  background-color: var(--main-green);
+  color: var(--main-white);
+  font-size: 16px;
+  padding: 21px;
+  border-radius: 6px;
+  border-style: none;
+  margin-top: 26px;
+  margin-right: 16px;
+  width: 100%;
+  border: 1px solid var(--main-green);
+}
+
+.logoutButton:hover {
+  background-color: var(--buttons-dark);
+  border: 1px solid var(--buttons-dark);
+}
+
+.cancelButton {
+  color: var(--buttons-dark);
+  background-color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  padding: 21px;
+  border-radius: 6px;
+  border-style: none;
+  margin-top: 26px;
+  width: 100%;
+}
+
+.cancelButton:hover {
+  background-color: var(--main-white);
+  border: 1px solid var(--buttons-dark);
+}

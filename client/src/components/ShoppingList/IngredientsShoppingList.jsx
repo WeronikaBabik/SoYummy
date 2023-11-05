@@ -28,7 +28,6 @@ const IngredientsShoppingList = () => {
 
   return (
     <div className={css.shoppingList}>
-      <div className={css.title}>Shopping list</div>
       {isLoading ? (
         <Loader />
       ) : (

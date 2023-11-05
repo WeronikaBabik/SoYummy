@@ -14,8 +14,8 @@ export const CategoriesList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getAllCategoriesList();
-  }, []);
+    dispatch(getAllCategoriesList());
+  }, [dispatch]);
 
   const handleCategoryClick = (category) => {
     dispatch(setSelectedCategory(category));
@@ -27,7 +27,7 @@ export const CategoriesList = () => {
         {categories ? (
           <div className={css.list__container}>
             <ul className={css.cat__list}>
-              {categories.map((category, index) => (
+              {categories?.map((category, index) => (
                 <li
                   key={index}
                   className={`${css.cat__li} ${

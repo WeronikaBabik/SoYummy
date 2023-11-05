@@ -99,23 +99,22 @@ export const RecipeDescriptionFields = () => {
                 <option className={css.select__list} value="5 min">
                   5 min
                 </option>
-                <option className={css.select__list} value="10 min">
+                <option className={css.select__list} value="30 min">
                   10 min
                 </option>
-                <option className={css.select__list} value="15 min">
+                <option className={css.select__list} value="45 min">
                   15 min
                 </option>
-                <option className={css.select__list} value="20 min">
+                <option className={css.select__list} value="60 min">
                   20 min
                 </option>
-                <option className={css.select__list} value="25 min">
+                <option className={css.select__list} value="90 min">
                   25 min
                 </option>
-                <option value="30 min">30 min</option>
+                <option className={css.select__list} value="30 min">
+                  30 min
+                </option>
               </select>
-              {/* <button style={{ display: "none" }} type="submit">
-            Dodaj przepis
-          </button> */}
             </div>
           </form>
         </div>

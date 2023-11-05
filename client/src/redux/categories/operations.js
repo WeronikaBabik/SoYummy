@@ -6,12 +6,12 @@ axios.defaults.baseURL = "http://localhost:3001/api";
 // Pobieranie wszystkich kategorii
 export const getAllCategoriesList = createAsyncThunk(
   "categories/getAllCategoriesList",
-  async () => {
+  async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/recipes/category-list");
+      const response = await axios.get(`/category-list`);
       return response.data;
     } catch (error) {
-      throw new Error("Error loading categories", error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

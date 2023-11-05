@@ -4,6 +4,8 @@ import { getAllCategoriesList } from "./operations";
 const initialState = {
   categories: [],
   selectedCategory: "Beef",
+  isLoading: false,
+  error: null,
 };
 
 const categoriesSlice = createSlice({
@@ -18,9 +20,19 @@ const categoriesSlice = createSlice({
     },
   },
   extraReducers: (builder) =>
-    builder.addCase(getAllCategoriesList.fulfilled, (state, action) => {
-      state.categories = action.payload;
-    }),
+    builder
+      .addCase(getAllCategoriesList.pending, (state, { payload }) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllCategoriesList.fulfilled, (state, { payload }) => {
+        state.categories = payload;
+        state.isLoading = false;
+        state.error = "";
+      })
+      .addCase(getAllCategoriesList.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      }),
 });
 
 export const { setSelectedCategory } = categoriesSlice.actions;
