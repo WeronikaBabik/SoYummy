@@ -4,8 +4,8 @@ const usersRouter = require("./routes/api/users");
 const { recipesRouter } = require("./routes/api/recipes");
 const { searchRouter } = require("./routes/api/search");
 const { ingredientsRouter } = require("./routes/api/ingredients");
-//const { categoryRouter } = require("./routes/api/categorieslist");
 const { shoppingListRouter } = require("./routes/api/shoppingList");
+//const { categoryRouter } = require("./routes/api/categorieslist");
 
 const app = express();
 

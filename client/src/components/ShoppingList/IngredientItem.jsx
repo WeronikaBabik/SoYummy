@@ -1,7 +1,8 @@
+import IconClose from "../Icons/IconClose/IconClose";
 import css from "./ShoppingList.module.css";
 
 const IngredientItem = ({ ingredient, handleDelete }) => {
-  const { id, ttl, measure, thb } = ingredient;
+  const { id, ttl, number, thb } = ingredient;
   return (
     <section className={css.ingredient}>
       <div className={css.ingredientWrapper}>
@@ -10,12 +11,15 @@ const IngredientItem = ({ ingredient, handleDelete }) => {
         </div>
         <p className={css.nameOfIngredient}>{ttl}</p>
       </div>
-
       <div className={css.measureWrapper}>
-        <p className={css.amountOfIngredient}>{measure}</p>
-        <svg className={css.close} onClick={() => handleDelete(id)}>
-          <use href="./images/icons/icons.svg#icon-search"></use>
-        </svg>
+        <p className={css.amountOfIngredient}>{number}</p>
+        <button
+          autofocus
+          onClick={() => handleDelete(id)}
+          className={css.close}
+        >
+          <IconClose />
+        </button>
       </div>
     </section>
   );

@@ -1,5 +1,21 @@
 .shoppingList {
-  margin: 100px 0;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ingredients {
+  width: 343px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
 }
 .head {
   padding: 10px;
@@ -12,18 +28,19 @@
   font-size: 12px;
   line-height: 1.5;
   margin: 0 8px 32px 8px;
+  width: 359px;
 }
 .rightHead {
   display: flex;
   gap: 24px;
 }
-.ingredients {
-  display: flex;
-  flex-direction: column;
-  margin: 0 16px 100px 16px;
-}
 /* IngredientItem */
 .ingredient {
+  padding-top: 25px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-right: 10px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -66,11 +83,16 @@
   border-radius: 4px;
 }
 .close {
-  stroke: #000000;
-  fill: #000000;
-  width: 8px;
-  height: 8px;
-  z-index: 9;
+  border: 0;
+  background-color: inherit;
+}
+.close svg {
+  width: 7.88px;
+  height: 7.88px;
+  @media screen and (min-width: 768px) {
+    width: 11.25px;
+    height: 11.25px;
+  }
 }
 .empty {
   display: flex;
@@ -79,12 +101,34 @@
   align-items: center;
   gap: 50px;
 }
-
+.amountOfIngredient {
+  padding: 4px 8px;
+  line-height: 1.5;
+  width: 92px;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  align-items: center;
+  min-width: 37px;
+  height: auto;
+  background: var(--main-green);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.ingredientWrapper p {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+}
 @media screen and (min-width: 768px) {
   .head {
     padding: 20px;
     font-size: 18px;
     line-height: 1.5;
+    width: 704px;
   }
   .rightHead {
     gap: 78px;
@@ -92,9 +136,12 @@
   .ingredients {
     margin-top: 50px;
     gap: 44px;
+    width: 704px;
   }
   .ingredient {
     padding-bottom: 43px;
+    padding-top: 45px;
+    padding-right: 50px;
   }
   .imageOfIngredient {
     width: 93px;
@@ -105,23 +152,33 @@
     height: 81px;
   }
   .amountOfIngredient {
-    padding: 4px 8px;
+    min-width: 68px;
     font-size: 18px;
-    line-height: 1.5;
-    width: 92px;
   }
   .measureWrapper {
     gap: 110px;
   }
   .ingredientWrapper {
-    gap: 78px;
+    display: flex;
+  }
+  .ingredientWrapper p {
+    margin-left: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .shoppingList {
+    margin: 72px 0;
   }
 }
 @media screen and (min-width: 1280px) {
   .head {
     padding: 17px 40px;
+    width: 1240px;
   }
   .rightHead {
     gap: 142px;
   }
+}
+.ingredients {
+  width: 1160px;
 }
