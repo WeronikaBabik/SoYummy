@@ -66,3 +66,10 @@
 .logoutButtonText {
   padding-right: 4px;
 }
+
+/* modal */
+
+.isHidden {
+  pointer-events: none;
+  visibility: hidden;
+}
