@@ -65,53 +65,39 @@
   }
 }
 
-.categories__page {
+/* .container {
+  width: 100%;
+  max-width: 343px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* .container .box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-/* .rightbg__image {
-  position: absolute;
-  width: 160px;
-  height: auto;
-  bottom: -352px;
-  right: 10px;
 } */
+.hide {
+  display: none;
+}
 
 .leftbg__image {
   position: absolute;
   width: 256px;
   height: auto;
-  bottom: -160px;
+  bottom: -97em;
   z-index: -1;
 }
 
-.container {
-  width: 100vh;
-  min-width: 343px;
-}
-.h1 {
-  position: relative;
-  top: 50px;
-  left: 19%;
-  margin-bottom: 50px;
-  color: #001833;
-  font-feature-settings: "liga" off;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 28px; /* 100% */
-  letter-spacing: -0.56px;
-}
 .rectangle1 {
+  /* position: relative; */
   width: 9px;
   height: 9px;
   position: absolute;
   border-radius: 3px;
-  top: 20px;
-  left: -3em;
+  top: 50px;
+  left: 7em;
   transform: rotate(-25deg);
 }
 
@@ -119,29 +105,27 @@
   width: 6px;
   height: 6px;
   position: absolute;
-  top: 6em;
-  left: 3em;
+  top: 8em;
+  left: 15em;
   border-radius: 4px;
 }
 .rectangle3 {
   width: 9px;
   height: 9px;
   position: absolute;
-  top: 3em;
-  left: 10em;
+  top: 5em;
+  left: 21em;
   border-radius: 3px;
   transform: rotate(-25deg);
 }
 
 @media (min-width: 768px) {
-  .container {
-    width: 100vh;
-    min-width: 900px;
-  }
-  /* .rightbg__image {
-    width: 290px;
+  .leftbg__image {
+    width: 423px;
     height: auto;
-  } */
+    bottom: -105em;
+  }
+
   .rectangle1 {
     width: 14px;
     height: 14px;
@@ -161,23 +145,15 @@
     top: 4em;
     left: 18em;
   }
-
-  .h1 {
-    top: 70px;
-    left: 11%;
-  }
-  .leftbg__image {
-    width: 423px;
-    height: auto;
-    bottom: -290px;
-  }
 }
 
 @media (min-width: 1280px) {
-  .container {
-    width: 100%;
-    min-width: 1240px;
+  .leftbg__image {
+    width: 558px;
+    height: auto;
+    bottom: -11em;
   }
+
   .rectangle1 {
     left: -20em;
   }
@@ -188,21 +164,4 @@
   .rectangle3 {
     left: 32em;
   }
-
-  .h1 {
-    left: 3%;
-    font-size: 44px;
-    line-height: 44px;
-    letter-spacing: -0.88px;
-  }
-  .leftbg__image {
-    width: 558px;
-    height: auto;
-    bottom: -360px;
-  }
-  /* .rightbg__image {
-    width: 438px;
-    height: auto;
-   
-  } */
 }
