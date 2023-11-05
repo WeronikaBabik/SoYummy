@@ -31,7 +31,7 @@ const IngredientsShoppingList = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className={css.container}>
           {shoppingList.length > 0 && (
             <section>
               <div className={css.head}>
@@ -41,19 +41,20 @@ const IngredientsShoppingList = () => {
                   <p>Remove</p>
                 </div>
               </div>
-              <div className={css.ingredients}>{}</div>
             </section>
           )}
           {shoppingList.length === 0 ? (
             <EmptyShoppingList />
           ) : (
-            shoppingList?.map((ingredients) => (
-              <IngredientItem
-                ingredient={ingredients}
-                handleDelete={handleDelete}
-                key={ingredients._id}
-              />
-            ))
+            <div className={css.ingredients}>
+              {shoppingList?.map((ingredients) => (
+                <IngredientItem
+                  ingredient={ingredients}
+                  handleDelete={handleDelete}
+                  key={ingredients._id}
+                />
+              ))}
+            </div>
           )}
         </div>
       )}
