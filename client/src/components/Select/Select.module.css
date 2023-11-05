@@ -7,7 +7,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-label {
+/* label {
   color: #000;
 
   font-family: Poppins;
@@ -19,7 +19,7 @@ label {
   padding-top: 40px;
   padding-bottom: 18px;
   opacity: 0.3;
-}
+} */
 
 .select__box select {
   max-height: 100px;
@@ -27,7 +27,7 @@ label {
   display: flex;
   flex-direction: row;
 }
-select {
+.select {
   margin-top: 40px;
   border: none;
   background-color: transparent;
@@ -39,7 +39,7 @@ select {
   font-weight: 400;
   line-height: 14px;
   appearance: none;
-  background-image: url(""); /* Obrazek jako tło */
+  /* background-image: url(""); Obrazek jako tło */
   background-repeat: no-repeat;
   background-position: right center;
 }

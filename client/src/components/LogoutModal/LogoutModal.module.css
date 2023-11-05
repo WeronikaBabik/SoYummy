@@ -1,6 +1,5 @@
 .dialogWindow {
   padding: 50px;
-  position: absolute;
   background-color: var(--main-white);
   border-radius: 30px;
   min-width: 500px;
@@ -8,14 +7,10 @@
   display: flex;
   flex-direction: column;
   z-index: 999;
-  top: 50vh;
-  left: 50vw;
-  margin-left: -1219px;
-  margin-top: -197px;
-  /* 
-    @media (min-width: 768px) {
+
+  /* @media (min-width: 768px) {
       padding: 10px;
-    } */
+    }  */
 }
 
 .closeButtonWrap {
@@ -78,4 +73,24 @@
 .cancelButton:hover {
   background-color: var(--main-white);
   border: 1px solid var(--buttons-dark);
+}
+
+.isHidden {
+  pointer-events: none;
+  visibility: hidden;
+  display: none;
+}
+
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 9999;
 }
