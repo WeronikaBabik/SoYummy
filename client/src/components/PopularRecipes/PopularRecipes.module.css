@@ -65,144 +65,86 @@
   }
 }
 
-.categories__page {
+.popular__box {
+  width: 100%;
+  max-width: 343px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-/* .rightbg__image {
-  position: absolute;
-  width: 160px;
-  height: auto;
-  bottom: -352px;
-  right: 10px;
-} */
-
-.leftbg__image {
-  position: absolute;
-  width: 256px;
-  height: auto;
-  bottom: -160px;
-  z-index: -1;
-}
-
-.container {
-  width: 100vh;
-  min-width: 343px;
-}
-.h1 {
+  align-items: center;
   position: relative;
-  top: 50px;
-  left: 19%;
-  margin-bottom: 50px;
-  color: #001833;
-  font-feature-settings: "liga" off;
+  margin-top: 90px;
+  margin-bottom: 100px;
+}
+.popular__header {
+  color: var(--main-text);
+  font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 100% */
-  letter-spacing: -0.56px;
-}
-.rectangle1 {
-  width: 9px;
-  height: 9px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  margin-bottom: 32px;
   position: absolute;
-  border-radius: 3px;
-  top: 20px;
-  left: -3em;
-  transform: rotate(-25deg);
+  top: -50px;
+  left: 10px;
 }
 
-.rectangle2 {
-  width: 6px;
-  height: 6px;
-  position: absolute;
-  top: 6em;
-  left: 3em;
-  border-radius: 4px;
+.popular__item {
+  width: 100%;
+  max-width: 343px;
+  display: flex;
+  flex-direction: row;
 }
-.rectangle3 {
-  width: 9px;
-  height: 9px;
-  position: absolute;
-  top: 3em;
-  left: 10em;
-  border-radius: 3px;
-  transform: rotate(-25deg);
+
+.popular__title {
+  color: var(--main-text);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  padding-bottom: 4px;
+}
+.popular__img {
+  width: 104px;
+  height: auto;
+  border-radius: 8px;
+}
+.popular__decsr {
+  overflow: hidden;
+  color: #7e7e7e;
+  font-feature-settings: "clig" off, "liga" off;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.24px;
+}
+.descr__box {
+  width: 100%;
+  max-width: 212px;
+  margin-left: 13px;
+}
+.link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #d7d6d6;
+  margin-bottom: 24px;
 }
 
 @media (min-width: 768px) {
-  .container {
-    width: 100vh;
-    min-width: 900px;
-  }
-  /* .rightbg__image {
-    width: 290px;
-    height: auto;
-  } */
-  .rectangle1 {
-    width: 14px;
-    height: 14px;
-    left: -10em;
-    top: 30px;
-  }
-
-  .rectangle2 {
-    width: 9px;
-    height: 9px;
-    top: 10em;
-    left: 1em;
-  }
-  .rectangle3 {
-    width: 14px;
-    height: 14px;
-    top: 4em;
-    left: 18em;
-  }
-
-  .h1 {
-    top: 70px;
-    left: 11%;
-  }
-  .leftbg__image {
-    width: 423px;
-    height: auto;
-    bottom: -290px;
-  }
+  @content;
 }
 
 @media (min-width: 1280px) {
-  .container {
-    width: 100%;
-    min-width: 1240px;
-  }
-  .rectangle1 {
-    left: -20em;
-  }
-
-  .rectangle2 {
-    left: 10em;
-  }
-  .rectangle3 {
-    left: 32em;
-  }
-
-  .h1 {
-    left: 3%;
-    font-size: 44px;
-    line-height: 44px;
-    letter-spacing: -0.88px;
-  }
-  .leftbg__image {
-    width: 558px;
-    height: auto;
-    bottom: -360px;
-  }
-  /* .rightbg__image {
-    width: 438px;
-    height: auto;
-   
-  } */
+  @content;
 }
