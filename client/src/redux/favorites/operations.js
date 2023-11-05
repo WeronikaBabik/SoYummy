@@ -3,18 +3,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001/api";
 
-export const getAllCategoriesList = createAsyncThunk(
-  "categories/getAllCategoriesList",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get(`/categories/:category`);
-      return response.data;
-    } catch (error) {
-      throw thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
+// Pobieranie ulubionych przepisów
 export const fetchFavoriteRecipes = createAsyncThunk(
   "favorite/fetchFavoriteRecipes",
   async () => {
@@ -28,9 +17,23 @@ export const fetchFavoriteRecipes = createAsyncThunk(
   }
 );
 
+// Dodawanie przepisu do ulubionych
+export const addToFavorites = createAsyncThunk(
+  "favorite/addToFavorites",
+  async ({ id }) => {
+    try {
+      const response = await axios.post(`/favorite/${id}`);
+      return response.data;
+    } catch (error) {
+      throw new Error("Failed to add to favorites");
+    }
+  }
+);
+
+// Usuwanie przepisu z ulubionych
 export const removeFavoriteRecipe = createAsyncThunk(
   "favorite/removeFavoriteRecipe",
-  async (id) => {
+  async ({ id }) => {
     try {
       const response = await axios.delete(`/favorite/${id}`);
       return response.data;

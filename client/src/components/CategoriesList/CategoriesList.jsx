@@ -1,16 +1,21 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch, connect } from "react-redux";
 import {
   selectCategories,
   selectSelectedCategory,
-} from "../../redux/selectors";
-import { setSelectedCategory } from "../../redux/CategoriesRedux/categoriesSlice";
+} from "../../redux/categories/selectors";
+import { setSelectedCategory } from "../../redux/categories/categoriesSlice";
 import css from "./CategoriesList.module.css";
+import { getAllCategoriesList } from "../../redux/categories/operations";
 
 export const CategoriesList = () => {
   const categories = useSelector(selectCategories);
   const selectedCategory = useSelector(selectSelectedCategory);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    getAllCategoriesList();
+  }, []);
 
   const handleCategoryClick = (category) => {
     dispatch(setSelectedCategory(category));
@@ -47,4 +52,12 @@ export const CategoriesList = () => {
     </div>
   );
 };
-export default CategoriesList;
+
+const mapStateToProps = (state) => ({
+  categories: state.categories, // Przyjmij dane kategorii z Redux Store
+});
+
+export default connect(mapStateToProps, { getAllCategoriesList })(
+  CategoriesList
+);
+// export default CategoriesList;

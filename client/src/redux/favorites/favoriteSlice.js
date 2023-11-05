@@ -69,10 +69,13 @@ const favoriteRecipesSlice = createSlice({
         (recipe) => recipe.id !== action.payload.id
       );
     },
+    addToFavorites: (state, action) => {
+      state.favorite.push(action.payload);
+    },
   },
 });
 
-export const { setFavoriteRecipes, removeFavoriteRecipe } =
+export const { setFavoriteRecipes, removeFavoriteRecipe, addToFavorites } =
   favoriteRecipesSlice.actions;
 
 export const favoriteReducer = favoriteRecipesSlice.reducer;
