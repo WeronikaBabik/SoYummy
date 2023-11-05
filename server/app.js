@@ -4,7 +4,7 @@ const usersRouter = require("./routes/api/users");
 const { recipesRouter } = require("./routes/api/recipes");
 const { searchRouter } = require("./routes/api/search");
 const { ingredientsRouter } = require("./routes/api/ingredients");
-//const { categoryRouter } = require("./routes/api/categorieslist");
+const { categoryRouter } = require("./routes/api/categorieslist");
 const { shoppingListRouter } = require("./routes/api/shoppingList");
 
 const app = express();
@@ -19,7 +19,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/recipes", recipesRouter);
 app.use("/api/search", searchRouter);
 app.use("/api/ingredients", ingredientsRouter);
-//app.use("/api/category", categoryRouter);
+app.use("/api/category", categoryRouter);
 app.use("/api/shopping-list", shoppingListRouter);
 
 module.exports = { app };
