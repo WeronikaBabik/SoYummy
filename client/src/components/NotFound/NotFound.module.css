@@ -5,6 +5,10 @@
   align-items: center;
   flex-direction: column;
 }
+.notFoundImage {
+  width: 259px;
+  height: 170px;
+}
 .notFoundText {
   opacity: 0.5;
   font-size: 14px;
@@ -28,5 +32,9 @@
   .sorryText {
     font-size: 24px;
     margin-top: 32px;
+  }
+  .notFoundImage {
+    width: 498px;
+    height: 327px;
   }
 }

@@ -9,6 +9,7 @@ const { favoriteRouter } = require("./routes/api/favorite");
 const { categoryRouter } = require("./routes/api/categorieslist");
 const { popularRecipeRouter } = require("./routes/api/popularRecipe");
 const { shoppingListRouter } = require("./routes/api/shoppingList");
+//const { categoryRouter } = require("./routes/api/categorieslist");
 
 const app = express();
 

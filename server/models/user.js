@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { ObjectId, String, Boolean } = Schema.Types;
 
 const userSchema = new Schema({
   name: {
@@ -19,7 +20,7 @@ const userSchema = new Schema({
     default: [],
   },
   shoppingList: {
-    type: [],
+    type: Array,
     default: [],
   },
 });
