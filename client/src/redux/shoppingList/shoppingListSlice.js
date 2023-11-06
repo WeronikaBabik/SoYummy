@@ -33,7 +33,7 @@ const shoppingSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteFromShoppingList.fulfilled, (state, { payload }) => {
-        state.items = state.items.filter((e) => e.ingredientId !== payload);
+        state.items = state.items.filter((e) => e.iid !== payload);
         state.isLoading = false;
         state.error = "";
       })

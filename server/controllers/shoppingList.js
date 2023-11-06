@@ -11,7 +11,6 @@ const {
 const getShoppingListHandler = async (req, res, next) => {
   try {
     const owner = req.userId;
-    console.log(owner);
     //const user = await User.findOne({ owner });
     // const shoppingList = await getShoppingList(user);
     const shoppingList = await ShoppingList.find({ owner });
@@ -56,16 +55,15 @@ const addToShoppingListHandler = async (req, res, next) => {
 
 const deleteFromShoppingListHandler = async (req, res, next) => {
   try {
-    const { _id: owner } = req.user;
-    const { iid, number } = req.body;
-    const result = await deleteFromShoppingList(owner, iid, number);
-
+    const owner = req.userId;
+    const { iid } = req.body;
+    const result = await deleteFromShoppingList(owner, iid);
     if (!result) {
       return res.status(404).json({
-        message: "There is no shopping list",
+        message: "There is nothing to delete",
       });
     }
-    res.status(204).json({ newShoppingList });
+    res.status(204).json({ message: "Ingredient was deleted" });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
