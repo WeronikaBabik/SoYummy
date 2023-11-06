@@ -9,6 +9,10 @@ const shoppingListRouter = express.Router();
 
 shoppingListRouter.get("/list", authMiddleware, getShoppingListHandler);
 shoppingListRouter.post("/add", authMiddleware, addToShoppingListHandler);
-// shoppingListRouter.delete("/remove-ingredient", authMiddleware, deleteFromShoppingListHandler);
+shoppingListRouter.delete(
+  "/remove",
+  authMiddleware,
+  deleteFromShoppingListHandler
+);
 
 module.exports = { shoppingListRouter };
