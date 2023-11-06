@@ -13,7 +13,7 @@ import IconLogo from "../Icons/IconLogo/IconLogo";
 const SharedLayout = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <div>
+    <div className={s.sharedLayoutContainer}>
       {isLoggedIn && (
         <header className={s.header}>
           <Link to="/">
@@ -48,7 +48,7 @@ const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      {isLoggedIn && <Footer />}
+      {isLoggedIn && <Footer className={s.footer__absolute}/>}
     </div>
   );
 };

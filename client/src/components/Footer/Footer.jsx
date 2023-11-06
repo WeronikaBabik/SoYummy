@@ -60,8 +60,8 @@ const Footer = () => {
                             <h3>Subscribe to our Newsletter</h3>
                             <span>Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</span>
                         </div>
-                        <label>
-                            <input type="email" name="email" placeholder="Enter your email address" />
+                        <label className={s.footerFormLabel}>
+                            <input type="email" name="email" placeholder="Enter your email address" className={s.footerFormInput}/>
                         </label>
                         <button type="submit">Subscribe</button>
                     </form>
