@@ -113,9 +113,14 @@
 }
 .preview_categories_title {
         font-weight: 600;
+        font-size: 28px;
         text-align: left;
         color: #001833;
         margin-bottom: 22px;
+
+        @media screen and (min-width: 1280px) {
+            font-size: 44px;
+            }
 }
 .preview_categories_wrapper {
     position: relative;

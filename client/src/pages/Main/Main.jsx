@@ -15,7 +15,7 @@ const Main = () => {
     };
 
     return (
-        <div>
+        <div className={s.main}>
             <div className={s.heroHeader}>
                 <h1 className={s.heroHeaderHeading}><span>So</span>Yummy</h1>
                 <p className={s.heroHeaderDescription}>
@@ -31,10 +31,10 @@ const Main = () => {
                 <PreviewCategories selectedCategory="Dessert" title="Desserts" params="dessert" />
             </div>
             <div className={s.other_categories_container}>
-            <Link to="/categories/:categoryName" className={s.other_categories}>
-                Other categories
+                <Link to="/categories/:categoryName" className={s.other_categories}>
+                    Other categories
                 </Link>
-                </div>
+            </div>
         </div>
             
     );

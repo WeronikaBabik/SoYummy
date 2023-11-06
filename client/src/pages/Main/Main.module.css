@@ -95,7 +95,6 @@
 .other_categories_container {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
 }
 .other_categories {
     color: #22252A;
@@ -106,4 +105,19 @@
     border-bottom-left-radius: 40px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+.main {
+    padding-bottom: 50px;
+    background-image: url('/src/images/backgrounds/footer-leaves-left-mobile.png');
+    background-repeat: no-repeat;
+    background-position: left 2600px;
+
+    @media screen and (min-width: 768px) {
+            background-image: url('/src/images/backgrounds/footer-leaves-left-tablet.png');
+            background-position: left 2400px;
+    
+            @media screen and (min-width: 1280px) {
+                background-image: url('/src/images/backgrounds/footer-leaves-left-desktop.png');
+            }
+        }
 }
