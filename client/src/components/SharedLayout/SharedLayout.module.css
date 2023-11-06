@@ -2,6 +2,15 @@
   position: relative;
   min-height: 100vh;
 }
+.sharedLayoutContainer.homePage {
+  background-image: url('/src/images/backgrounds/main-background-tablet.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  
+    @media screen and (min-width: 1280px) {
+      background-image: url('/src/images/backgrounds/main-background-desktop.png');
+    }
+}
 .footer__absolute {
   position: absolute;
     bottom: 0;

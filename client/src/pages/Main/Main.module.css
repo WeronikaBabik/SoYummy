@@ -6,7 +6,7 @@
                       url('/src/images/backgrounds/main-background-mobile.png'),
                       url('/src/images/backgrounds/main-leaves-left-mobile.png');
     background-repeat: no-repeat;
-    background-position: center, right bottom, right bottom, left top;
+    background-position: center, right bottom, right top, left top;
 
     @media screen and (min-width: 768px) {
         height: 640px;
@@ -118,6 +118,7 @@
     
             @media screen and (min-width: 1280px) {
                 background-image: url('/src/images/backgrounds/footer-leaves-left-desktop.png');
+                background-position: left 2430px;
             }
         }
 }
