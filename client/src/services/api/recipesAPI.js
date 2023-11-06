@@ -114,25 +114,25 @@ export const postUserInfo = async (info) => {
 //   }
 // };
 
-// export const postShoppingList = async (info) => {
-//   try {
-//     const { data } = await axios.post(`/user-info/shopping-list`, info);
-//     return data;
-//   } catch (error) {
-//     console.log(error.message);
-//     return null;
-//   }
-// };
+export const postShoppingList = async (info) => {
+  try {
+    const { data } = await axios.post(`/user-info/shopping-list`, info);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
 
-// export const patchShoppingList = async (info) => {
-//   try {
-//     const { data } = await axios.patch(`/user-info/shopping-list`, info);
-//     return data;
-//   } catch (error) {
-//     console.log(error.message);
-//     return null;
-//   }
-// };
+export const patchShoppingList = async (info) => {
+  try {
+    const { data } = await axios.patch(`/user-info/shopping-list`, info);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
 
 export const deleteShoppingList = async (body) => {
   try {
