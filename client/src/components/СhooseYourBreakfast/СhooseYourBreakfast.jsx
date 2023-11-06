@@ -7,7 +7,7 @@ const СhooseYourBreakfast = () => {
             <p className={s.blockText}>
                 <span>Delicious and healthy</span> way to enjoy a variety of fresh ingredients in one satisfying meal
             </p>
-            <Link className={s.blockLink} to="/categories/:categoryName">
+            <Link className={s.blockLink} to="/categories/:breakfast">
                 See recipes
             </Link>
         </div>
