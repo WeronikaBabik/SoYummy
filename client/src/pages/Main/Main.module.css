@@ -87,3 +87,23 @@
                 }
         }
 }
+.previewCategories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.other_categories_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.other_categories {
+    color: #22252A;
+    border: 2px solid #8BAA36;
+    text-decoration: none;
+    padding: 20px 30px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

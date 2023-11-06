@@ -4,11 +4,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectRecipes, selectSelectedCategory } from "../../redux/selectors";
 
-const PreviewCategories = ({ selectedCategory }) => {
+const PreviewCategories = ({ selectedCategory, title, params }) => {
     const [isLoading, setIsLoading] = useState(false);
     const allRecipes = useSelector(selectRecipes);
-
-    // Ilość przepisów na stronie
     const [recipesPerPage, setRecipesPerPage] = useState(1);
 
     const determineRecipesPerPage = () => {
@@ -39,11 +37,7 @@ const PreviewCategories = ({ selectedCategory }) => {
 
     const startIndex = currentPage * recipesPerPage;
     const endIndex = startIndex + recipesPerPage;
-
-    // Filtruj przepisy na podstawie wybranej kategorii
     const recipesByCategory = allRecipes.filter((recipe) => recipe.category === selectedCategory);
-
-    // const totalPages = Math.ceil(recipesByCategory.length / recipesPerPage);
     const recipesToDisplay = recipesByCategory.slice(startIndex, endIndex);
 
     const handlePageChange = (pageNumber) => {
@@ -52,7 +46,8 @@ const PreviewCategories = ({ selectedCategory }) => {
     };
 
     return (
-        <div className={s.preview__categories}>
+        <div className={s.preview_categories_wrapper}>
+            <h2 className={s.preview_categories_title}>{title}</h2>
             <div className={s.recipes__box}>
                 {isLoading ? (
                     <p>Loader...</p>
@@ -69,6 +64,9 @@ const PreviewCategories = ({ selectedCategory }) => {
                     <p>No recipes found</p>
                 )}
             </div>
+            <Link className={s.see_all_button} to={`/categories/:${params}`}>
+                See all
+            </Link>
         </div>
     );
 };

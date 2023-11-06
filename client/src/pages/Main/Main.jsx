@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import СhooseYourBreakfast from "../../components/СhooseYourBreakfast/СhooseYourBreakfast";
 import SearchComponent from "../../components/SearchComponent/SearchComponent";
@@ -23,10 +24,17 @@ const Main = () => {
                 <SearchComponent value={ingredientName} onChange={updateQueryString} />
                 <СhooseYourBreakfast />
             </div>
-            <PreviewCategories selectedCategory="Breakfast" />
-            <PreviewCategories selectedCategory="Miscellaneous" />
-            <PreviewCategories selectedCategory="Chicken" />
-            <PreviewCategories selectedCategory="Dessert" />
+            <div className={s.previewCategories}>
+                <PreviewCategories selectedCategory="Breakfast" title="Breakfast" params="breakfast" />
+                <PreviewCategories selectedCategory="Miscellaneous" title="Miscellaneous" params="miscellaneous" />
+                <PreviewCategories selectedCategory="Chicken" title="Chicken" params="chicken" />
+                <PreviewCategories selectedCategory="Dessert" title="Desserts" params="dessert" />
+            </div>
+            <div className={s.other_categories_container}>
+            <Link to="/categories/:categoryName" className={s.other_categories}>
+                Other categories
+                </Link>
+                </div>
         </div>
             
     );
