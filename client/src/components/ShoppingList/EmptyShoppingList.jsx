@@ -22,8 +22,8 @@ export const EmptyShoppingList = () => {
         <img
           src={searchDesktop2}
           alt="Shopping list is empty"
-          height="700px"
-          width="450px"
+          height="337px"
+          width="525px"
         />
       </picture>
     </div>

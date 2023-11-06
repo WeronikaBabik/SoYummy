@@ -62,10 +62,23 @@
     letter-spacing: 0.20000000298023224px;
     color: #3E4462;
     text-decoration: none;
-    margin-left: 130px;
+    margin-left: 120px;
     cursor: pointer;
 
-    @media screen and (min-width: 1280px) {
-        margin-left: 180px;
+    @media screen and (min-width: 768px) {
+        margin-left: 150px;
+
+        @media screen and (min-width: 1280px) {
+                margin-left: 190px;
+            }
     }
+}
+.blockLink::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url('data:image/svg+xml;utf8,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 9H15M15 9L10.5 4.5M15 9L10.5 13.5" stroke="%233E4462" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>') center no-repeat;
+    margin-left: 5px;
+    vertical-align: middle;
 }

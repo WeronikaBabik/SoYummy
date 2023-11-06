@@ -1,3 +1,226 @@
-.myRecipeList {
-  margin-top: 50px;
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.myRecipe {
+  min-width: 343px;
+  margin: 50px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+.myRecipe__item {
+  display: flex;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  margin-bottom: 18px;
+  position: relative;
+  padding: 14px 9px;
+}
+.myRecipesEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.myRecipe__image {
+  max-width: 124px;
+  height: auto;
+  border-radius: 8px;
+}
+.myRecipe__itemInfo {
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-width: 153px;
+  max-height: 124px;
+  white-space: wrap;
+}
+.myRecipe__itemTitle {
+  color: var(--main-text);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.24px;
+  margin-left: 14px;
+}
+.myRecipe__itemDesc {
+  overflow: hidden;
+  max-height: 57px;
+  color: #23262a;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  font-family: Poppins;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: -0.16px;
+  margin-left: 14px;
+  margin-top: 14px;
+}
+.myRecipe__itemTime {
+  color: var(--navigation-dark);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.24px;
+  position: absolute;
+  bottom: -10%;
+  margin-left: 14px;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+.btnDelete {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #8baa36;
+  border: none;
+  cursor: pointer;
+  padding-top: 4px;
+}
+.btnDelete :hover {
+  fill: black;
+  transition: fill 0.3s ease;
+}
+.btnLink {
+  text-decoration: none;
+  border: none;
+}
+.link {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+.btnText {
+  color: #fafafa;
+  position: absolute;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+  z-index: 1;
+  bottom: -23%;
+  right: 10px;
+  cursor: pointer;
+}
+.svg {
+  width: 129px;
+  height: 46px;
+  margin-top: 18px;
+  fill: #8baa36;
+}
+.svg:hover {
+  fill: black;
+  transition: fill 0.3s ease;
+}
+@media screen and (min-width: 768px) {
+  .myRecipe {
+    min-width: 704px;
+    margin: 100px 32px 0 32px;
+  }
+  .myRecipe__item {
+    max-width: 1239px;
+    height: 288px;
+    margin-bottom: 40px;
+    padding: 28px 24px;
+  }
+  .myRecipe__image {
+    min-width: 228px;
+  }
+  .myRecipe__itemInfo {
+    min-width: 298px;
+    max-height: 232px;
+  }
+  .myRecipe__itemTitle {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+    margin-left: 24px;
+  }
+  .myRecipe__itemDesc {
+    max-height: 57px;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+    margin-left: 24px;
+    margin-top: 28px;
+  }
+  .myRecipe__itemTime {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.24px;
+    bottom: 10%;
+    margin-left: 24px;
+  }
+  .btnDelete {
+    width: 38px;
+    height: 38px;
+  }
+  .btnText {
+    color: #fafafa;
+    font-size: 14px;
+    bottom: 7%;
+    right: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .myRecipe {
+    min-width: 1240px;
+  }
+  .myRecipe__item {
+    max-width: 1240px;
+    height: auto;
+    margin-bottom: 50px;
+    padding: 40px;
+  }
+  .myRecipe__image {
+    min-width: 318px;
+  }
+  .myRecipe__itemInfo {
+    min-width: 678px;
+    max-height: 324px;
+  }
+  .myRecipe__itemTitle {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+    margin-left: 40px;
+  }
+  .myRecipe__itemDesc {
+    max-height: 200px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    margin-left: 40px;
+    margin-top: 50px;
+  }
+  .myRecipe__itemTime {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.24px;
+    bottom: 10%;
+    margin-left: 40px;
+    display: block ruby;
+  }
+  .btnDelete {
+    width: 44px;
+    height: 44px;
+  }
+  .btnText {
+    color: var(--main-white);
+    font-size: 14px;
+    bottom: 7%;
+  }
 }

@@ -1,0 +1,120 @@
+:root {
+  /* ------main colors----- */
+  --main-green: #8baa36;
+  --main-black: #1e1f28;
+  --main-white: #fafafa;
+  --main-text: #3e4462;
+  --total-white: #ffffff;
+  /*------background colors------*/
+  --background-main-dark: #1e1f28;
+  --background-additional-dark: #2a2c36;
+  --background-light-green: #ebf3d4;
+  /*-----registration colors-----*/
+  --warning: #f6c23e;
+  --error: #e74a3b;
+  --success: #3cbc81;
+  /*-----other colors-----*/
+  --grey: #d9d9d9;
+  --categories-dark: #001833;
+  --buttons-dark: #22252a;
+  --heading-dark: #001833;
+  --navigation-dark: #23262a;
+}
+
+@mixin mobile-retina {
+  @media (max-width: 767px),
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin tablet-retina {
+  @media (min-width: 768px),
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+@mixin desktop-retina {
+  @media (min-width: 1280px),
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+.prep__box {
+  padding: 24px 16px 0 16px;
+  width: 100%;
+  max-width: 343px;
+}
+
+.title {
+  color: #3e4462;
+  font-feature-settings: "liga" off;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 100% */
+  letter-spacing: -0.48px;
+  margin-top: 50px;
+}
+.textarea {
+  width: 100%;
+  max-width: 343px;
+  height: 154px;
+  margin-top: 40px;
+  background-color: #d9d9d9;
+  border: none;
+  outline: none;
+  opacity: 0.5;
+  padding: 10px 0 0 16px;
+}
+
+.btn__add {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+
+.add__text {
+  position: absolute;
+  z-index: 1;
+  color: #fafafa;
+  top: 68em;
+  left: 4em;
+}
+
+.svg__btn {
+  width: 129px;
+  height: 46px;
+  margin-top: 18px;
+}
+
+.svg__btn:hover {
+  fill: #8baa36;
+  transition: fill 0.3s ease;
+}

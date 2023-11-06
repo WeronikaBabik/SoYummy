@@ -1,0 +1,61 @@
+.top {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  background-image: url("../../../images/backgrounds/square-green-mobile@2x.png"),
+    url("../../../images/backgrounds/square-dark-mobile@2x.png"),
+    url("../../../images/backgrounds/square-green-mobile@2x.png");
+  background-repeat: no-repeat;
+  background-size: 10px 10px, 7px 7px, 10px 10px;
+  background-position: top 20px left 130px, top 85px left 300px,
+    top 50px left 450px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+/* .bottom {
+  z-index: 9;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background-image: url("../../../images/backgrounds/footer-leaves-left-mobile@2x.png"),
+    url("../../../images/backgrounds/footer-leaves-right-mobile@2x.png");
+  background-repeat: no-repeat;
+  background-size: 630px 972px, 438px 474px;
+  background-position: top 1000px left 500px, top 1500px left 500px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.leaves {
+  width: 100%;
+}
+.leftLeaves {
+  float: left;
+}
+.rightLeaves {
+  bottom: 0;
+} */
+@media screen and (min-width: 768px) {
+  .top {
+    background-image: url("../../../images/backgrounds/square-green-desktop-tablet@2x.png"),
+      url("../../../images/backgrounds/square-dark-desktop-tablet@2x.png"),
+      url("../../../images/backgrounds/square-green-desktop-tablet@2x.png");
+    background-size: 18px 18px, 15px 15px, 18px 18px;
+    background-position: top 20px left 180px, top 95px left 400px,
+      top 45px left 682px;
+    padding-bottom: 40px;
+    padding-top: 72px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .top {
+    background-image: url("../../../images/backgrounds/square-green-desktop-tablet@2x.png"),
+      url("../../../images/backgrounds/square-dark-desktop-tablet@2x.png"),
+      url("../../../images/backgrounds/square-green-desktop-tablet@2x.png");
+    padding-bottom: 50px;
+    padding-top: 104px;
+    background-position: top 52px left 340px, top 140px left 730px,
+      top 60px left 1400px;
+  }
+}

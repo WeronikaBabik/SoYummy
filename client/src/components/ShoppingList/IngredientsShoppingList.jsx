@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import IngredientItem from "./IngredientItem";
 import css from "./ShoppingList.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   deleteFromShoppingList,
   getShoppingList,
@@ -17,22 +17,20 @@ const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
   const shoppingList = useSelector(shoppingListSelector);
   const isLoading = useSelector(isLoadingSelector);
-
+  const [list, setList] = useState(null);
   useEffect(() => {
-    dispatch(getShoppingList());
-  }, [dispatch]);
-
-  const handleDelete = (id) => {
-    dispatch(deleteFromShoppingList(id));
-  };
+    if (shoppingList.length <= 0 && list === null) {
+      dispatch(getShoppingList());
+    }
+    setList(shoppingList);
+  }, [dispatch, shoppingList]);
 
   return (
     <div className={css.shoppingList}>
-      <div className={css.title}>Shopping list</div>
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className={css.container}>
           {shoppingList.length > 0 && (
             <section>
               <div className={css.head}>
@@ -42,19 +40,22 @@ const IngredientsShoppingList = () => {
                   <p>Remove</p>
                 </div>
               </div>
-              <div className={css.ingredients}>{}</div>
             </section>
           )}
           {shoppingList.length === 0 ? (
             <EmptyShoppingList />
           ) : (
-            shoppingList?.map((ingredients) => (
-              <IngredientItem
-                ingredient={ingredients}
-                handleDelete={handleDelete}
-                key={ingredients._id}
-              />
-            ))
+            <div className={css.ingredients}>
+              {shoppingList?.map(({ iid, thb, ttl, number, _id }) => (
+                <IngredientItem
+                  iid={iid}
+                  thb={thb}
+                  ttl={ttl}
+                  number={number}
+                  key={_id}
+                />
+              ))}
+            </div>
           )}
         </div>
       )}

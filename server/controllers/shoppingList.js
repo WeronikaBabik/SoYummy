@@ -1,3 +1,7 @@
+const { Ingredients } = require("../models/ingredients");
+const { Recipes } = require("../models/recipes");
+const { ShoppingList } = require("../models/shoppingList");
+const { User } = require("../models/user");
 const {
   getShoppingList,
   addToShoppingList,
@@ -6,9 +10,13 @@ const {
 
 const getShoppingListHandler = async (req, res, next) => {
   try {
-    const { _id: owner } = req.user;
-    const shoppingList = await getShoppingList(owner);
-    res.status(200).json({ shoppingList });
+    const owner = req.userId;
+    //const user = await User.findOne({ owner });
+    // const shoppingList = await getShoppingList(user);
+    const shoppingList = await ShoppingList.find({ owner });
+    res.status(200).json({
+      shoppingList,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
@@ -17,12 +25,20 @@ const getShoppingListHandler = async (req, res, next) => {
 
 const addToShoppingListHandler = async (req, res, next) => {
   try {
-    const { _id: owner } = req.user;
+    const userId = req.userId;
+    const owner = await User.findOne({ _id: userId });
     const { iid, number } = req.body;
-    const ingredient = { iid, number };
-
-    const shoppingList = await addToShoppingList(owner, ingredient);
-
+    const ingredientId = await Ingredients.findById(iid);
+    const { ttl, thb } = ingredientId;
+    const addToShoppingList = {
+      iid,
+      ttl,
+      thb,
+      number,
+      owner,
+    };
+    // const shoppingList = await addToShoppingList(user, ingredient);
+    const shoppingList = await ShoppingList.create(addToShoppingList);
     if (!shoppingList) {
       return res.status(404).json({
         message: "There is no such ingredient",
@@ -39,21 +55,22 @@ const addToShoppingListHandler = async (req, res, next) => {
 
 const deleteFromShoppingListHandler = async (req, res, next) => {
   try {
-    const { _id: owner } = req.user;
-    const { iid, number } = req.body;
-    const result = await deleteFromShoppingList(owner, iid, number);
-
+    const owner = req.userId;
+    const { iid } = req.body;
+    const result = await deleteFromShoppingList(owner, iid);
     if (!result) {
       return res.status(404).json({
-        message: "There is no shopping list",
+        message: "There is nothing to delete",
       });
     }
-    res.status(204).json({ newShoppingList });
+    res.status(204).json({ message: "Ingredient was deleted" });
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 };
+
 module.exports = {
   getShoppingListHandler,
   addToShoppingListHandler,

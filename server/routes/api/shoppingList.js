@@ -4,10 +4,16 @@ const {
   deleteFromShoppingListHandler,
   addToShoppingListHandler,
 } = require("../../controllers/shoppingList");
+const { authMiddleware } = require("../../auth/auth.middleware");
 const shoppingListRouter = express.Router();
 
-shoppingListRouter.get("/list", getShoppingListHandler);
-// shoppingListRouter.post("/add-ingredient", addToShoppingListHandler);
-// shoppingListRouter.delete("/remove-ingredient", deleteFromShoppingListHandler);
+
+shoppingListRouter.get("/list", authMiddleware, getShoppingListHandler);
+shoppingListRouter.post("/add", authMiddleware, addToShoppingListHandler);
+shoppingListRouter.delete(
+  "/remove",
+  authMiddleware,
+  deleteFromShoppingListHandler
+);
 
 module.exports = { shoppingListRouter };

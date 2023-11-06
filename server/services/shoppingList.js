@@ -1,39 +1,51 @@
 const { Ingredients } = require("../models/ingredients");
 const { ShoppingList } = require("../models/shoppingList");
+const { User } = require("../models/user");
 
-const getShoppingList = async (owner) => {
-  const result = await ShoppingList.find({
-    owner,
-  });
-  return result;
+const getShoppingList = async (id) => {
+  try {
+    const result = await User.find({ id });
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const addToShoppingList = async (owner, ingredient) => {
-  const { iid, number } = ingredient;
-  const ingredientId = await Ingredients.findById(iid);
+  try {
+    const { iid, number } = ingredient;
+    const ingredientId = await Ingredients.findById(iid);
 
-  if (!ingredientId) {
-    return null;
+    if (!ingredientId) {
+      return null;
+    }
+
+    const { ttl, thb } = ingredientId;
+    const addToShoppingList = {
+      iid,
+      ttl,
+      thb,
+      number,
+      owner,
+    };
+
+    const result = await ShoppingList.create(addToShoppingList);
+    return result;
+  } catch (error) {
+    console.error(error);
   }
-  const { ttl, thb } = ingredientId;
-  const ingredientToShoppingList = {
-    iid,
-    ttl,
-    thb,
-    number,
-    owner,
-  };
-  const result = await ShoppingList.create(ingredientToShoppingList);
-  return result;
 };
 
-const deleteFromShoppingList = async (owner, iid, number) => {
-  const result = await ShoppingList.findOneAndDelete({
-    owner,
-    iid,
-    number,
-  });
-  return result;
+const deleteFromShoppingList = async (owner, iid) => {
+  try {
+    const result = await ShoppingList.findOneAndDelete({
+      owner,
+      iid,
+    });
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 module.exports = {

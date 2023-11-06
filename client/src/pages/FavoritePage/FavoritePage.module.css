@@ -64,6 +64,10 @@
     @content;
   }
 }
+.container {
+  width: 100%;
+  max-width: 343px;
+}
 
 .favorite__box {
   width: calc(100% - 28px);
@@ -71,6 +75,7 @@
   flex-direction: column;
   min-width: 343px;
   margin: 0 16px 40px 16px;
+  /* padding-right: 5px; */
 }
 .h2 {
   color: #001833;
@@ -127,7 +132,7 @@
 }
 
 .recipe__img {
-  min-width: 124px;
+  max-width: 124px;
   height: auto;
   border-radius: 8px;
 }
@@ -236,9 +241,12 @@
   transition: fill 0.3s ease;
 }
 .leftbg__image {
-  position: relative;
-  width: 100vh;
+  position: absolute;
+  width: 256px;
   height: auto;
+  bottom: -170px;
+  left: -1px;
+  z-index: -1;
 }
 
 .pagination__box {
@@ -253,6 +261,7 @@
   display: flex;
   padding: 20px;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 .prev__btn {
   border: none;
@@ -293,11 +302,15 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    width: 100%;
+    max-width: 704px;
+  }
   .favorite__box {
     width: calc(100% - 64px);
     min-width: 704px;
     margin: 0 32px 40px 32px;
-    /* align-items: center; */
+    /* padding-right: 0; */
   }
 
   .h2 {
@@ -382,7 +395,7 @@
     font-size: 14px;
     bottom: 7%;
     right: 30px;
-  } 
+  }
 
   .svg__btn {
     width: 138px;
@@ -406,20 +419,27 @@
   .next__btn {
     font-size: 20px;
   }
+
+  .leftbg__image {
+    width: 423px;
+    bottom: -280px;
+  }
 }
 
 @media (min-width: 1280px) {
   .favorite__box {
-    width: calc(100% - 200);
-    min-width: 1240px;
-    margin: 100px 100px 50px 100px;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0;
+    padding: 0;
+    /* margin: 100px 100px 50px 100px; */
+    /* padding-right: 30em; */
   }
 
   .h2 {
     font-size: 44px;
     line-height: 44px;
     letter-spacing: -0.88px;
-    padding-left: 100px;
   }
   .rectangle1 {
     width: 17px;
@@ -441,9 +461,9 @@
     left: 72em;
   }
   .recipe__card {
-    width: calc(100% - 40px);
-    max-width: 1239px;
-    height: 404px;
+    width: 100%;
+    max-width: 1240px;
+    height: auto;
     margin-bottom: 50px;
     padding: 40px;
   }
@@ -477,6 +497,7 @@
     letter-spacing: -0.24px;
     bottom: 10%;
     margin-left: 40px;
+    display: block ruby;
   }
 
   .delete__btn {
@@ -489,7 +510,7 @@
     font-size: 14px;
     bottom: 7%;
     right: 40px;
-  } 
+  }
 
   .svg__btn {
     width: 160px;
@@ -500,6 +521,9 @@
 
   .pagination__box {
     height: 55px;
+    position: relative;
+    margin-bottom: 100px;
+    left: 380px;
   }
   .prev__btn {
     font-size: 25px;
@@ -521,5 +545,17 @@
     position: relative;
     bottom: 0.3em;
     padding-right: 10px;
+  }
+  .leftbg__image {
+    width: 558px;
+    bottom: -370px;
+  }
+
+  .box .even__box {
+    position: relative;
+    display: flex;
+    right: 400px;
+    align-items: center;
+    justify-content: center;
   }
 }

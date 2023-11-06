@@ -1,8 +1,8 @@
 import storage from "redux-persist/lib/storage";
 import { configureStore } from "@reduxjs/toolkit";
-import { categoriesReducer } from "./CategoriesRedux/categoriesSlice";
-import { recipeReducer } from "./CategoriesRedux/recipesSlice";
-import { searchReducer } from "../redux/search/searchSlice"; // Dodaj import searchReducer
+import { categoriesReducer } from "./categories/categoriesSlice";
+import { popularRecipesReducer, recipeReducer } from "./recipes/recipesSlice";
+import { searchReducer } from "../redux/search/searchSlice";
 import {
   persistStore,
   persistReducer,
@@ -14,9 +14,9 @@ import {
   REGISTER,
 } from "redux-persist";
 import { authReducer } from "./auth/authSlice";
-import { favoriteReducer } from "./FavoriteRedux/favoriteSlice";
+import { favoriteReducer } from "./favorites/favoriteSlice";
 import { shoppingReducer } from "./shoppingList/shoppingListSlice";
-
+import { myRecipesReducer } from "./myRecipes/myRecipesSlice";
 
 const authPersistConfig = {
   key: "auth",
@@ -29,9 +29,11 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     categories: categoriesReducer,
     recipes: recipeReducer,
+    popularRecipes: popularRecipesReducer,
     favorite: favoriteReducer,
-    search: searchReducer, // Dodaj searchReducer
+    search: searchReducer,
     shoppingList: shoppingReducer,
+    myRecipes: myRecipesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

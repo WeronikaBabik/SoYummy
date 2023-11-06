@@ -6,7 +6,15 @@
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://github.com/SandraKoch/final-project-group-4/blob/main/client/src/images/backgrounds/background-start-desktop.png?raw=true");
+  background-image: url("/src/images/backgrounds/background-start-mobile.png");
+
+  @media screen and (min-width: 768px) {
+    background-image: url("/src/images/backgrounds/background-start-tablet.png");
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url("/src/images/backgrounds/background-start-desktop.png");
+  }
 }
 
 .contentWrap {
@@ -17,24 +25,46 @@
 }
 
 .logo {
-  z-index: 999;
-  background-color: var(--main-green);
-  fill: aqua;
-  color: black;
   margin-bottom: 44px;
-  border: none;
+  fill: #8baa36;
+  width: 54px;
+  height: 54px;
+
+  @media (min-width: 768px) {
+    width: 68px;
+    height: 68px;
+  }
 }
 
 .headline {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
-  padding-bottom: 14px;
+  letter-spacing: normal;
+  -webkit-transition: letter-spacing 0.5s ease;
+  transition: letter-spacing 0.5s ease;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
 }
+.headline:hover {
+  letter-spacing: 0.5px;
+}
+
 .text {
+  font-size: 14px;
   max-width: 600px;
-  font-size: 18px;
+  /* line-height: 18; */
   text-align: center;
-  padding-bottom: 40px;
+  padding: 14px 35px 44px;
+  font-weight: 400;
+
+  @media (min-width: 768px) {
+    /* line-height: 24; */
+    padding: 0 35px;
+    font-size: 18px;
+    padding: 14px 35px 40px;
+  }
 }
 
 .filledbutton {
@@ -42,9 +72,14 @@
   color: var(--main-white);
   border-radius: 24px 44px;
   border: 1px solid var(--main-green);
-  padding: 22px 44px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 14px;
   margin-right: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding: 22px 44px;
+  }
 }
 
 .filledbutton:hover {
@@ -57,8 +92,13 @@
   color: var(--main-white);
   border-radius: 24px 44px;
   border: 1px solid var(--main-white);
-  padding: 22px 44px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    padding: 22px 44px;
+    font-size: 16px;
+  }
 }
 
 .outlinedbutton:hover {

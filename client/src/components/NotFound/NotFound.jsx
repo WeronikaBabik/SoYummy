@@ -23,8 +23,9 @@ const NotFound = () => {
           alt="Shopping list is empty"
           height="700px"
           width="450px"
+          className={css.notFoundImage}
         />
-      </picture>{" "}
+      </picture>
       <p className={css.sorryText}>We are sorry,</p>
       <p className={css.notFoundText}>
         but the page you were looking for can’t be found..
