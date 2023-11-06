@@ -95,7 +95,17 @@
 
 .nameInput:hover {
   color: var(--main-green);
+  border-color: var(--main-black);
+}
+
+.nameInput:invalid {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.nameInput:valid:hover {
   border-color: var(--main-green);
+  color: var(--main-green);
 }
 
 .personSpan {
