@@ -2,7 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
 import { getUserData, updateUser } from "../../redux/auth/operations";
 import css from "./UserInfoModal.module.css";
-// import { useState } from "react";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+// import Notiflix from "notiflix";
+// // import { useState } from "react";
+// Notiflix.Notify.init({
+//   success: {
+//     background: "#3cbc81",
+//     textColor: "#fafafa",
+//   },
+// });
 
 export const UserInfoModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -20,13 +28,13 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
   const handleSaveChanges = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-
-    console.log("test");
     console.log(form);
-    const newUserData = { name: form.elements.name.value };
-    console.log(newUserData);
+    const name = form.elements.name.value;
+    console.log(name);
 
-    dispatch(updateUser({ newUserData }));
+    dispatch(updateUser({ name }));
+    handleClose();
+    Notify.success(`User data updated successfully ${name}!`);
   };
 
   return (
@@ -67,8 +75,8 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-            <form className={css.form}>
-              <label className={css.label}>
+            <form onSubmit={handleSaveChanges} className={css.form}>
+              {/* <label className={css.label}>
                 <input type="file" />
                 <div className={css.userImgBox}>
                   <span className={css.iconSpan}>
@@ -85,8 +93,8 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
                     </svg>
                   </span>
                 </div>
-              </label>
-              <div className={css.addIconWrap}>
+              </label> */}
+              {/* <div className={css.addIconWrap}>
                 <svg
                   width="24"
                   height="24"
@@ -110,7 +118,7 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </div>
+              </div> */}
               <label className={css.nameLabel}>
                 <input
                   className={css.nameInput}
@@ -137,11 +145,7 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
                   </svg>
                 </span>
               </label>
-              <button
-                className={css.submitbutton}
-                onClick={handleSaveChanges}
-                type="submit"
-              >
+              <button className={css.submitbutton} type="submit">
                 Save changes
               </button>
             </form>
