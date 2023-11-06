@@ -65,144 +65,56 @@
   }
 }
 
-.categories__page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-/* .rightbg__image {
-  position: absolute;
-  width: 160px;
-  height: auto;
-  bottom: -352px;
-  right: 10px;
-} */
-
-.leftbg__image {
-  position: absolute;
-  width: 256px;
-  height: auto;
-  bottom: -160px;
-  z-index: -1;
+.prep__box {
+  padding: 24px 16px 0 16px;
+  width: 100%;
+  max-width: 343px;
 }
 
-.container {
-  width: 100vh;
-  min-width: 343px;
-}
-.h1 {
-  position: relative;
-  top: 50px;
-  left: 19%;
-  margin-bottom: 50px;
-  color: #001833;
+.title {
+  color: #3e4462;
   font-feature-settings: "liga" off;
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 100% */
-  letter-spacing: -0.56px;
+  line-height: 24px; /* 100% */
+  letter-spacing: -0.48px;
+  margin-top: 50px;
 }
-.rectangle1 {
-  width: 9px;
-  height: 9px;
+.textarea {
+  width: 100%;
+  max-width: 343px;
+  height: 154px;
+  margin-top: 40px;
+  background-color: #d9d9d9;
+  border: none;
+  outline: none;
+  opacity: 0.5;
+  padding: 10px 0 0 16px;
+}
+
+.btn__add {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+
+.add__text {
   position: absolute;
-  border-radius: 3px;
-  top: 20px;
-  left: -3em;
-  transform: rotate(-25deg);
+  z-index: 1;
+  color: #fafafa;
+  top: 68em;
+  left: 4em;
 }
 
-.rectangle2 {
-  width: 6px;
-  height: 6px;
-  position: absolute;
-  top: 6em;
-  left: 3em;
-  border-radius: 4px;
-}
-.rectangle3 {
-  width: 9px;
-  height: 9px;
-  position: absolute;
-  top: 3em;
-  left: 10em;
-  border-radius: 3px;
-  transform: rotate(-25deg);
+.svg__btn {
+  width: 129px;
+  height: 46px;
+  margin-top: 18px;
 }
 
-@media (min-width: 768px) {
-  .container {
-    width: 100vh;
-    min-width: 900px;
-  }
-  /* .rightbg__image {
-    width: 290px;
-    height: auto;
-  } */
-  .rectangle1 {
-    width: 14px;
-    height: 14px;
-    left: -10em;
-    top: 30px;
-  }
-
-  .rectangle2 {
-    width: 9px;
-    height: 9px;
-    top: 10em;
-    left: 1em;
-  }
-  .rectangle3 {
-    width: 14px;
-    height: 14px;
-    top: 4em;
-    left: 18em;
-  }
-
-  .h1 {
-    top: 70px;
-    left: 11%;
-  }
-  .leftbg__image {
-    width: 423px;
-    height: auto;
-    bottom: -290px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    width: 100%;
-    min-width: 1240px;
-  }
-  .rectangle1 {
-    left: -20em;
-  }
-
-  .rectangle2 {
-    left: 10em;
-  }
-  .rectangle3 {
-    left: 32em;
-  }
-
-  .h1 {
-    left: 3%;
-    font-size: 44px;
-    line-height: 44px;
-    letter-spacing: -0.88px;
-  }
-  .leftbg__image {
-    width: 558px;
-    height: auto;
-    bottom: -360px;
-  }
-  /* .rightbg__image {
-    width: 438px;
-    height: auto;
-   
-  } */
+.svg__btn:hover {
+  fill: #8baa36;
+  transition: fill 0.3s ease;
 }
