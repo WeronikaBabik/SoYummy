@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { deleteShoppingList } from "../../services/api/recipesAPI";
 axios.defaults.baseURL = "http://localhost:3001/api/";
 
 export const getShoppingList = createAsyncThunk(
@@ -27,11 +28,11 @@ export const addToShoppingList = createAsyncThunk(
 );
 
 export const deleteFromShoppingList = createAsyncThunk(
-  "shoppingList/remove-ingredient",
-  async (id, thunkAPI) => {
+  "shoppingList/remove-ingredients",
+  async (iid, thunkAPI) => {
     try {
-      const res = await axios.delete(`shopping-list/remove/${id}`);
-      return id;
+      const res = await axios.delete(`shopping-list/remove`, iid);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

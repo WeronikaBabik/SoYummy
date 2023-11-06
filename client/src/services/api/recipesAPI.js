@@ -134,15 +134,15 @@ export const postUserInfo = async (info) => {
 //   }
 // };
 
-// export const deleteShoppingList = async (id) => {
-//   try {
-//     const { data } = await axios.delete(`/user-info/shopping-list/${id}`);
-//     return data;
-//   } catch (error) {
-//     console.log(error.message);
-//     return null;
-//   }
-// };
+export const deleteShoppingList = async (body) => {
+  try {
+    const res = await axios.delete(`shopping-list/remove`, body);
+    return res.data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
 
 export const getIngregientsList = async () => {
   try {

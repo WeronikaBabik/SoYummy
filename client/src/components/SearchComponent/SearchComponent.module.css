@@ -16,12 +16,13 @@
 .formSearchInput {
     background-color: #FAFAFA;
     outline: 0;
+    border: 0;
     border-top-right-radius: 40px;
     border-bottom-left-radius: 40px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 300px;
-    padding-block: 26px;
+    padding-block: 17px;
     color: #22252A;
 
     @media screen and (min-width: 768px) {
@@ -42,7 +43,7 @@
     letter-spacing: 0em;
     color: #BDBDBD;
 }
-.formSearch button {
+.formSearchButton {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -56,7 +57,11 @@
     color: #FAFAFA;
     cursor: pointer;
     border: 0;
-
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     @media screen and (min-width: 768px) {
             height: 59px;
             width: 161px;
@@ -67,6 +72,7 @@
                 border-bottom-left-radius: 50px;
                 border-top-left-radius: 25px;
                 border-bottom-right-radius: 25px;
+                size: 16px;
             }
         }
 }

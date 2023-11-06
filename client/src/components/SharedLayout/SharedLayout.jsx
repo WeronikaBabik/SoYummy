@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import UserLogo from "../UserLogo/UserLogo";
 import ModalMenu from "../ModalMenu/ModalMenu";
@@ -12,8 +12,11 @@ import IconLogo from "../Icons/IconLogo/IconLogo";
 
 const SharedLayout = () => {
   const { isLoggedIn } = useAuth();
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
   return (
-    <div>
+    <div className={`${s.sharedLayoutContainer} ${isHomePage ? s.homePage : ''}`}>
       {isLoggedIn && (
         <header className={s.header}>
           <Link to="/">
@@ -48,7 +51,7 @@ const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      {isLoggedIn && <Footer />}
+      {isLoggedIn && <Footer className={s.footer__absolute}/>}
     </div>
   );
 };

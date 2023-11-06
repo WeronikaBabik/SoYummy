@@ -36,11 +36,13 @@ const addToShoppingList = async (owner, ingredient) => {
   }
 };
 
-const deleteFromShoppingList = async (id, ingredient) => {
+const deleteFromShoppingList = async (owner, iid) => {
   try {
-    const user = await User.findById(id);
-    user.shoppingList = user.shoppingList.filter((id) => id !== ingredient);
-    await user.save();
+    const result = await ShoppingList.findOneAndDelete({
+      owner,
+      iid,
+    });
+    return result;
   } catch (error) {
     console.error(error);
   }

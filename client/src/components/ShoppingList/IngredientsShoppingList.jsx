@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import IngredientItem from "./IngredientItem";
 import css from "./ShoppingList.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   deleteFromShoppingList,
   getShoppingList,
@@ -17,14 +17,13 @@ const IngredientsShoppingList = () => {
   const dispatch = useDispatch();
   const shoppingList = useSelector(shoppingListSelector);
   const isLoading = useSelector(isLoadingSelector);
-
+  const [list, setList] = useState(null);
   useEffect(() => {
-    dispatch(getShoppingList());
-  }, [dispatch]);
-
-  const handleDelete = (id) => {
-    dispatch(deleteFromShoppingList(id));
-  };
+    if (shoppingList.length <= 0 && list === null) {
+      dispatch(getShoppingList());
+    }
+    setList(shoppingList);
+  }, [dispatch, shoppingList]);
 
   return (
     <div className={css.shoppingList}>
@@ -47,11 +46,13 @@ const IngredientsShoppingList = () => {
             <EmptyShoppingList />
           ) : (
             <div className={css.ingredients}>
-              {shoppingList?.map((ingredients) => (
+              {shoppingList?.map(({ iid, thb, ttl, number, _id }) => (
                 <IngredientItem
-                  ingredient={ingredients}
-                  handleDelete={handleDelete}
-                  key={ingredients._id}
+                  iid={iid}
+                  thb={thb}
+                  ttl={ttl}
+                  number={number}
+                  key={_id}
                 />
               ))}
             </div>
