@@ -1,4 +1,10 @@
-import { register, signin, setAuthHeader, logout } from "./operations";
+import {
+  register,
+  signin,
+  setAuthHeader,
+  logout,
+  updateUser,
+} from "./operations";
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
@@ -42,6 +48,11 @@ const authSlice = createSlice({
     //       // state.token = action.payload.token;
     //       state.isLoggedIn = true;
     //     },
+    [updateUser.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+    },
   },
 });
 

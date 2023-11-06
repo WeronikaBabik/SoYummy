@@ -11,6 +11,7 @@ const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 const { userValidation } = require("../../helpers/user.validator");
 const { secretJwt } = require("../../config");
+const { token } = require("morgan");
 dotenv.config();
 
 const secretKey = process.env.MAILER_KEY;
@@ -147,6 +148,7 @@ router.get("/current", authMiddleware, async (req, res) => {
 router.patch("/update", authMiddleware, async (req, res) => {
   try {
     const userId = req.userId;
+    const token = req.token;
     console.log("update userId:", userId);
     const user = await User.findOne({ _id: userId });
     console.log("user", user);
@@ -157,6 +159,7 @@ router.patch("/update", authMiddleware, async (req, res) => {
     }
     try {
       const { name } = req.body;
+      console.log("name", name);
       user.name = name;
       await user.save();
       console.log("update 2 userId2:", user._id);
@@ -164,7 +167,8 @@ router.patch("/update", authMiddleware, async (req, res) => {
       return res.status(200).send({
         status: "OK",
         code: 200,
-        update: { name: user.name },
+        token,
+        user: { name: user.name, email: user.email },
       });
     } catch (error) {
       console.error(error);
