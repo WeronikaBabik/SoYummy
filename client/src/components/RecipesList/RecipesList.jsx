@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import css from "../RecipesList/RecipesList.module.css";
-import { selectRecipes, selectSelectedCategory } from "../../redux/selectors";
+import { selectSelectedCategory } from "../../redux/categories/selectors";
+import { selectRecipes } from "../../redux/recipes/selectors";
 import { Link } from "react-router-dom";
 
 export const RecipesList = () => {

@@ -23,6 +23,7 @@ const NotFound = () => {
           alt="Shopping list is empty"
           height="700px"
           width="450px"
+          className={css.notFoundImage}
         />
       </picture>
       <p className={css.sorryText}>We are sorry,</p>
