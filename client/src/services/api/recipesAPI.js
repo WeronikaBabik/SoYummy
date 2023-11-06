@@ -114,25 +114,25 @@ export const postUserInfo = async (info) => {
 //   }
 // };
 
-export const postShoppingList = async (info) => {
-  try {
-    const { data } = await axios.post(`/user-info/shopping-list`, info);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
+// export const postShoppingList = async (info) => {
+//   try {
+//     const { data } = await axios.post(`/user-info/shopping-list`, info);
+//     return data;
+//   } catch (error) {
+//     console.log(error.message);
+//     return null;
+//   }
+// };
 
-export const patchShoppingList = async (info) => {
-  try {
-    const { data } = await axios.patch(`/user-info/shopping-list`, info);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
+// export const patchShoppingList = async (info) => {
+//   try {
+//     const { data } = await axios.patch(`/user-info/shopping-list`, info);
+//     return data;
+//   } catch (error) {
+//     console.log(error.message);
+//     return null;
+//   }
+// };
 
 export const deleteShoppingList = async (body) => {
   try {
@@ -202,11 +202,9 @@ export const addOwnRecipe = async (formData) => {
   }
 };
 
-export const getOwnRecipe = async (page = 1, limit = 4) => {
+export const getOwnRecipes = async (page = 1, limit = 4) => {
   try {
-    const { data } = await axios.get(
-      `/own-recipes?page=${page}&limit=${limit}`
-    );
+    const { data } = await axios.get(`/ownRecipes`);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -216,7 +214,7 @@ export const getOwnRecipe = async (page = 1, limit = 4) => {
 
 export const deleteOwnRecipe = async (id) => {
   try {
-    const { data } = await axios.delete(`/own-recipes/id/${id}`);
+    const { data } = await axios.delete(`ownRecipes${id}`);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -226,7 +224,7 @@ export const deleteOwnRecipe = async (id) => {
 
 export const getOwnRecipeById = async (id) => {
   try {
-    const { data } = await axios.get(`/own-recipes/id/${id}`);
+    const { data } = await axios.get(`ownRecipes/id/${id}`);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -281,23 +279,5 @@ export const postUnsubscribeList = async (emailToken) => {
   } catch (error) {
     console.log(error.message);
     return null;
-  }
-};
-
-export const getMyRecipes = async () => {
-  try {
-    const { data } = await axios.get(`/my`);
-    return data.data;
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-export const deleteMyRecipe = async (id) => {
-  try {
-    const { data } = await axios.delete(`/my/${id}`);
-    return data;
-  } catch (e) {
-    console.error(e);
   }
 };

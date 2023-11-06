@@ -64,6 +64,7 @@ const deleteFromShoppingListHandler = async (req, res, next) => {
       });
     }
     res.status(204).json({ message: "Ingredient was deleted" });
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });

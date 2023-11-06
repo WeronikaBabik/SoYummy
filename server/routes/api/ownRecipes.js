@@ -63,7 +63,7 @@ ownRecipesRouter.post(
   addOwnRecipeHandler
 );
 
-ownRecipesRouter.delete("/", authMiddleware, deleteOwnRecipeHandler);
+ownRecipesRouter.delete("/:recipeId", authMiddleware, deleteOwnRecipeHandler);
 
 ownRecipesRouter.get("/", authMiddleware, getOwnRecipeHandler);
 
