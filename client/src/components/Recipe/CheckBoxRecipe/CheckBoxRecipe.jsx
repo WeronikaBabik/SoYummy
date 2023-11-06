@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import MotivatingModal from '../../Search/SearchComponents/MotivatingModal';
+import MotivatingModal from '../../Search/SearchComponents/MotivatingModal/MotivatingModal';
 import { patchShoppingList, postShoppingList } from '../../../services/api/recipesAPI';
 import css from './CheckBoxRecipe.module.css';
 

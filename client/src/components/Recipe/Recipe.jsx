@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router';
-import { Loader } from "../../Loader/Loader";
-import { getOwnRecipeById, getRecipeById } from '../../../services/api/recipesAPI';
+import Loader from "../Loader/Loader";
+import { getOwnRecipeById, getRecipeById } from '../../services/api/recipesAPI';
 import IngredientsContainer from './IngredientsContainer/IngredientsContainer';
 
 import css from './Recipe.module.css';
@@ -48,8 +48,8 @@ const Recipe = () => {
     favorite,
     youtube,
     fullImg,
-  } = recipe;
-
+  } = recipe || {};
+  
   return (
     <>
       <TopContainer
@@ -67,7 +67,7 @@ const Recipe = () => {
         <div className={css.wrapper}>
           {
             <IngredientsContainer
-              ingridients={ingredients}
+              ingredients={ingredients}
               instructions={instructions}
               preview={preview}
               previewImg={previewImg}

@@ -1,5 +1,5 @@
 import css from './TopContainer.module.css';
-import Timer from '../../../images/CheckBoxRecipeTimer.png';
+import Timer from '../../../images/CheckBoxRecipe/Timer.png';
 import SuperBtn from '../../../components/Search/SearchComponents/SuperBtn/SuperBtn';
 import clsx from 'clsx';
 import HeroTransformer from '../heroTransformer/HeroTransformer';

@@ -24,6 +24,7 @@ const MyRecipes = lazy(() => import("./pages/MyRecipes"));
 // const Favorite = lazy(() => import('...'));
 const ShoppingList = lazy(() => import("./pages/ShoppingList"));
 // const Search = lazy(() => import('...'));
+const RecipiesPage = lazy(() => import("./pages/RecipiesPage"));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,11 @@ export const App = () => {
           element={<PrivateRoute redirectTo="/" component={<ShoppingList />} />}
 
         {/*   <Route path="/categories/:categoryName" element={<Categories />} /> */}
+
+        <Route
+          path="recipe/:recipeId"
+          element={<PrivateRoute component={<RecipiesPage />} />}
+        />
 
         <Route path="*" element={<NotFound />} />
       </Route>
