@@ -23,6 +23,10 @@ const userSchema = new Schema({
     type: Array,
     default: [],
   },
+  recipes: {
+    type: Array,
+    default: [],
+  },
 });
 
 const User = model("users", userSchema);

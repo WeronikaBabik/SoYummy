@@ -5,6 +5,7 @@ const {
   deleteOwnRecipe,
   getOwnRecipe,
 } = require("../services/ownRecipes");
+const { Recipes } = require("../models/recipes");
 
 const addOwnRecipeHandler = async (req, res, next) => {
   try {
@@ -42,16 +43,15 @@ const deleteOwnRecipeHandler = async (req, res, next) => {
 
 const getOwnRecipeHandler = async (req, res, next) => {
   try {
-    console.log(req.userId);
     const owner = req.userId;
-    const recipes = await getOwnRecipe(owner);
-    console.log(recipes);
+    // const recipes = await getOwnRecipe(owner);
+    const recipes = await Recipes.find({ owner });
     if (recipes.length === 0) {
       return res.status(404).json({
         message: "You have no Recipes",
       });
     }
-    return res.status(200).json(recipes);
+    return res.status(200).json({ recipes });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
