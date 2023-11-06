@@ -13,11 +13,12 @@ const UserLogo = () => {
     setIsOpen((current) => !current);
   };
 
-  const [toggleDialog, setToggleDialog] = useState();
-  const [toggleLogoutDialog, setToggleLogoutDialog] = useState();
+  const [toggleDialog, setToggleDialog] = useState(false);
+  const [toggleLogoutDialog, setToggleLogoutDialog] = useState(false);
 
   const handleEdit = () => {
     setIsOpen(false);
+    console.log("toggleDialog", toggleDialog);
     setToggleDialog((current) => !current);
   };
 
@@ -102,8 +103,14 @@ const UserLogo = () => {
           </button>
         </div>
       </div>
-      {toggleDialog ? <UserInfoModal /> : <></>}
-      {toggleLogoutDialog ? <LogoutModal /> : <></>}
+      <UserInfoModal
+        isOpen={toggleDialog}
+        onClose={() => setToggleDialog(false)}
+      />
+      <LogoutModal
+        isOpen={toggleLogoutDialog}
+        onClose={() => setToggleLogoutDialog(false)}
+      />
     </>
   );
 };
