@@ -76,8 +76,8 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
 
           <div>
             <form onSubmit={handleSaveChanges} className={css.form}>
-              {/* <label className={css.label}>
-                <input type="file" />
+              <label className={css.label}>
+                {/* <input type="file" /> */}
                 <div className={css.userImgBox}>
                   <span className={css.iconSpan}>
                     <svg
@@ -92,33 +92,34 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                   </span>
+                  <div className={css.addIconWrap}>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="12" cy="12" r="12" fill="#8BAA36"></circle>
+                      <path
+                        d="M12 6.75V17.25"
+                        stroke="#FAFAFA"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                      <path
+                        d="M6.75 12H17.25"
+                        stroke="#FAFAFA"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                  </div>
                 </div>
-              </label> */}
-              {/* <div className={css.addIconWrap}>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="12" fill="#8BAA36"></circle>
-                  <path
-                    d="M12 6.75V17.25"
-                    stroke="#FAFAFA"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                  <path
-                    d="M6.75 12H17.25"
-                    stroke="#FAFAFA"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-              </div> */}
+              </label>
+
               <label className={css.nameLabel}>
                 <input
                   className={css.nameInput}
