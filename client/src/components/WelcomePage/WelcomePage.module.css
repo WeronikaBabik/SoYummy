@@ -7,12 +7,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("/src/images/backgrounds/background-start-mobile.png");
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .background {
     background-image: url("/src/images/backgrounds/background-start-tablet.png");
   }
+}
 
-  @media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
+  .background {
     background-image: url("/src/images/backgrounds/background-start-desktop.png");
   }
 }
@@ -29,8 +33,10 @@
   fill: #8baa36;
   width: 54px;
   height: 54px;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .logo {
     width: 68px;
     height: 68px;
   }
@@ -42,11 +48,14 @@
   letter-spacing: normal;
   -webkit-transition: letter-spacing 0.5s ease;
   transition: letter-spacing 0.5s ease;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .headline {
     font-size: 28px;
   }
 }
+
 .headline:hover {
   letter-spacing: 0.5px;
 }
@@ -58,8 +67,10 @@
   text-align: center;
   padding: 14px 35px 44px;
   font-weight: 400;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .text {
     /* line-height: 24; */
     padding: 0 35px;
     font-size: 18px;
@@ -75,8 +86,10 @@
   padding: 12px 24px;
   font-size: 14px;
   margin-right: 18px;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .filledbutton {
     font-size: 16px;
     padding: 22px 44px;
   }
@@ -94,8 +107,10 @@
   border: 1px solid var(--main-white);
   padding: 12px 24px;
   font-size: 14px;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .outlinedbutton {
     padding: 22px 44px;
     font-size: 16px;
   }
