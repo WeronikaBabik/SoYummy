@@ -34,7 +34,6 @@ export const store = configureStore({
     favorite: favoriteReducer,
     search: searchReducer,
     shoppingList: shoppingReducer,
-    myRecipes: myRecipesReducer,
     oneRecipe: oneRecipeReducer,
   },
   middleware: (getDefaultMiddleware) =>
