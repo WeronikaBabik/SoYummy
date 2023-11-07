@@ -6,47 +6,42 @@ import searchTablet2 from "../../images/backgrounds/search-tablet@2x.png";
 import NotFound from "../NotFound/NotFound";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  isLoadingRecipesSelector,
-  myRecipesSelector,
-} from "../../redux/myRecipes/selectors";
-import {
-  deleteFromOwnRecipes,
-  getOwnRecipes,
-} from "../../redux/myRecipes/operations";
 import MyRecipesItem from "./MyRecipesItem";
-import { setMyRecipes } from "../../redux/myRecipes/myRecipesSlice";
 import Loader from "../Loader/Loader";
+import {
+  deleteOwnRecipe,
+  getOwnRecipes,
+} from "../../services/api/ownRecipesApi";
 
 const MyRecipesList = () => {
-  const dispatch = useDispatch();
+  const [myRecipes, setMyRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const myRecipes = useSelector(myRecipesSelector);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchMyRecipes = async () => {
-      setIsLoading(true);
       try {
-        const recipes = await getOwnRecipes();
-        dispatch(setMyRecipes(recipes));
+        setIsLoading(true);
+        const { recipes } = await getOwnRecipes();
+        if (!recipes) {
+          setMyRecipes([]);
+          return;
+        }
+        console.log(recipes);
+        setMyRecipes(recipes);
       } catch (error) {
-        console.error("Something gone wrong within fetchMyRecipes", error);
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
     };
-    if (myRecipes.length === 0) {
-      fetchMyRecipes();
-    } else {
-      setIsLoading(false);
-    }
-  }, [dispatch, myRecipes.length]);
+    fetchMyRecipes();
+  }, [page]);
 
   const handleDelete = async (id) => {
     try {
       setIsLoading(true);
-      await deleteFromOwnRecipes(id);
+      await deleteOwnRecipe(id);
       const { recipes } = await getOwnRecipes();
       setMyRecipes(recipes);
     } catch (error) {
@@ -55,19 +50,58 @@ const MyRecipesList = () => {
       setIsLoading(false);
     }
   };
+  //const dispatch = useDispatch();
+  // const [isLoading, setIsLoading] = useState(false);
+  // const myRecipes = useSelector(myRecipesSelector);
+  // const { recipeId } = useParams();
+
+  // useEffect(() => {
+  //   const fetchMyRecipes = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       const recipes = await getOwnRecipes();
+  //       dispatch(setMyRecipes(recipes));
+  //     } catch (error) {
+  //       console.error("Something gone wrong within fetchMyRecipes", error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   if (myRecipes.length === 0) {
+  //     fetchMyRecipes();
+  //   } else {
+  //     setIsLoading(false);
+  //   }
+  // }, [dispatch, myRecipes.length]);
+
+  // const handleDelete = async (id) => {
+  //   try {
+  //     setIsLoading(true);
+  //     await deleteFromOwnRecipes(id);
+  //     const { recipes } = await getOwnRecipes();
+  //     setMyRecipes(recipes);
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
   return (
     <div className={css.container}>
       <div className={css.myRecipe}>
         {isLoading && <Loader />}
-        {myRecipes.length > 0 ? (
+        {myRecipes.length > 0 &&
+          !isLoading &&
           myRecipes.map((item) => (
             <section key={item.id} className={css.myRecipe__item}>
               <div className={css.myRecipe__imageWrapper}>
-                <img
-                  src={item.thumb}
-                  alt={item.title}
-                  className={css.myRecipe__image}
-                />
+                <Link to={`/recipe/${item.id}`}>
+                  <img
+                    src={item.thumb}
+                    alt={item.title}
+                    className={css.myRecipe__image}
+                  />
+                </Link>
               </div>
               <div className={css.myRecipe__itemInfo}>
                 <p className={css.myRecipe__itemTitle}>{item.title}</p>
@@ -108,8 +142,8 @@ const MyRecipesList = () => {
                 </Link>
               </div>
             </section>
-          ))
-        ) : (
+          ))}
+        {myRecipes.length === 0 && !isLoading && (
           <div className={css.myRecipesEmpty}>
             <h2 className={css.myRecipesEmpty}>
               You don't have any own recipes
