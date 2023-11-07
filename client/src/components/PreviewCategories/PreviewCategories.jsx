@@ -3,7 +3,6 @@ import s from "./PreviewCategories.module.css";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectRecipes } from "../../redux/recipes/selectors";
-// import { selectRecipes, selectSelectedCategory } from "../../redux/selectors";
 
 const PreviewCategories = ({ selectedCategory, title, params }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,11 +41,6 @@ const PreviewCategories = ({ selectedCategory, title, params }) => {
     (recipe) => recipe.category === selectedCategory
   );
   const recipesToDisplay = recipesByCategory.slice(startIndex, endIndex);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo(0, 0);
-  };
 
   return (
     <div className={s.preview_categories_wrapper}>
