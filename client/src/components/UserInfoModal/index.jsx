@@ -122,11 +122,14 @@ export const UserInfoModal = ({ isOpen, onClose }) => {
               <label className={css.nameLabel}>
                 <input
                   className={css.nameInput}
-                  placeholder={`${user.name}`}
+                  // placeholder={`${user.name}`}
+                  defaultValue={`${user.name}`}
                   id="name"
                   label="name"
                   type="text"
                   name="name"
+                  minlength="3"
+                  required
                 />
                 <span className={css.personSpan}>
                   <svg
