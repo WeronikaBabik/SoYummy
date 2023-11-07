@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3001/api";
 
 export const getAllRecipes = async (page, limit, sort = "") => {
   try {
@@ -14,7 +15,7 @@ export const getAllRecipes = async (page, limit, sort = "") => {
 
 export const getRecipeById = async (id) => {
   try {
-    const { data } = await axios.get(`/recipes/id/${id}`);
+    const { data } = await axios.get(`/recipes/${id}`);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -144,10 +145,10 @@ export const deleteShoppingList = async (body) => {
   }
 };
 
-export const getIngregientsList = async () => {
+export const getIngredientsList = async () => {
   try {
-    const { data } = await axios.get(`/recipes/ingredients`);
-    return data.ingredients;
+    const { data } = await axios.get(`/ingredients/list`);
+    return data;
   } catch (error) {
     console.log(error.message);
     return null;

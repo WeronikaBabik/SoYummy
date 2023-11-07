@@ -73,7 +73,7 @@ export const App = () => {
         {/*   <Route path="/categories/:categoryName" element={<Categories />} /> */}
 
         <Route
-          path="recipe/:recipeId"
+          path="/recipe/:recipeId"
           element={<PrivateRoute component={<RecipiesPage />} />}
         />
 
