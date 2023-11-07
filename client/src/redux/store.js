@@ -17,6 +17,7 @@ import { authReducer } from "./auth/authSlice";
 import { favoriteReducer } from "./favorites/favoriteSlice";
 import { shoppingReducer } from "./shoppingList/shoppingListSlice";
 import { myRecipesReducer } from "./myRecipes/myRecipesSlice";
+import { oneRecipeReducer } from "./oneRecipe/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -34,6 +35,7 @@ export const store = configureStore({
     search: searchReducer,
     shoppingList: shoppingReducer,
     myRecipes: myRecipesReducer,
+    oneRecipe: oneRecipeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

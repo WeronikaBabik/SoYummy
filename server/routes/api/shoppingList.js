@@ -7,13 +7,8 @@ const {
 const { authMiddleware } = require("../../auth/auth.middleware");
 const shoppingListRouter = express.Router();
 
-
 shoppingListRouter.get("/list", authMiddleware, getShoppingListHandler);
-shoppingListRouter.post("/add", authMiddleware, addToShoppingListHandler);
-shoppingListRouter.delete(
-  "/remove",
-  authMiddleware,
-  deleteFromShoppingListHandler
-);
+shoppingListRouter.post("/", authMiddleware, addToShoppingListHandler);
+shoppingListRouter.delete("/", authMiddleware, deleteFromShoppingListHandler);
 
 module.exports = { shoppingListRouter };
