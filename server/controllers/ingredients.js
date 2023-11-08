@@ -1,4 +1,9 @@
-const { getAllIngredients } = require("../services/ingredients");
+const { Ingredients } = require("../models/ingredients");
+const { Recipes } = require("../models/recipes");
+const {
+  getAllIngredients,
+  getIngredients,
+} = require("../services/ingredients");
 
 const getAllIngredientsHandler = async (req, res) => {
   try {
@@ -30,4 +35,18 @@ const searchByIngredient = async (req, res) => {
   }
 };
 
-module.exports = { getAllIngredientsHandler, searchByIngredient };
+const getIngredientsHandler = async (req, res) => {
+  try {
+    const result = getIngredients();
+    res.status(200).json({ result });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+module.exports = {
+  getAllIngredientsHandler,
+  searchByIngredient,
+  getIngredients,
+  getIngredientsHandler,
+};

@@ -34,8 +34,19 @@ const getOwnRecipe = async (owner) => {
   }
 };
 
+const getOwnRecipeById = async (id) => {
+  try {
+    const recipe = await Recipes.findById(id);
+    const ingredients = JSON.parse(recipes.ingredients);
+    recipe.ingredients = ingredients;
+    return recipe;
+  } catch (error) {
+    console.error(error);
+  }
+};
 module.exports = {
   addOwnRecipe,
   deleteOwnRecipe,
   getOwnRecipe,
+  getOwnRecipeById,
 };

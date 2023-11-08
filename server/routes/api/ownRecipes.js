@@ -26,6 +26,7 @@ const {
   deleteOwnRecipeHandler,
   getOwnRecipeHandler,
   imgEdit,
+  getOwnRecipeByIdHandler,
 } = require("../../controllers/ownRecipes");
 
 const { authMiddleware } = require("../../auth/auth.middleware");
@@ -66,5 +67,7 @@ ownRecipesRouter.post(
 ownRecipesRouter.delete("/:recipeId", authMiddleware, deleteOwnRecipeHandler);
 
 ownRecipesRouter.get("/", authMiddleware, getOwnRecipeHandler);
+
+ownRecipesRouter.get("/:recipeId", authMiddleware, getOwnRecipeByIdHandler);
 
 module.exports = { ownRecipesRouter };

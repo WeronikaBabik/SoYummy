@@ -105,15 +105,15 @@ export const postUserInfo = async (info) => {
   }
 };
 
-// export const getShoppingList = async () => {
-//   try {
-//     const { data } = await axios.get(`/user-info/shopping-list`);
-//     return data;
-//   } catch (error) {
-//     console.log(error.message);
-//     return null;
-//   }
-// };
+export const getShoppingList = async () => {
+  try {
+    const { data } = await axios.get(`/user-info/shopping-list`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+    return null;
+  }
+};
 
 export const postShoppingList = async (info) => {
   try {
@@ -137,7 +137,7 @@ export const patchShoppingList = async (info) => {
 
 export const deleteShoppingList = async (body) => {
   try {
-    const res = await axios.delete(`shopping-list/remove`, body);
+    const res = await axios.patch(`/shopping-list`, body);
     return res.data;
   } catch (error) {
     console.log(error.message);

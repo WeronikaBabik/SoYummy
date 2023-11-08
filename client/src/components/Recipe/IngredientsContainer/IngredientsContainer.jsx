@@ -1,13 +1,13 @@
-import React from 'react';
-import Ingredient from '../Ingredient/Ingredient';
-import RecipeRpeparation from '../RecipeRpeparation/RecipeRpeparation';
-import TitleRecipesList from '../TitleRecipesList/TitleRecipesList';
+import React from "react";
+import Ingredient from "../Ingredient/Ingredient";
+import RecipeRpeparation from "../RecipeRpeparation/RecipeRpeparation";
+import TitleRecipesList from "../TitleRecipesList/TitleRecipesList";
 
 const IngredientsContainer = ({
   ingridients = [],
-  instructions = '',
-  preview = '',
-  previewImg = '',
+  instructions = "",
+  preview = "",
+  previewImg = "",
   youtube,
   fullImg,
 }) => {
@@ -26,7 +26,7 @@ const IngredientsContainer = ({
               type={type}
               id={_id}
             />
-          ),
+          )
         )}
       </ul>
       <RecipeRpeparation

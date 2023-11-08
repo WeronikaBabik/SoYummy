@@ -64,12 +64,26 @@ const deleteFromShoppingListHandler = async (req, res, next) => {
       });
     }
     res.status(204).json({ message: "Ingredient was deleted" });
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 };
+
+// const deleteFromShoppingListController = catchAsyncWrapper(async (req, res) => {
+//   const { iid, number } = req.body;
+//   const { _id: owner } = req.user;
+
+//   const result = await deleteFromShopping(owner, iid, number);
+
+//   if (!result) {
+//     return res.status(404).json({
+//       message: 'nothing to delete',
+//     });
+//   }
+
+//   return res.status(204).json();
+// });
 
 module.exports = {
   getShoppingListHandler,
