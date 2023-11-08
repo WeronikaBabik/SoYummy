@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 // import { selectIsLoggedIn } from "./selectors";
 
-axios.defaults.baseURL = "http://localhost:3001/api";
+axios.defaults.baseURL = process.env.BASE_URL;
 
 export const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

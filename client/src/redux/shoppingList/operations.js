@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { deleteShoppingList } from "../../services/api/shoppingList";
-axios.defaults.baseURL = "http://localhost:3001/api";
+axios.defaults.baseURL = process.env.BASE_URL;
 
 export const getShoppingList = createAsyncThunk(
   "shoppingList/list",

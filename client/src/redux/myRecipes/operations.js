@@ -1,6 +1,6 @@
 // import { createAsyncThunk } from "@reduxjs/toolkit";
 // import axios from "axios";
-// axios.defaults.baseURL = "http://localhost:3001/api";
+// axios.defaults.baseURL = process.env.BASE_URL;
 
 // export const getOwnRecipes = createAsyncThunk(
 //   "myRecipes/all",
