@@ -89,10 +89,6 @@
 .close svg {
   width: 7.88px;
   height: 7.88px;
-  @media screen and (min-width: 768px) {
-    width: 11.25px;
-    height: 11.25px;
-  }
 }
 .empty {
   display: flex;
@@ -166,6 +162,10 @@
   }
   .shoppingList {
     margin: 72px 0;
+  }
+  .close svg {
+    width: 11.25px;
+    height: 11.25px;
   }
 }
 @media screen and (min-width: 1280px) {

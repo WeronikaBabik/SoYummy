@@ -1,17 +1,17 @@
-import css from './TopContainer.module.css';
-import Timer from '../../../images/CheckBoxRecipe/Timer.png';
-import SuperBtn from '../../../components/Search/SearchComponents/SuperBtn/SuperBtn';
-import clsx from 'clsx';
-import HeroTransformer from '../heroTransformer/HeroTransformer';
-import { patchRecipeFavoriteById } from '../../../services/api/recipesAPI';
-import React, { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { getTimeFromMins } from '../RecipeCard/RecipeCard';
-import MotivatingModal from '../../Search/SearchComponents/MotivatingModal/MotivatingModal';
+import css from "./TopContainer.module.css";
+import Timer from "../../../images/CheckBoxRecipe/Timer.png";
+import SuperBtn from "../../../components/Search/SearchComponents/SuperBtn/SuperBtn";
+import clsx from "clsx";
+import HeroTransformer from "../heroTransformer/HeroTransformer";
+import { patchRecipeFavoriteById } from "../../../services/api/recipesAPI";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { getTimeFromMins } from "../RecipeCard/RecipeCard";
+import MotivatingModal from "../../Search/SearchComponents/MotivatingModal/MotivatingModal";
 
 const TopContainer = ({ title, description, time, id, favorite }) => {
-  const [isFavorite, setIsFavorite] = useState(favorite);
-  const [motivation, setMotivation] = useState('');
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [motivation, setMotivation] = useState("");
 
   useEffect(() => {
     setIsFavorite(favorite);
@@ -28,7 +28,7 @@ const TopContainer = ({ title, description, time, id, favorite }) => {
 
   return (
     <>
-      {motivation === '10' && <MotivatingModal option={3} />}
+      {motivation === "10" && <MotivatingModal option={3} />}
       <HeroTransformer />
       <div className={css.containerThumb}>
         <div className={css.containerWrapper}>

@@ -1,6 +1,7 @@
 const { default: mongoose } = require("mongoose");
 const { Ingredients } = require("../models/ingredients");
 const { Recipes } = require("../models/recipes");
+const { Schema, model } = require("mongoose");
 
 const getAllIngredients = async () => {
   try {
@@ -25,4 +26,30 @@ const getRecipesByIngredient = async (ingredient = "Onions") => {
   }
 };
 
-module.exports = { getAllIngredients, getRecipesByIngredient };
+const getIngredients = async (query) => {
+  if (!query) {
+    const search = await Ingredients.find();
+    return search;
+  }
+
+  const searchedIngredient = await Ingredients.findOne({
+    $text: { $search: query },
+  }).select("_id: 1");
+
+  if (!searchedIngredient) return [];
+
+  const ingredientId = searchedIngredient._id;
+
+  const searchRecipes = await Recipes.find({
+    ingredients: {
+      $elemMatch: {
+        id: ingredientId,
+      },
+    },
+    owner: { $exists: false },
+  });
+
+  return searchRecipes;
+};
+
+module.exports = { getAllIngredients, getRecipesByIngredient, getIngredients };

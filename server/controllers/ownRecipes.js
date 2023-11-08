@@ -4,6 +4,7 @@ const {
   addOwnRecipe,
   deleteOwnRecipe,
   getOwnRecipe,
+  getOwnRecipeById,
 } = require("../services/ownRecipes");
 const { Recipes } = require("../models/recipes");
 
@@ -46,12 +47,14 @@ const getOwnRecipeHandler = async (req, res, next) => {
     const owner = req.userId;
     // const recipes = await getOwnRecipe(owner);
     const recipes = await Recipes.find({ owner });
-    if (recipes.length === 0) {
-      return res.status(404).json({
-        message: "You have no Recipes",
-      });
-    }
-    return res.status(200).json({ recipes });
+    // if (recipes.length === 0) {
+    //   return res.status(404).json({
+    //     message: "You have no Recipes",
+    //   });
+    // }
+    return res.status(200).json({
+      recipes,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Wystąpił błąd serwera." });
@@ -68,9 +71,20 @@ const imgEdit = async (oldPath, newPath) => {
     });
 };
 
+const getOwnRecipeByIdHandler = async (req, res) => {
+  try {
+    const { recipeId } = req.params;
+    const recipe = await getOwnRecipeById(recipeId);
+    res.status(200).json({ recipe });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 module.exports = {
   addOwnRecipeHandler,
   deleteOwnRecipeHandler,
   getOwnRecipeHandler,
   imgEdit,
+  getOwnRecipeByIdHandler,
 };

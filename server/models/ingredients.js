@@ -22,6 +22,6 @@ const ingredientSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-const Ingredients = model("ingredients", ingredientSchema);
+const Ingredients = model("ingredient", ingredientSchema);
 
 module.exports = { Ingredients };
