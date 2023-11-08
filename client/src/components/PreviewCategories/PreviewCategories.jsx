@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import s from "./PreviewCategories.module.css";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectRecipes } from "../../redux/recipes/selectors";
+import data from "../../data/recipes.json";
 
 const PreviewCategories = ({ selectedCategory, title, params }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const allRecipes = useSelector(selectRecipes);
-  const [recipesPerPage, setRecipesPerPage] = useState(1);
+  const [recipes, setRecipes] = useState([]);
+  const [recipesPerPage, setRecipesPerPage] = useState(4);
 
   const determineRecipesPerPage = () => {
     if (window.innerWidth >= 1280) {
@@ -35,12 +34,18 @@ const PreviewCategories = ({ selectedCategory, title, params }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const filteredRecipes = data.filter(
+      (recipe) => recipe.category === selectedCategory
+    );
+
+    setRecipes(filteredRecipes);
+    setIsLoading(false);
+  }, [selectedCategory]);
+
   const startIndex = currentPage * recipesPerPage;
   const endIndex = startIndex + recipesPerPage;
-  const recipesByCategory = allRecipes.filter(
-    (recipe) => recipe.category === selectedCategory
-  );
-  const recipesToDisplay = recipesByCategory.slice(startIndex, endIndex);
+  const recipesToDisplay = recipes.slice(startIndex, endIndex);
 
   return (
     <div className={s.preview_categories_wrapper}>
@@ -56,18 +61,16 @@ const PreviewCategories = ({ selectedCategory, title, params }) => {
                 alt={recipe.title}
                 className={s.recipe__img}
               />
-              <Link to={`/recipe/${recipe.id}`} className={s.recipe__btn}>
+              <a href={`/recipe/${recipe._id.$oid}`} className={s.recipe__btn}>
                 <span className={s.btn__text}>{recipe.title}</span>
-              </Link>
+              </a>
             </div>
           ))
         ) : (
           <p>No recipes found</p>
         )}
       </div>
-      <Link className={s.see_all_button} to={`/categories/:${params}`}>
-        See all
-      </Link>
+      <Link className={s.see_all_button} to={`/categories/:${params}`}>See all</Link>
     </div>
   );
 };
