@@ -27,7 +27,6 @@ const MyRecipesList = () => {
           setMyRecipes([]);
           return;
         }
-        console.log(recipes);
         setMyRecipes(recipes);
       } catch (error) {
         console.log(error);

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  addToShoppingList,
+  //addToShoppingList,
   deleteFromShoppingList,
   getShoppingList,
 } from "./operations";
@@ -40,18 +40,18 @@ const shoppingSlice = createSlice({
       .addCase(deleteFromShoppingList.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
-      })
-      .addCase(addToShoppingList.pending, (state, { payload }) => {
-        state.isLoading = true;
-      })
-      .addCase(addToShoppingList.fulfilled, (state, { payload }) => {
-        state.items = [...payload];
-        state.isLoading = false;
-        state.error = "";
-      })
-      .addCase(addToShoppingList.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
       }),
+  // .addCase(addToShoppingList.pending, (state, { payload }) => {
+  //   state.isLoading = true;
+  // })
+  // .addCase(addToShoppingList.fulfilled, (state, { payload }) => {
+  //   state.items = payload;
+  //   state.isLoading = false;
+  //   state.error = "";
+  // })
+  // .addCase(addToShoppingList.rejected, (state, { payload }) => {
+  //   state.isLoading = false;
+  //   state.error = payload;
+  // }),
 });
 export const shoppingReducer = shoppingSlice.reducer;

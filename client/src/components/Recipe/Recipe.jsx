@@ -17,8 +17,6 @@ import {
   getOwnRecipeById,
   getRecipeById,
 } from "../../redux/oneRecipe/operations";
-import { getRecipesByIngredient } from "../../redux/recipes/operations";
-import { getIngredientsList } from "../../services/api/recipesAPI";
 import NotFound from "../NotFound/NotFound";
 
 const Recipe = () => {
@@ -35,6 +33,10 @@ const Recipe = () => {
   const [currentIngredients, setCurrentIngredients] = useState([]);
   const [listIngredients, setListIngredients] = useState(null);
   const [isOwnRecipe, setOwnRecipe] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (location?.state?.from.pathname === "/my") {

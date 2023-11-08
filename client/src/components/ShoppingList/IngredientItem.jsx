@@ -5,6 +5,7 @@ import {
   deleteFromShoppingList,
   getShoppingList,
 } from "../../redux/shoppingList/operations";
+import Notiflix from "notiflix";
 
 const IngredientItem = (item) => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const IngredientItem = (item) => {
       iid: item.iid,
     };
     dispatch(deleteFromShoppingList(body));
+    Notiflix.Notify.info(`You removed ${item.ttl} from shopping list`);
     dispatch(getShoppingList());
   };
   return (

@@ -1,6 +1,7 @@
 const { default: mongoose } = require("mongoose");
 const { Ingredients } = require("../models/ingredients");
 const { Recipes } = require("../models/recipes");
+const { Schema, model } = require("mongoose");
 
 const getAllIngredients = async () => {
   try {

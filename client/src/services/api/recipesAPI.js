@@ -105,46 +105,6 @@ export const postUserInfo = async (info) => {
   }
 };
 
-export const getShoppingList = async () => {
-  try {
-    const { data } = await axios.get(`/user-info/shopping-list`);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
-
-export const postShoppingList = async (info) => {
-  try {
-    const { data } = await axios.post(`/user-info/shopping-list`, info);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
-
-export const patchShoppingList = async (info) => {
-  try {
-    const { data } = await axios.patch(`/user-info/shopping-list`, info);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
-
-export const deleteShoppingList = async (body) => {
-  try {
-    const res = await axios.patch(`/shopping-list`, body);
-    return res.data;
-  } catch (error) {
-    console.log(error.message);
-    return null;
-  }
-};
-
 export const getIngredientsList = async () => {
   try {
     const { data } = await axios.get(`/ingredients/list`);

@@ -58,11 +58,11 @@ const deleteFromShoppingListHandler = async (req, res, next) => {
     const owner = req.userId;
     const { iid } = req.body;
     const result = await deleteFromShoppingList(owner, iid);
-    if (!result) {
-      return res.status(404).json({
-        message: "There is nothing to delete",
-      });
-    }
+    // if (!result) {
+    //   return res.status(404).json({
+    //     message: "There is nothing to delete",
+    //   });
+    // }
     res.status(204).json({ message: "Ingredient was deleted" });
   } catch (error) {
     console.error(error);

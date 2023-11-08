@@ -45,14 +45,13 @@ const deleteOwnRecipeHandler = async (req, res, next) => {
 const getOwnRecipeHandler = async (req, res, next) => {
   try {
     const owner = req.userId;
-
     // const recipes = await getOwnRecipe(owner);
     const recipes = await Recipes.find({ owner });
-    if (recipes.length === 0) {
-      return res.status(404).json({
-        message: "You have no Recipes",
-      });
-    }
+    // if (recipes.length === 0) {
+    //   return res.status(404).json({
+    //     message: "You have no Recipes",
+    //   });
+    // }
     return res.status(200).json({
       recipes,
     });
