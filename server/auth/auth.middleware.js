@@ -12,7 +12,6 @@ const tokenFromHeaders = (headers) => {
 const authMiddleware = async (req, res, next) => {
   try {
     const token = tokenFromHeaders(req.headers);
-    console.log("auth", token);
 
     const decodedToken = jwt.verify(token, secretJwt);
     const userId = decodedToken.userId;
