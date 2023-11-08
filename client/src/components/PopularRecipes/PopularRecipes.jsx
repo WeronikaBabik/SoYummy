@@ -15,7 +15,7 @@ export const PopularRecipes = () => {
   // }, [dispatch]);
 
   useEffect(() => {
-    const getPopular = async () => {
+    const getPopularRecipes = async () => {
       try {
         dispatch(setPopularRecipes);
       } catch (error) {

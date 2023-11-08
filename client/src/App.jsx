@@ -14,12 +14,11 @@ import { Search } from "./components/Search/Search";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import Home from "./pages/Home";
 import { PrivateRoute } from "./components/PrivateRoute";
-import { AddRecipePage } from "./pages/AddRecipePage/AddRecipePage";
 
 const Register = lazy(() => import("./pages/RegisterPage"));
 const Signin = lazy(() => import("./pages/SigninPage"));
 // const Categories = lazy(() => import("..."));
-// const AddRecipe = lazy(() => import('...'));
+const AddRecipe = lazy(() => import("./pages/AddRecipePage/AddRecipePage"));
 const MyRecipes = lazy(() => import("./pages/MyRecipes"));
 // const Favorite = lazy(() => import('...'));
 const ShoppingList = lazy(() => import("./pages/ShoppingList"));
@@ -42,9 +41,6 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        {/* <Route index element={<Main />} /> */}
-        {/* <Main /> is not a page but a part of home page which renders differently
-        for logged users and displays 'welcome page' for not logged guests */}
         <Route index element={<Home />} />
         <Route
           path="register"
@@ -54,24 +50,34 @@ export const App = () => {
           path="signin"
           element={<RestrictedRoute redirectTo="/" component={<Signin />} />}
         />
-        <Route path="/add" element={<AddRecipePage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
-        <Route path="/categories/:category" element={<Categories />} />
-
-        {/* <Route
+        <Route
+          path="/add"
+          element={<PrivateRoute redirectTo="/" component={<AddRecipe />} />}
+        />
+        <Route
+          path="/favorite"
+          element={<PrivateRoute redirectTo="/" component={<FavoritePage />} />}
+        />
+        <Route
+          path="/categories/:category"
+          element={<PrivateRoute redirectTo="/" component={<Categories />} />}
+        />
+        <Route
           path="/my"
           element={<PrivateRoute redirectTo="/" component={<MyRecipes />} />}
-        /> */}
-
-        <Route path="/my" element={<MyRecipes />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/shopping-list" element={<ShoppingList />} />
-        {/* <Route
+        />
+        <Route
+          path="/search"
+          element={<PrivateRoute redirectTo="/" component={<Search />} />}
+        />
+        <Route
           path="/shopping-list"
           element={<PrivateRoute redirectTo="/" component={<ShoppingList />} />}
-
-        {/*   <Route path="/categories/:categoryName" element={<Categories />} /> */}
-
+        />
+        <Route
+          path="/categories/:categoryName"
+          element={<PrivateRoute redirectTo="/" component={<Categories />} />}
+        />
         <Route
           path="/recipe/:recipeId"
           element={<PrivateRoute component={<RecipiesPage />} />}
