@@ -89,6 +89,14 @@
     }
 }
 
+.preview_categories_title {
+    font-weight: 600;
+    font-size: 28px;
+    text-align: left;
+    color: #001833;
+    margin-bottom: 22px;
+}
+
 @media (min-width: 1280px) {
     .recipes__box {
         min-width: 1240px;
@@ -110,18 +118,12 @@
     .recipe__card .recipe__btn {
         bottom: 23px;
     }
-}
-.preview_categories_title {
-        font-weight: 600;
-        font-size: 28px;
-        text-align: left;
-        color: #001833;
-        margin-bottom: 22px;
 
-        @media screen and (min-width: 1280px) {
-            font-size: 44px;
-            }
+    .preview_categories_title {
+        font-size: 44px;
+    }
 }
+
 .preview_categories_wrapper {
     position: relative;
     margin-bottom: 80px;
